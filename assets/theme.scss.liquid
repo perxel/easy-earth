@@ -2488,6 +2488,10 @@ textarea {
   text-align: center;
   margin: 25px 0;
 
+  li {
+    padding:0 30px;
+  }
+
   a {
     padding: 3px 10px;
   }
@@ -2501,6 +2505,8 @@ textarea {
 .site-nav__link {
   display: block;
   white-space: nowrap;
+  font-size:18px; font-weight:700;
+    color:#231e1e; letter-spacing:2px;
 
   .site-nav--centered & {
     padding-top: 0;
@@ -2520,9 +2526,9 @@ textarea {
 
   &:focus,
   &:not([disabled]):hover {
-    .site-nav__label {
+    /*.site-nav__label {
       border-bottom-color: $color-text;
-    }
+    }*/
   }
 }
 
@@ -7547,3 +7553,8 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
   }
 }
 
+/************** Easy Earth Custom ***************/
+body {
+    border:25px solid #fff; box-sizing:border-box;
+    background:#f4f3f0;
+}
