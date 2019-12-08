@@ -1,241 +1,73 @@
-{%- if section.settings.slideshow_height == 'adapt' -%}
-  {% comment %}
-    'min_aspect_ratio' is the minimum aspect ratio of images shown without
-    whitespace when 'slideshow_height' is set to 'adapt'.
-    The aspect ratio values for the first image in the slideshow will be used
-    unless it is blank, in that case a ratio of 2:1 will be used.
-  {% endcomment %}
-
-  {%- assign first_block = section.blocks[0] -%}
-  {%- if first_block.settings.image.aspect_ratio == blank -%}
-    {%- assign min_aspect_ratio = 2.0 -%}
-  {%- else -%}
-    {%- assign min_aspect_ratio = first_block.settings.image.aspect_ratio -%}
-  {%- endif -%}
-  {% assign wrapper_height = 100 | divided_by: min_aspect_ratio %}
-{%- endif -%}
-
-{%- assign text_alignments = section.settings.text_alignment | split: ' ' -%}
-{%- assign text_horizontal_alignment = text_alignments.first -%}
-{%- assign text_vertical_alignment = text_alignments.last | strip -%}
-
-<div data-section-id="{{ section.id }}" data-section-type="gallery-slider slideshow-section">
-  {%- if section.blocks.size > 0 -%}
-    <div id="SlideshowWrapper-{{ section.id }}" class="gallery-wrapper" role="region" aria-label="gallery" aria-describedby="gallery-info" tabindex="-1">
-      <div class="slideshow--display-controls"
-           id="Slideshow-{{ section.id }}"
-           data-autorotate="{{ section.settings.autorotate }}"
-           data-speed="{{ section.settings.autorotate_speed | times: 1000 }}"
-           data-adapt-height="true">
-
-        {%- for block in section.blocks -%}
-          <div class="slideshow__slide slideshow__slide--{{ block.id }}" {{ block.shopify_attributes }}>
-            {% if block.settings.image == blank %}
-              <div class="slideshow__image js">
-                <div class="placeholder-background">
-                  {% capture current %}{% cycle 1, 2 %}{% endcapture %}
-                  {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                </div>
-              </div>
-            {% else %}
-              <div class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
-                   data-bgset="{% include 'bgset', image: block.settings.image %}"
-                   data-sizes="auto"
-                   data-parent-fit="contain"
-                   style="background-position: {{ block.settings.alignment }};
-                          background-image: url('{{ block.settings.image | img_url: '300x300' }}');">
-                {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
-              </div>
-            {% endif %}
-
-            <noscript>
-              <div class="slideshow__image"{% if block.settings.image %} style="background-image: url('{{ block.settings.image | img_url: '2048x' }}'); background-position: {{ block.settings.alignment }};"{% endif %}>
-                {% if block.settings.image == blank %}
-                  <div class="placeholder-background">
-                    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                  </div>
-                {% endif %}
-              </div>
-            </noscript>
-
-          </div>
-        {%- endfor -%}
-      </div>
-      <div class="slideshow__controls">
-        {%- if section.blocks.size > 1 -%}
-          {%- assign arrows_width = section.blocks.size | times: 18 | plus: 115 -%}
-          <div class="slideshow__arrows"
-               style="width: {{- arrows_width -}}px">
-            <button class="slideshow__arrow slideshow__arrow-left" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">{% include 'icon-chevron-left' %}</button>
-            <button class="slideshow__arrow slideshow__arrow-right" aria-label="{{ 'sections.slideshow.next_slide' | t }}">{% include 'icon-chevron-right' %}</button>
-          </div>
-        {%- endif -%}
-      </div>
+{% if section.blocks.size > 0 %}
+<div class="gallery-slider" data-slick='{"autoplay": {{ section.settings.carousel_autoplay }}, "autoplaySpeed": {{ section.settings.autoplay_speed }}, "dots": {{ section.settings.carousel_dots }}, "arrows": {{ section.settings.carousel_arrows }}}'>
+  {% for block in section.blocks %}
+    <div class="gallery-slider__item">
+        <div class="gallery-slider__img">
+          <img src="{{ block.settings.slide_img | img_url: 'original' }}" alt="" class="slider_img">
+        </div>
     </div>
-  {%- endif -%}
-
-  {% if section.blocks.size == 0 %}
-    <div class="placeholder-noblocks">
-      {{ 'homepage.onboarding.no_content' | t }}
-    </div>
-  {% endif %}
+  {% endfor %}
 </div>
+{% endif %}
 
 {% schema %}
 {
-  "name": {
-    "da": "Diasshow",
-    "de": "Gallery slider",
-    "en": "Gallery slider",
-    "es": "Diapositivas",
-    "fi": "Diaesitys",
-    "fr": "Diaporama",
-    "hi": "स्लाइडशो",
-    "it": "Presentazione",
-    "ja": "スライドショー",
-    "ko": "슬라이드 쇼",
-    "ms": "Tayangan slaid",
-    "nb": "Lysbildefremvisning",
-    "nl": "Diavoorstelling",
-    "pt-BR": "Apresentação de slides",
-    "pt-PT": "Apresentação de diapositivos",
-    "sv": "Bildspel",
-    "th": "สไลด์โชว์",
-    "zh-CN": "幻灯片",
-    "zh-TW": "投影片輪播"
-  },
-  "class": "index-section index-section--flush index-section--slideshow",
-  "max_blocks": 6,
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "autorotate",
-      "label": {
-        "da": "Roter automatisk slides",
-        "de": "Auto-rotieren der Slides",
-        "en": "Auto-rotate slides",
-        "es": "Rotar las diapositivas automáticamente",
-        "fi": "Käännä diat automaattisesti",
-        "fr": "Rotation automatique des diapositives",
-        "hi": "ऑटो-रोटेट स्लाइड",
-        "it": "Ruota slide automaticamente",
-        "ja": "スライドの自動切り替え",
-        "ko": "슬라이드 자동 회전",
-        "ms": "Slaid auto putar",
-        "nb": "Autoroter lysbildene",
-        "nl": "Dia's automatisch draaien",
-        "pt-BR": "Rodar os slides automaticamente",
-        "pt-PT": "Rodar os diapositivos automaticamente",
-        "sv": "Auto-rotera bilder",
-        "th": "หมุนสไลด์อัตโนมัติ",
-        "zh-CN": "自动旋转幻灯片",
-        "zh-TW": "自動旋轉投影片"
+    "name": "Gallery Slider",
+    "max_blocks": 8,
+    "settings": [
+      {
+        "type":"header",
+        "content":"Slider option"
       },
-      "default": false
-    },
-    {
-      "type": "range",
-      "id": "autorotate_speed",
-      "label": {
-        "da": "Skift slide hver",
-        "de": "Slides überall ändern",
-        "en": "Change slides every",
-        "es": "Cambiar diapositivas cada",
-        "fi": "Vaihda diat joka",
-        "fr": "Changer de diapositive toutes les",
-        "hi": "प्रत्येक स्लाइड बदलें",
-        "it": "Cambia slide ogni",
-        "ja": "スライドを変更する間隔",
-        "ko": "슬라이드를 매번 변경",
-        "ms": "Ubah slaid setiap",
-        "nb": "Endre lysbilde hvert",
-        "nl": "Wijzig dia's elke",
-        "pt-BR": "Mudar os slides a cada",
-        "pt-PT": "Alterar o diapositivo a cada",
-        "sv": "Byt bilder varje",
-        "th": "เปลี่ยนสไลด์ทุก",
-        "zh-CN": "幻灯片更改时间间隔",
-        "zh-TW": "每過以下時間即變更投影片"
+      {
+        "type": "checkbox",
+        "id": "carousel_autoplay",
+        "label": "Enable autoplay",
+        "default": false
       },
-      "max": 9,
-      "min": 3,
-      "step": 2,
-      "unit": {
-        "da": " s",
-        "de": " s",
-        "en": " s",
-        "es": " s",
-        "fi": " s",
-        "fr": " s",
-        "hi": " s",
-        "it": " s",
-        "ja": " s",
-        "ko": " s",
-        "ms": " s",
-        "nb": " s",
-        "nl": " s",
-        "pt-BR": " s",
-        "pt-PT": " s",
-        "sv": " s",
-        "th": " s",
-        "zh-CN": " s",
-        "zh-TW": " s"
+      {
+        "type": "checkbox",
+        "id": "carousel_dots",
+        "label": "Enable dots",
+        "default": false
       },
-      "default": 5
-    }
-  ],
-  "blocks": [
-    {
+      {
+        "type": "checkbox",
+        "id": "carousel_arrows",
+        "label": "Enable arrows",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "autoplay_speed",
+        "label": "Change slides every",
+          "options": [
+          { "value": "1000", "label": "1 seconds" },
+          { "value": "2000", "label": "2 seconds" },
+          { "value": "3000", "label": "3 seconds" },
+          { "value": "4000", "label": "4 seconds" },
+          { "value": "5000", "label": "5 seconds" },
+          { "value": "6000", "label": "6 seconds" },
+          { "value": "7000", "label": "7 seconds" },
+          { "value": "8000", "label": "8 seconds" },
+          { "value": "9000", "label": "9 seconds" },
+          { "value": "10000", "label": "10 seconds" }
+        ],
+        "default": "7000"
+      }
+    ],
+    "blocks": [
+      {
       "type": "image",
-      "name": {
-        "da": "Billeddias",
-        "de": "Foto-Slide",
-        "en": "Image slide",
-        "es": "Diapositiva de imagen",
-        "fi": "Kuvadia",
-        "fr": "Diapositive (image)",
-        "hi": "इमेज स्लाइड",
-        "it": "Slide immagine",
-        "ja": "画像スライド",
-        "ko": "이미지 슬라이드",
-        "ms": "Slaid imej",
-        "nb": "Lysbilde",
-        "nl": "Afbeelding dia",
-        "pt-BR": "Slide de imagem",
-        "pt-PT": "Diapositivo de imagem",
-        "sv": "Bild i bildspel",
-        "th": "สไลด์รูปภาพ",
-        "zh-CN": "图片幻灯片",
-        "zh-TW": "圖片投影片"
-      },
+      "name": "Slide",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": {
-            "da": "Billede",
-            "de": "Foto",
-            "en": "Image",
-            "es": "Imagen",
-            "fi": "Kuva",
-            "fr": "Image",
-            "hi": "इमेज",
-            "it": "Immagine",
-            "ja": "画像",
-            "ko": "이미지",
-            "ms": "Imej",
-            "nb": "Bilde",
-            "nl": "Afbeelding",
-            "pt-BR": "Imagem",
-            "pt-PT": "Imagem",
-            "sv": "Bild",
-            "th": "รูปภาพ",
-            "zh-CN": "图片",
-            "zh-TW": "圖片"
-          }
+            {
+              "type": "image_picker",
+              "id": "slide_img",
+              "label": "Add img for slide"
+            }
+          ]
         }
       ]
-    }
-  ]
 }
 {% endschema %}

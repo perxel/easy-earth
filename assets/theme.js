@@ -5133,3 +5133,24 @@ theme.init = function() {
 };
 
 $(theme.init);
+
+/**
+ * Custom JS
+ */
+
+$('.gallery-slider').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  dots: false,
+  arrows: true,
+  swipeToSlide: true,
+  infinite: true,
+  responsive: [
+    {
+      breakpoint: 960,
+      settings: {
+        slidesToShow: 2
+      }
+    }
+  ]
+});
