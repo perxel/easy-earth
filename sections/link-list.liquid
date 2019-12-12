@@ -1,0 +1,43 @@
+{% if section.settings.custom_linklist %}
+<ul class="custom-linklist">
+    {% for link in linklists[section.settings.custom_linklist].links %}
+    <li {% if link.active %}class="active {% if link.child_active %}child-active{% endif %}"{% endif %}>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% schema %}
+{
+    "name": "Link List",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "custom_linklist",
+        "label": {
+          "da": "Menu",
+          "de": "Menü",
+          "en": "Menu",
+          "es": "Menú",
+          "fi": "Valikko",
+          "fr": "Menu",
+          "hi": "मेनू",
+          "it": "Menu",
+          "ja": "メニュー",
+          "ko": "메뉴",
+          "ms": "Menu",
+          "nb": "Meny",
+          "nl": "Menu",
+          "pt-BR": "Menu",
+          "pt-PT": "Menu",
+          "sv": "Meny",
+          "th": "เมนู",
+          "zh-CN": "菜单",
+          "zh-TW": "選單"
+        }
+      }
+    ]
+}
+{% endschema %}

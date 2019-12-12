@@ -1,19 +1,21 @@
 {% if section.blocks.size > 0 %}
-<div class="gallery-slider" data-slick='{"autoplay": {{ section.settings.carousel_autoplay }}, "autoplaySpeed": {{ section.settings.autoplay_speed }}, "dots": {{ section.settings.carousel_dots }}, "arrows": {{ section.settings.carousel_arrows }}}'>
-  {% for block in section.blocks %}
-    <div class="gallery-slider__item">
-        <div class="gallery-slider__img">
-          <img src="{{ block.settings.slide_img | img_url: 'original' }}" alt="" class="slider_img">
+<div class="gallery-slider-wrapper">
+    <div class="gallery-slider" data-slick='{"autoplay": {{ section.settings.carousel_autoplay }}, "autoplaySpeed": {{ section.settings.autoplay_speed }}, "dots": {{ section.settings.carousel_dots }}, "arrows": {{ section.settings.carousel_arrows }}}'>
+      {% for block in section.blocks %}
+        <div class="gallery-slider__item">
+            <div class="gallery-slider__img">
+              <img src="{{ block.settings.slide_img | img_url: 'original' }}" alt="" class="slider_img">
+            </div>
         </div>
+      {% endfor %}
     </div>
-  {% endfor %}
 </div>
 {% endif %}
 
 {% schema %}
 {
     "name": "Gallery Slider",
-    "max_blocks": 8,
+    "max_blocks": 9,
     "settings": [
       {
         "type":"header",

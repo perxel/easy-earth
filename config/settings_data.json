@@ -282,6 +282,12 @@
           "carousel_arrows": false,
           "autoplay_speed": "7000"
         }
+      },
+      "link-list": {
+        "type": "link-list",
+        "settings": {
+          "custom_linklist": "new-menu"
+        }
       }
     },
     "content_for_index": [
