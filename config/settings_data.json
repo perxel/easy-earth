@@ -20,9 +20,9 @@
     "type_base_size": 15,
     "type_bold_product_titles": false,
     "share_image": "",
-    "share_facebook": false,
-    "share_twitter": false,
-    "share_pinterest": false,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
     "social_twitter_link": "#",
     "social_facebook_link": "#",
     "social_pinterest_link": "#",
@@ -292,8 +292,8 @@
       "article-template": {
         "type": "article-template",
         "settings": {
-          "blog_show_author": true,
-          "blog_show_date": true,
+          "blog_show_author": false,
+          "blog_show_date": false,
           "show_share_buttons": true
         }
       },
@@ -304,6 +304,10 @@
           "blog_show_author": false,
           "blog_show_date": true
         }
+      },
+      "accessible-pagination": {
+        "type": "accessible-pagination",
+        "settings": {}
       }
     },
     "content_for_index": [

@@ -5138,13 +5138,30 @@ $(theme.init);
  * Custom JS
  */
 
-$('.gallery-slider').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: "0px",
-    dots: false,
-    arrows: true,
-    swipeToSlide: true,
-    infinite: true
-});
+if ($('.gallery-slider').length > 0) {
+    $('.gallery-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: "0px",
+        dots: false,
+        arrows: true,
+        swipeToSlide: true,
+        infinite: true
+    });
+}
+
+if ($('.ee-accordion__item').length > 0) {
+    $('.ee-accordion__item-inner').click(function () {
+        var $this = $(this).closest('.ee-accordion__item');
+        if (!$this.hasClass('active')) {
+            $('.ee-accordion__item').removeClass('active');
+            $this.addClass('active');
+            $('.ee-accordion__item:not(.active) .ee-accordion__item-content').slideUp();
+            $('.ee-accordion__item.active .ee-accordion__item-content').slideDown();
+        } else {
+            $('.ee-accordion__item.active .ee-accordion__item-content').slideUp();
+            $('.ee-accordion__item.active').removeClass('active');
+        }
+    });
+}

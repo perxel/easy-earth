@@ -121,6 +121,15 @@
             <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
           </button>
 
+          <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
+            {% include 'icon-cart' %}
+            <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+            <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
+              <span data-cart-count>{{ cart.item_count }}</span>
+              <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+            </div>
+          </a>
+
           {% if shop.customer_accounts_enabled %}
             {% if customer %}
               <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
@@ -134,15 +143,6 @@
               </a>
             {% endif %}
           {% endif %}
-
-          <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
-            {% include 'icon-cart' %}
-            <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
-            <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
-              <span data-cart-count>{{ cart.item_count }}</span>
-              <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
-            </div>
-          </a>
 
           {% if shop.enabled_currencies.size > 1 %}
             {% form 'currency', class: "currency-selector small--hide" %}
@@ -158,7 +158,7 @@
             {% endform %}
           {% endif %}
 
-          <button type="button" class="btn--link site-header__icon site-header__extra-menu">
+          <button type="button" class="btn--link site-header__icon ee-header__extra-menu">
             {% include 'icon-hamburger' %}
             {% include 'icon-close' %}
           </button>
@@ -291,7 +291,7 @@
   </nav>
   {% endif %}
 
-    <nav class="nav__extra-menu" role="navigation">
+    <nav class="ee-nav__extra-menu" role="navigation">
         {% include 'extra-nav' %}
     </nav>
 </div>
