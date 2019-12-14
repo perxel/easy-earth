@@ -5,24 +5,24 @@
     </div>
 
     <div class="page__content">
-        {% section 'contact-text' %}
+        {% section 'donation-text' %}
 
-        <div class="ee-contact-form">
-            {%- assign formId = 'ContactForm' -%}
+        <div class="ee-donation-form">
+            {%- assign formId = 'DonationForm' -%}
             {% form 'contact', id: formId %}
                 {% include 'form-status', form_id: formId %}
 
-                <div class="ee-contact-form__grid">
-                    <div class="ee-contact-form__row">
-                        <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
-                        <input type="text" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                <div class="ee-donation-form__grid">
+                    <div class="ee-donation-form__row">
+                        <label for="{{ formId }}-name">{{ 'donation.form.name' | t }}</label>
+                        <input type="text" id="{{ formId }}-name" name="donation[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
                     </div>
-                    <div class="ee-contact-form__row">
-                        <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+                    <div class="ee-donation-form__row">
+                        <label for="{{ formId }}-email">{{ 'donation.form.email' | t }} <span aria-hidden="true">*</span></label>
                         <input
                                 type="email"
                                 id="{{ formId }}-email"
-                                name="contact[email]"
+                                name="donation[email]"
                                 autocorrect="off"
                                 autocapitalize="off"
                                 value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
@@ -43,28 +43,28 @@
                     </div>
                 </div>
 
-                <div class="ee-contact-form__row">
-                    <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
-                    <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+                <div class="ee-donation-form__row">
+                    <label for="{{ formId }}-phone">{{ 'donation.form.phone' | t }}</label>
+                    <input type="tel" id="{{ formId }}-phone" name="donation[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
                 </div>
 
-                <div class="ee-contact-form__row">
-                    <label for="{{ formId }}-address">{{ 'contact.form.address' | t }}</label>
-                    <input type="text" id="{{ formId }}-address" name="contact[address]" value="{% if form[address] %}{{ form[address] }}{% endif %}">
+                <div class="ee-donation-form__row">
+                    <label for="{{ formId }}-address">{{ 'donation.form.address' | t }}</label>
+                    <input type="text" id="{{ formId }}-address" name="donation[address]" value="{% if form[address] %}{{ form[address] }}{% endif %}">
                 </div>
 
-                <div class="ee-contact-form__row">
-                    <label for="{{ formId }}-order">{{ 'contact.form.order' | t }}</label>
-                    <input type="text" id="{{ formId }}-order" name="contact[order]" value="{% if form[order] %}{{ form[order] }}{% endif %}">
+                <div class="ee-donation-form__row">
+                    <label for="{{ formId }}-order">{{ 'donation.form.order' | t }}</label>
+                    <input type="text" id="{{ formId }}-order" name="donation[order]" value="{% if form[order] %}{{ form[order] }}{% endif %}">
                 </div>
 
-                <div class="ee-contact-form__row">
-                    <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
-                    <textarea rows="10" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+                <div class="ee-donation-form__row">
+                    <label for="{{ formId }}-message">{{ 'donation.form.message' | t }}</label>
+                    <textarea rows="10" id="{{ formId }}-message" name="donation[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
                 </div>
 
-                <div class="ee-contact-form__row">
-                    <button type="submit">{{ 'contact.form.submit' | t }}</button>
+                <div class="ee-donation-form__row">
+                    <button type="submit">{{ 'donation.form.submit' | t }}</button>
                 </div>
 
             {% endform %}
