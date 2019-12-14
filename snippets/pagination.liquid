@@ -14,9 +14,25 @@
       </a>
     </li>
   {% endunless %}
-  <li class="pagination__text">
-    {{ 'general.pagination.current_page' | t: current: paginate.current_page, total: paginate.pages }}
-  </li>
+  {%- for part in paginate.parts -%}
+    {%- if part.is_link -%}
+      <li>
+        <a href="{{ part.url }}" title="{{ part.title }}">
+          {{ part.title }}
+        </a>
+      </li>
+    {%- else -%}
+      {%- if part.title == paginate.current_page -%}
+        <li class="active" aria-current="page">
+          {{ part.title }}
+        </li>
+      {%- else -%}
+        <li>
+          {{ part.title }}
+        </li>
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
   {% unless paginate.next.is_link %}
     <li aria-hidden="true">
       <button class="btn btn--tertiary btn--narrow" disabled>
