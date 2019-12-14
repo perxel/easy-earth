@@ -2,4 +2,22 @@
   The contents of the blog.liquid template can be found in /sections/blog-template.liquid
 {% endcomment %}
 
-{% section 'blog-template' %}
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header">
+        <h1>{{ page_title }}</h1>
+        <div class="breadcrumbs">{% section 'breadcrumbs' %}</div>
+      </div>
+
+      <div class="main__content rte">
+
+        <div class="blog__content">
+            {% section 'blog-template' %}
+            {% section 'accessible-pagination' %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

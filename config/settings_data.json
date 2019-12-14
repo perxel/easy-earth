@@ -286,7 +286,23 @@
       "link-list": {
         "type": "link-list",
         "settings": {
-          "custom_linklist": "new-menu"
+          "custom_linklist": "bottom-menu"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "show_share_buttons": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": false,
+          "blog_show_date": true
         }
       }
     },
