@@ -15,14 +15,10 @@
         {% if link.links != blank %}
             <li class="ee-site-nav--item ee-site-nav--has-children{% if three_level_nav %} ee-site-nav--has-centered-dropdown{% endif %}{% if link.active %} ee-site-nav--active{% endif %}"
                 data-has-dropdowns>
-                {% comment %}
-                    <button class="ee-site-nav__link ee-site-nav__link--main ee-site-nav__link--button{% if link.child_active %} ee-site-nav__link--active{% endif %}"
-                            type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
-                        <span class="ee-site-nav__label">{{ link.title | escape }}</span>{% include 'icon-chevron-down' %}
-                    </button>
-                {% endcomment %}
-
-                <label class="ee-site-nav__sub-label">{{ link.title | escape }}</label>
+                <button class="ee-site-nav__link ee-site-nav__link--main ee-site-nav__link--button{% if link.child_active %} ee-site-nav__link--active{% endif %}"
+                        type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+                    <span class="ee-site-nav__label">{{ link.title | escape }}</span>{% include 'icon-chevron-down' %}
+                </button>
 
                 <div class="ee-site-nav__children{% if three_level_nav %} ee-site-nav__dropdown--centered{% endif %}"
                      id="ExtraNavLabel-{{ child_list_handle }}">
@@ -87,12 +83,9 @@
 
             {% if link.title == "Image" %}
                 {% if settings.menu_image %}
-                    <li class="ee-site-nav--item {% if link.active %}ee-site-nav--active{% endif %} ee-site-nav--image ee-display-flex">
-                        <div class="ee-site-nav--image-bg ee-bg-cover"
-                             style="background-image: url({{ settings.menu_image | img_url: 'original' }})">
-                            <img class="ee-site-nav__link-image" src="{{ settings.menu_image | img_url: 'original' }}"
-                                 alt="Menu Image"/>
-                        </div>
+                    <li class="ee-site-nav--item {% if link.active %}ee-site-nav--active{% endif %} ee-site-nav--image">
+                        <img class="ee-site-nav__link-image" src="{{ settings.menu_image | img_url: 'original' }}"
+                             alt="Menu Image"/>
                     </li>
                 {% endif %}
             {% else %}
