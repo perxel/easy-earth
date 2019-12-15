@@ -1,90 +1,102 @@
-<ul class="ee-site-nav list--inline {{ nav_alignment }}" id="ExtraNav">
-  {% for link in linklists[section.settings.extra_linklist].links %}
-    {%- assign child_list_handle = link.title | handleize -%}
+<ul class="ee-site-nav ee-display-flex ee-justify-space-between {{ nav_alignment }}" id="ExtraNav">
+    {% for link in linklists[section.settings.extra_linklist].links %}
+        {%- assign child_list_handle = link.title | handleize -%}
 
-    {% comment %}
-      Check if third-level nav exists on each parent link.
-    {% endcomment %}
-    {%- assign three_level_nav = false -%}
-    {% if link.links != blank %}
-      {% if link.levels == 2 %}
-        {%- assign three_level_nav = true -%}
-      {% endif %}
-    {% endif %}
-
-    {% if link.links != blank %}
-      <li class="ee-site-nav--has-children{% if three_level_nav %} ee-site-nav--has-centered-dropdown{% endif %}{% if link.active %} ee-site-nav--active{% endif %}" data-has-dropdowns>
-        <button class="ee-site-nav__link ee-site-nav__link--main ee-site-nav__link--button{% if link.child_active %} ee-site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
-          <span class="ee-site-nav__label">{{ link.title | escape }}</span>{% include 'icon-chevron-down' %}
-        </button>
-
-        <div class="ee-site-nav__children{% if three_level_nav %} ee-site-nav__dropdown--centered{% endif %}" id="ExtraNavLabel-{{ child_list_handle }}">
-          {% if three_level_nav %}
-            <div class="ee-site-nav__childlist">
-              <ul class="ee-site-nav__childlist-grid">
-                {% if link.links != blank %}
-                  {% for childlink in link.links %}
-                    <li class="ee-site-nav__childlist-item">
-
-                        {% if childlink.title == "Image" %}
-                            {% if section.settings.menu_image %}
-                                <img class="ee-site-nav__link-image" src="{{ section.settings.menu_image | img_url: 'large' }}" alt="Menu Image" />
-                            {% endif %}
-                        {% else %}
-                            <a href="{{ childlink.url }}" class="ee-site-nav__link ee-site-nav__child-link ee-site-nav__child-link--parent"
-                                {% if childlink.current %} aria-current="page"{% endif %}>
-                                <span class="ee-site-nav__label">{{ childlink.title | escape }}</span>
-                            </a>
-                        {% endif %}
-
-                      {% if childlink.links != blank %}
-                        <ul>
-                        {% for grandchildlink in childlink.links %}
-                          <li>
-                            <a href="{{ grandchildlink.url }}" class="ee-site-nav__link ee-site-nav__child-link"
-                                {% if grandchildlink.current %} aria-current="page"{% endif %} >
-                              <span class="ee-site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                        {% endfor %}
-                        </ul>
-                      {% endif %}
-
-                    </li>
-                  {% endfor %}
-                {% endif %}
-              </ul>
-            </div>
-
-          {% else %}
-            <ul>
-              {% for childlink in link.links %}
-                <li>
-                  <a href="{{ childlink.url }}"
-                  class="ee-site-nav__link ee-site-nav__child-link{% if forloop.last %} ee-site-nav__link--last{% endif %}"
-                  {% if childlink.current %} aria-current="page"{% endif %}
-                >
-                    <span class="ee-site-nav__label">{{ childlink.title | escape }}</span>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
-      </li>
-    {% else %}
-      <li {% if link.active %} class="ee-site-nav--active"{% endif %}>
-        {% if link.title == "Image" %}
-            {% if settings.menu_image %}
-                <img class="ee-site-nav__link-image" src="{{ settings.menu_image | img_url: 'original' }}" alt="Menu Image" />
+        {% comment %}
+            Check if third-level nav exists on each parent link.
+        {% endcomment %}
+        {%- assign three_level_nav = false -%}
+        {% if link.links != blank %}
+            {% if link.levels == 2 %}
+                {%- assign three_level_nav = true -%}
             {% endif %}
-        {% else %}
-            <a href="{{ link.url }}" class="ee-site-nav__link ee-site-nav__link--main{% if link.active %} ee-site-nav__link--active{% endif %}"
-                {% if link.current %} aria-current="page"{% endif %} >
-              <span class="ee-site-nav__label">{{ link.title | escape }}</span>
-            </a>
         {% endif %}
-      </li>
-    {% endif %}
-  {% endfor %}
+
+        {% if link.links != blank %}
+            <li class="ee-site-nav--item ee-site-nav--has-children{% if three_level_nav %} ee-site-nav--has-centered-dropdown{% endif %}{% if link.active %} ee-site-nav--active{% endif %}"
+                data-has-dropdowns>
+                <button class="ee-site-nav__link ee-site-nav__link--main ee-site-nav__link--button{% if link.child_active %} ee-site-nav__link--active{% endif %}"
+                        type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+                    <span class="ee-site-nav__label">{{ link.title | escape }}</span>{% include 'icon-chevron-down' %}
+                </button>
+
+                <div class="ee-site-nav__children{% if three_level_nav %} ee-site-nav__dropdown--centered{% endif %}"
+                     id="ExtraNavLabel-{{ child_list_handle }}">
+                    {% if three_level_nav %}
+                        <div class="ee-site-nav__childlist">
+                            <ul class="ee-site-nav__childlist-grid">
+                                {% if link.links != blank %}
+                                    {% for childlink in link.links %}
+                                        <li class="ee-site-nav__childlist-item">
+
+                                            {% if childlink.title == "Image" %}
+                                                {% if section.settings.menu_image %}
+                                                    <img class="ee-site-nav__link-image"
+                                                         src="{{ section.settings.menu_image | img_url: 'large' }}"
+                                                         alt="Menu Image"/>
+                                                {% endif %}
+                                            {% else %}
+                                                <a href="{{ childlink.url }}"
+                                                   class="ee-site-nav__link ee-site-nav__child-link ee-site-nav__child-link--parent"
+                                                        {% if childlink.current %} aria-current="page"{% endif %}>
+                                                    <span class="ee-site-nav__label">{{ childlink.title | escape }}</span>
+                                                </a>
+                                            {% endif %}
+
+                                            {% if childlink.links != blank %}
+                                                <ul>
+                                                    {% for grandchildlink in childlink.links %}
+                                                        <li>
+                                                            <a href="{{ grandchildlink.url }}"
+                                                               class="ee-site-nav__link ee-site-nav__child-link"
+                                                                    {% if grandchildlink.current %} aria-current="page"{% endif %} >
+                                                                <span class="ee-site-nav__label">{{ grandchildlink.title | escape }}</span>
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                    {% else %}
+                        <ul>
+                            {% for childlink in link.links %}
+                                <li>
+                                    <a href="{{ childlink.url }}"
+                                       class="ee-site-nav__link ee-site-nav__child-link{% if forloop.last %} ee-site-nav__link--last{% endif %}"
+                                            {% if childlink.current %} aria-current="page"{% endif %}
+                                    >
+                                        <span class="ee-site-nav__label">{{ childlink.title | escape }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </li>
+        {% else %}
+
+            {% if link.title == "Image" %}
+                {% if settings.menu_image %}
+                    <li class="ee-site-nav--item {% if link.active %}ee-site-nav--active{% endif %} ee-site-nav--image">
+                        <img class="ee-site-nav__link-image" src="{{ settings.menu_image | img_url: 'original' }}"
+                             alt="Menu Image"/>
+                    </li>
+                {% endif %}
+            {% else %}
+                <li class="ee-site-nav--item {% if link.active %}ee-site-nav--active{% endif %}">
+                    <a href="{{ link.url }}"
+                       class="ee-site-nav__link ee-site-nav__link--main{% if link.active %} ee-site-nav__link--active{% endif %}"
+                            {% if link.current %} aria-current="page"{% endif %} >
+                        <span class="ee-site-nav__label">{{ link.title | escape }}</span>
+                    </a>
+                </li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
 </ul>
