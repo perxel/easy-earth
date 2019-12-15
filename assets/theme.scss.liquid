@@ -1669,7 +1669,7 @@ symbol {
     // sass-lint:disable no-important
     position: static !important;
     overflow: inherit;
-    clip: none;
+    clip: auto;
     height: auto;
     width: auto;
     margin: 0;
@@ -6507,8 +6507,6 @@ $toolbar-height-small: 46px;
 // Slick overrides
 .slick-dotted.quotes-slider.slick-initialized {
   cursor: grab;
-  cursor: -moz-grab;
-  cursor: -webkit-grab;
 }
 
 // Slick dot positioning and color
@@ -7269,7 +7267,7 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
 .video--image_with_play {
   display: none;
   opacity: 0;
-  visibility: none;
+  visibility: unset;
   width: 100%;
   height: 100%;
   transition: all 0.2s ease-in;
@@ -7711,3 +7709,21 @@ body {
     }
   }
 }
+
+/* SEARCH BAR */
+.search-bar {
+  padding:0; width:auto; top:30px !important;
+  transform: translateY(-200px) !important;
+}
+.js-drawer-open-top .drawer--top {transform: translateY(0) !important;}
+.ee-search-bar {
+  height:100%; padding:20px;
+
+  .ee-search-bar__form-wrapper, .ee-search__input {
+    width:100%;
+  }
+}
+.drawer {
+  left:30px; right:30px;
+}
+.js-drawer-open {overflow: unset;}
