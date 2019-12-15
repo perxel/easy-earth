@@ -7554,9 +7554,10 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
 }
 
 /************** Easy Earth Helper Classes ***************/
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,500,600,700&display=swap');
 $ee-transition: all 0.3s ease;
 $ee-green: #31BCA1;
+$ee-title-color: #233c4c;
 $ee-font-poppins: 'Poppins', sans-serif;
 $ee-font-opensans: 'Open Sans', sans-serif;
 .ee-display-flex {@include display-flexbox();}
@@ -7574,8 +7575,9 @@ a, button {transition: $ee-transition;}
 
 /************** Easy Earth Custom ***************/
 body {
-    box-sizing:border-box; border:30px solid #fff;
-    background:#f4f3f0 url(https://cdn.shopify.com/s/files/1/0258/0158/8808/files/body-pattern.jpg?v=1576292855);
+  font-size:15px; line-height:1.8; font-family: $ee-font-opensans;
+  box-sizing:border-box; border:30px solid #fff;
+  background:#f4f3f0 url(https://cdn.shopify.com/s/files/1/0258/0158/8808/files/body-pattern.jpg?v=1576292855);
 }
 
 /* HEADER */
@@ -7598,7 +7600,7 @@ body {
 }
 
 /* HEADER > Icons */
-.ee-header {position: relative;}
+.ee-header {position: relative; border-bottom:2px solid #e6e4e2;}
 .ee-header-icon {
   @include display-flexbox();
   @include align-items(center);
@@ -7609,12 +7611,22 @@ body {
   &:not(:last-child) {margin-right:10px;}
 
   svg {width: 20px;}
+  path {transition: $ee-transition;}
+
+  &:hover, &:focus {
+    .ee-search-label {
+      color:$ee-green!important;
+    }
+    color:$ee-green!important;
+    path {fill:$ee-green !important;}
+  }
 }
 
 /* HEADER > Search icon */
 .ee-search-label {
   font-size:12px; font-weight:700; font-family:$font-stack-header;
   text-transform:uppercase; margin-left:5px;
+  transition: $ee-transition;
 }
 
 /* HEADER > Extra menu icon */
@@ -7659,10 +7671,25 @@ body {
   li {
     a {
       font-family: $ee-font-poppins; font-weight:700; font-size: 18px;
-      letter-spacing: 2px; text-transform:uppercase;
+      letter-spacing: 3px; text-transform:uppercase;
 
-      &:hover, &:focus {
+      &:hover, &:focus, &.site-nav__link--active {
         color:$ee-green;
+      }
+      &:hover, &:focus {
+        .site-nav__label{
+          &:before {top:100%; opacity: 1; visibility: visible;}
+        }
+      }
+
+      .site-nav__label {
+        border:none; position: relative;
+
+        &:before {
+          content: ''; position: absolute; top:110%; left:0; right:0;
+          transition: $ee-transition; opacity: 0; visibility: hidden;
+          height:3px; background: $ee-green;
+        }
       }
     }
   }
@@ -7723,7 +7750,77 @@ body {
     width:100%;
   }
 }
-.drawer {
-  left:30px; right:30px;
-}
+.drawer {left:30px; right:30px;}
 .js-drawer-open {overflow: unset;}
+
+/* SECTION HEADER */
+.ee-section-header {
+  @include display-flexbox();
+  @include align-items(center);
+  @include justify-content(space-between);
+  border-bottom:2px solid #e6e4e2;
+
+  h1 {
+    font-weight:600; font-size:55px;
+  }
+
+  .breadcrumb {
+    color:#9d9d9d; font-family: $ee-font-poppins; font-weight:700; text-transform: uppercase;
+
+    a {
+      color:#9d9d9d;
+      text-decoration: none; border:none;
+      &:hover, &:focus {text-decoration: underline; color:#9d9d9d;}
+    }
+    span:not(:last-child) {
+      font-size:0; padding:0 15px;
+      &:before {
+        content:''; width:5px; height:5px; border-radius: 50%;
+        background: #9d9d9d; display: inline-block;
+        position: relative; bottom:3px;
+      }
+    }
+    span:last-child {
+      color:$ee-title-color;
+    }
+  }
+}
+
+/********************* FOOTER ****************************/
+.site-footer {
+  .site-footer__item-inner {
+    .h4 {
+      font-size:17px; color:#41bfa9;
+    }
+  }
+
+  a {
+    text-decoration: none; border:none!important;
+
+    &:hover, &:focus {
+      color:$ee-green !important;
+      text-decoration: none;
+    }
+  }
+
+  .site-footer__copyright-content {
+    color:#899298; font-size:1em; display:inline-block;
+    a {
+      color:#899298;
+      &:hover, &:focus {
+        color:#fff !important;
+      }
+    }
+  }
+}
+
+.ee-social-icons {
+  margin-bottom: 25px;
+  li {
+    padding:0;
+    &:not(:last-child) {margin-bottom: 5px;}
+    a {
+      svg {display: none;}
+    }
+  }
+}
