@@ -1,12 +1,16 @@
+{% assign page_handle = page.handle %}
+
 {% if section.blocks.size > 0 %}
 <div class="gallery-slider-wrapper">
     <div class="gallery-slider" data-slick='{"autoplay": {{ section.settings.carousel_autoplay }}, "autoplaySpeed": {{ section.settings.autoplay_speed }}, "dots": {{ section.settings.carousel_dots }}, "arrows": {{ section.settings.carousel_arrows }}}'>
       {% for block in section.blocks %}
-        <div class="gallery-slider__item">
-            <div class="gallery-slider__img">
-              <img src="{{ block.settings.slide_img | img_url: 'original' }}" alt="" class="slider_img">
-            </div>
-        </div>
+          {% if block.settings.page_handle == page_handle %}
+              <div class="gallery-slider__item">
+                  <div class="gallery-slider__img">
+                      <img src="{{ block.settings.slide_img | img_url: 'original' }}" alt="" class="slider_img">
+                  </div>
+              </div>
+          {% endif %}
       {% endfor %}
     </div>
 </div>
@@ -59,17 +63,22 @@
       }
     ],
     "blocks": [
-      {
-      "type": "image",
-      "name": "Slide",
-      "settings": [
-            {
-              "type": "image_picker",
-              "id": "slide_img",
-              "label": "Add img for slide"
+        {
+            "type": "image",
+            "name": "Slide",
+            "settings": [
+                {
+                    "type": "page",
+                    "id": "page_handle",
+                    "label": "Select a page"
+                },
+                {
+                  "type": "image_picker",
+                  "id": "slide_img",
+                  "label": "Add img for slide"
+                }
+              ]
             }
-          ]
-        }
-      ]
-}
+        ]
+    }
 {% endschema %}

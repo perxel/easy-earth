@@ -1,0 +1,208 @@
+{% assign page_handle = page.handle %}
+
+{% if section.blocks.size > 0 %}
+
+  {% for block in section.blocks %}
+    {% if block.settings.page_handle == page_handle %}
+      <div class="page-width ee-container rich-text {{ block.settings.alignment }}">
+        {% if block.settings.text != blank %}
+          <h3>{{ block.settings.title }}</h3>
+          <div class="ee-rich-text__text ee-text--{{ block.settings.text_size }}">
+            {{ block.settings.text }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+{% endif %}
+
+{% schema %}
+{
+  "name": {
+    "da": "RTF",
+    "de": "Main text",
+    "en": "Main text",
+    "es": "Texto enriquecido",
+    "fi": "Main text",
+    "fr": "Texte enrichi",
+    "hi": "रिच टेक्स्ट",
+    "it": "Main text",
+    "ja": "リッチテキスト",
+    "ko": "Main text",
+    "ms": "Teks kaya",
+    "nb": "Main text",
+    "nl": "Main text",
+    "pt-BR": "Main text",
+    "pt-PT": "Main text",
+    "sv": "Rik text",
+    "th": "Main text",
+    "zh-CN": "格式文本",
+    "zh-TW": "RTF 文字"
+  },
+  "class": "index-section",
+  "blocks": [
+    {
+      "type": "text_block",
+      "name": "Main text",
+      "settings": [
+        {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Content"
+        },
+        {
+        "type": "select",
+        "id": "alignment",
+        "label": {
+          "da": "Lodret justering",
+          "de": "Vertikale Ausrichtung",
+          "en": "Vertical alignment",
+          "es": "Alineación vertical",
+          "fi": "Pystysuuntainen tasaus",
+          "fr": "Alignement vertical",
+          "hi": "लंबवत पंक्तिबद्धता",
+          "it": "Allineamento verticale",
+          "ja": "垂直アラインメント",
+          "ko": "수직 정렬",
+          "ms": "Penjajaran menegak",
+          "nb": "Vertikal justering",
+          "nl": "Verticaal uitlijnen",
+          "pt-BR": "Alinhamento vertical",
+          "pt-PT": "Alinhamento vertical",
+          "sv": "Vertikal justering",
+          "th": "การจัดวางแนวตั้ง",
+          "zh-CN": "垂直对齐",
+          "zh-TW": "垂直對齊"
+        },
+        "default": "txt-center",
+        "options": [
+            {
+              "value": "txt-left",
+              "label": "Left"
+            },
+            {
+              "value": "txt-center",
+              "label": "Center"
+            },
+            {
+              "value": "txt-right",
+              "label": "right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": {
+            "da": "Størrelse",
+            "de": "Größe",
+            "en": "Size",
+            "es": "Tamaño",
+            "fi": "Koko",
+            "fr": "Taille",
+            "hi": "आकार",
+            "it": "Dimensione",
+            "ja": "サイズ",
+            "ko": "사이즈",
+            "ms": "Saiz",
+            "nb": "Størrelse",
+            "nl": "Grootte",
+            "pt-BR": "Tamanho",
+            "pt-PT": "Tamanho",
+            "sv": "Storlek",
+            "th": "ขนาด",
+            "zh-CN": "大小",
+            "zh-TW": "尺寸"
+          },
+            "default": "medium",
+            "options": [
+            {
+              "label": {
+                "da": "Lille",
+                "de": "Klein",
+                "en": "Small",
+                "es": "Pequeño",
+                "fi": "Pieni",
+                "fr": "Petite",
+                "hi": "छोटा",
+                "it": "Piccolo",
+                "ja": "小",
+                "ko": "스몰",
+                "ms": "Kecil",
+                "nb": "Liten",
+                "nl": "Klein",
+                "pt-BR": "Pequeno",
+                "pt-PT": "Pequeno",
+                "sv": "Liten",
+                "th": "เล็ก",
+                "zh-CN": "小",
+                "zh-TW": "小型"
+              },
+              "value": "small"
+            },
+            {
+              "label": {
+                "da": "Medium",
+                "de": "Mittel",
+                "en": "Medium",
+                "es": "Mediano",
+                "fi": "Keskisuuri",
+                "fr": "Moyenne",
+                "hi": "मध्यम",
+                "it": "Medio",
+                "ja": "中",
+                "ko": "보통",
+                "ms": "Sederhana",
+                "nb": "Middels",
+                "nl": "Gemiddeld",
+                "pt-BR": "Médio",
+                "pt-PT": "Intermédio",
+                "sv": "Medium",
+                "th": "ปานกลาง",
+                "zh-CN": "中等",
+                "zh-TW": "中等"
+              },
+              "value": "medium"
+            },
+            {
+              "label": {
+                "da": "Stor",
+                "de": "Groß",
+                "en": "Large",
+                "es": "Grande",
+                "fi": "Suuri",
+                "fr": "Grande",
+                "hi": "बड़ा",
+                "it": "Grande",
+                "ja": "大",
+                "ko": "라지",
+                "ms": "Besar",
+                "nb": "Stor",
+                "nl": "Groot",
+                "pt-BR": "Grande",
+                "pt-PT": "Grande",
+                "sv": "Stor",
+                "th": "ใหญ่",
+                "zh-CN": "大",
+                "zh-TW": "大型"
+              },
+              "value": "large"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

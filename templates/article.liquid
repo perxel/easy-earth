@@ -11,7 +11,7 @@
   {%- assign number_of_comments = article.comments_count -%}
 {%- endif -%}
 
-<article class="page-width">
+<article class="page-width ee-container">
   <div class="grid">
     <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
       {% section 'article-template' %}
@@ -22,7 +22,7 @@
 {% if blog.comments_enabled? %}
   {% if number_of_comments > 0 %}
     <hr aria-hidden="true">
-    <div class="page-width">
+    <div class="page-width ee-container">
       <div class="grid">
         <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
           <h2 class="h3">{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</h2>
@@ -62,7 +62,7 @@
   {% endif %}
 
   <hr aria-hidden="true">
-  <div class="page-width">
+  <div class="page-width ee-container">
     <div class="grid">
       <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
         <div class="comment-form form-vertical">

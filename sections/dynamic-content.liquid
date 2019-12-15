@@ -1,4 +1,6 @@
-<div class="page-width">
+{% assign page_handle = page.handle %}
+
+<div class="page-width ee-container">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h4 class="h2">{{ section.settings.title | escape }}</h4>
@@ -7,42 +9,43 @@
 
   <div class="custom-content">
     {% for block in section.blocks %}
-      {% case block.settings.width %}
+      {% if block.settings.page_handle == page_handle %}
+        {% case block.settings.width %}
         {% when '25%' %}
-          {%- assign max_height = 250 -%}
-          {%- assign block_width = 'small--one-half medium-up--one-quarter' -%}
+        {%- assign max_height = 250 -%}
+        {%- assign block_width = 'small--one-half medium-up--one-quarter' -%}
         {% when '33%' %}
-          {%- assign max_height = 345 -%}
-          {%- assign block_width = 'small--one-half medium-up--one-third' -%}
+        {%- assign max_height = 345 -%}
+        {%- assign block_width = 'small--one-half medium-up--one-third' -%}
         {% when '50%' %}
-          {%- assign max_height = 530 -%}
-          {%- assign block_width = 'small--one-half medium-up--one-half' -%}
+        {%- assign max_height = 530 -%}
+        {%- assign block_width = 'small--one-half medium-up--one-half' -%}
         {% when '66%' %}
-          {%- assign max_height = 720 -%}
-          {%- assign block_width = 'two-thirds' -%}
+        {%- assign max_height = 720 -%}
+        {%- assign block_width = 'two-thirds' -%}
         {% when '75%' %}
-          {%- assign max_height = 810 -%}
-          {%- assign block_width = 'three-quarters' -%}
+        {%- assign max_height = 810 -%}
+        {%- assign block_width = 'three-quarters' -%}
         {% when '100%' %}
-          {%- assign max_height = 1090 -%}
-          {%- assign block_width = 'one-whole' -%}
+        {%- assign max_height = 1090 -%}
+        {%- assign block_width = 'one-whole' -%}
         {% when 'full-width' %}
-            {%- assign max_height = 1090 -%}
-            {%- assign block_width = 'full-width' -%}
-      {% endcase %}
+        {%- assign max_height = 1090 -%}
+        {%- assign block_width = 'full-width' -%}
+        {% endcase %}
 
-      {% if block.type == 'image' %}
-        {% capture img_id %}CustomImage--{{ forloop.index }}-{{ block.settings.image.id }}{% endcapture %}
-        {% capture img_wrapper_id %}CustomImageWrapper--{{ forloop.index }}-{{ block.settings.image.id }}{% endcapture %}
+        {% if block.type == 'image' %}
+          {% capture img_id %}CustomImage--{{ forloop.index }}-{{ block.settings.image.id }}{% endcapture %}
+          {% capture img_wrapper_id %}CustomImageWrapper--{{ forloop.index }}-{{ block.settings.image.id }}{% endcapture %}
 
-        {% unless block.settings.image == blank %}
-          {% include 'image-style' with image: block.settings.image, height: max_height, wrapper_id: img_wrapper_id, img_id: img_id %}
-        {% endunless %}
-      {% endif %}
+          {% unless block.settings.image == blank %}
+            {% include 'image-style' with image: block.settings.image, height: max_height, wrapper_id: img_wrapper_id, img_id: img_id %}
+          {% endunless %}
+        {% endif %}
 
-      <div class="custom__item custom__item--{{block.id}} {{ block_width }} {% if block.settings.alignment %}align--{{ block.settings.alignment }}{% endif %}" {{ block.shopify_attributes }}>
-        <div class="custom__item-inner custom__item-inner--{{ block.type }}"{% if block.type == 'image' %} id="{{ img_wrapper_id }}"{% endif %}>
-          {% case block.type %}
+        <div class="custom__item custom__item--{{block.id}} {{ block_width }} {% if block.settings.alignment %}align--{{ block.settings.alignment }}{% endif %}" {{ block.shopify_attributes }}>
+          <div class="custom__item-inner custom__item-inner--{{ block.type }}"{% if block.type == 'image' %} id="{{ img_wrapper_id }}"{% endif %}>
+            {% case block.type %}
             {% when 'image' %}
               {% if block.settings.image != blank %}
                 {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -86,7 +89,7 @@
                 {% endif %}
               </div>
             {% when 'product' %}
-              {%- assign product = all_products[block.settings.product] -%}
+            {%- assign product = all_products[block.settings.product] -%}
               {% if product.title.size > 0 %}
                 {% include 'product-card-grid', max_height: max_height %}
               {% else %}
@@ -107,15 +110,16 @@
                 </div>
               {% endif %}
             {% when 'collection' %}
-              {%- assign collection = collections[block.settings.collection] -%}
+            {%- assign collection = collections[block.settings.collection] -%}
               {% include 'collection-grid-item' %}
             {% when 'html' %}
               {% if block.settings.code != blank %}
                 {{ block.settings.code }}
               {% endif %}
-          {% endcase %}
+            {% endcase %}
+          </div>
         </div>
-      </div>
+      {% endif %}
 
     {% endfor %}
   </div>
@@ -125,14 +129,12 @@
   {% endif %}
 </div>
 
-
-
 {% schema %}
 {
   "name": {
     "da": "Tilpasset indhold",
     "de": "Personalisierter Content",
-    "en": "About content",
+    "en": "Dynamic content",
     "es": "Contenido personalizado",
     "fi": "Mukautettu sisältö",
     "fr": "Contenu personnalisé",
@@ -150,7 +152,7 @@
     "zh-CN": "自定义内容",
     "zh-TW": "自訂內容"
   },
-  "class": "about-section",
+  "class": "index-section",
   "settings": [
     {
       "type": "text",
@@ -179,7 +181,7 @@
       "default": {
         "da": "Tilpasset indhold",
         "de": "Personalisierter Content",
-        "en": "About content",
+        "en": "Dynamic content",
         "es": "Contenido personalizado",
         "fi": "Mukautettu sisältö",
         "fr": "Contenu personnalisé",
@@ -224,6 +226,11 @@
         "zh-TW": "文字"
       },
       "settings": [
+        {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
         {
           "type": "text",
           "id": "title",
@@ -739,6 +746,11 @@
       },
       "settings": [
         {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": {
@@ -1230,6 +1242,11 @@
       },
       "settings": [
         {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
+        {
           "type": "video_url",
           "id": "video_url",
           "label": {
@@ -1556,6 +1573,11 @@
         "zh-TW": "產品"
       },
       "settings": [
+        {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
         {
           "type": "product",
           "id": "product",
@@ -2024,6 +2046,11 @@
       },
       "settings": [
         {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
+        {
           "type": "collection",
           "id": "collection",
           "label": {
@@ -2247,6 +2274,11 @@
       },
       "settings": [
         {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
+        {
           "type": "html",
           "id": "code",
           "label": {
@@ -2442,6 +2474,60 @@
               }
             }
           ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "da": "Tilpasset indhold",
+        "de": "Personalisierter Content",
+        "en": "Dynamic content",
+        "es": "Contenido personalizado",
+        "fi": "Mukautettu sisältö",
+        "fr": "Contenu personnalisé",
+        "hi": "कस्टम सामग्री",
+        "it": "Contenuto personalizzato",
+        "ja": "コンテンツをカスタムする",
+        "ko": "사용자 지정 콘텐츠",
+        "ms": "Kandungan tersuai",
+        "nb": "Tilpasset innhold",
+        "nl": "Aangepaste inhoud",
+        "pt-BR": "Conteúdo personalizado",
+        "pt-PT": "Conteúdo personalizado",
+        "sv": "Anpassat innehåll",
+        "th": "เนื้อหาแบบกำหนดเอง",
+        "zh-CN": "自定义内容",
+        "zh-TW": "自訂內容"
+      },
+      "category": {
+        "da": "Avanceret layout",
+        "de": "Komplizierteres Layout",
+        "en": "Advanced layout",
+        "es": "Diseño avanzado",
+        "fi": "Monimutkaisempi layout",
+        "fr": "Mise en page avancée",
+        "hi": "उन्नत लेआउट",
+        "it": "Layout avanzato",
+        "ja": "高度なレイアウト",
+        "ko": "고급 레이아웃",
+        "ms": "Tata letak lanjutan",
+        "nb": "Avansert oppsett",
+        "nl": "Geavanceerde indeling",
+        "pt-BR": "Layout avançado",
+        "pt-PT": "Esquema avançado",
+        "sv": "Avancerad layout",
+        "th": "เลย์เอาท์ขั้นสูง",
+        "zh-CN": "高级布局",
+        "zh-TW": "進階版面配置"
+      },
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "image"
         }
       ]
     }

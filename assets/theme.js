@@ -5137,6 +5137,8 @@ $(theme.init);
 /**
  * Custom JS
  */
+EE = {};
+let $window = $(window), $body = $("body"), $html = $('html');
 
 if ($('.gallery-slider').length > 0) {
     $('.gallery-slider').slick({
@@ -5165,3 +5167,15 @@ if ($('.ee-accordion__item').length > 0) {
         }
     });
 }
+
+/* extra menu */
+EE.extraMenu = function () {
+    $('.ee-header-icon--extra-menu').click(function () {
+        $html.toggleClass('extra-menu-open');
+    });
+};
+
+EE.init = function () {
+    EE.extraMenu();
+};
+EE.init();

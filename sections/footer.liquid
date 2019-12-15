@@ -81,7 +81,7 @@
 </style>
 
 <footer class="site-footer" role="contentinfo">
-  <div class="page-width">
+  <div class="page-width ee-container">
     <div class="site-footer__content">
       {%- for block in section.blocks -%}
 
@@ -146,12 +146,12 @@
                   <div class="site-footer__rte
                               {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
                       {%- if social_icons and block.settings.show_social_icons -%}
-                        <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
+                        <ul class="site-footer__social-icons ee-social-icons ee-site-footer__icon-list">
                           {%- if settings.social_facebook_link != blank -%}
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_facebook_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-facebook' -%}
-                                <span class="icon__fallback-text">Facebook</span>
+                                <span class="ee-social-icons__text">Facebook</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -159,7 +159,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_twitter_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-twitter' -%}
-                                <span class="icon__fallback-text">Twitter</span>
+                                <span class="ee-social-icons__text">Twitter</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -167,7 +167,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_pinterest_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-pinterest' -%}
-                                <span class="icon__fallback-text">Pinterest</span>
+                                <span class="ee-social-icons__text">Pinterest</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -175,7 +175,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_instagram_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-instagram' -%}
-                                <span class="icon__fallback-text">Instagram</span>
+                                <span class="ee-social-icons__text">Instagram</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -183,7 +183,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_tumblr_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-tumblr' -%}
-                                <span class="icon__fallback-text">Tumblr</span>
+                                <span class="ee-social-icons__text">Tumblr</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -191,7 +191,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_snapchat_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-snapchat' -%}
-                                <span class="icon__fallback-text">Snapchat</span>
+                                <span class="ee-social-icons__text">Snapchat</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -199,7 +199,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_youtube_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-youtube' -%}
-                                <span class="icon__fallback-text">YouTube</span>
+                                <span class="ee-social-icons__text">YouTube</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -207,7 +207,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ settings.social_vimeo_link | escape }}" aria-describedby="a11y-external-message">
                                 {%- include 'icon-vimeo' -%}
-                                <span class="icon__fallback-text">Vimeo</span>
+                                <span class="ee-social-icons__text">Vimeo</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -215,7 +215,7 @@
                             <li>
                               <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
                                 {%- include 'icon-rss' -%}
-                                <span class="icon__fallback-text">RSS</span>
+                                <span class="ee-social-icons__text">RSS</span>
                               </a>
                             </li>
                           {%- endif -%}
@@ -259,7 +259,7 @@
 
   <hr class="site-footer__hr">
 
-  <div class="page-width">
+  <div class="page-width ee-container">
     <div class="grid grid--no-gutters small--text-center">
       <div class="grid__item one-half small--one-whole">
           <div class="grid__item site-footer__payment-icons">
