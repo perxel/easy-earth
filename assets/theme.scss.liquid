@@ -7787,8 +7787,42 @@ body {
   }
 }
 
+.custom__item-inner--text {
+  h4 {font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color; font-size:40px;}
+  .rte-setting {
+    max-width:900px; margin:0 auto;
+    font-size:20px; font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color;
+  }
+}
+
+/*********************** ABOUT ***********************/
+.main__content .custom-linklist {
+  @include display-flexbox();
+  @include align-items(center);
+  @include justify-content(space-between);
+  margin:0; list-style:none; background:#fff; position:relative;
+
+  &:before {
+    content:''; position:absolute; top:0; bottom:0; left:50%;
+    transform: translateX(-50%); width:100vw; background:#fff;
+  }
+
+  li {
+    margin:0; width:100%; position:relative;
+    &:not(:last-child) {border-right:1px solid #f0f0f0;}
+    a {
+      font-size:20px; font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color;
+      text-decoration: none; border:none; padding:15px; display: block; text-align:center;
+    }
+    &.active a, a:hover, a:focus {
+      background:$ee-green; color:#fff;
+    }
+  }
+}
+
 /********************* FOOTER ****************************/
 .site-footer {
+  margin:0;
   .site-footer__item-inner {
     .h4 {
       font-size:17px; color:#41bfa9;
@@ -7816,7 +7850,7 @@ body {
 }
 
 .ee-social-icons {
-  margin-bottom: 25px; padding:0; background: none;
+  margin-bottom: 25px;
   li {
     padding:0;
     &:not(:last-child) {margin-bottom: 5px;}
