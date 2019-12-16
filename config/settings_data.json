@@ -304,10 +304,6 @@
           "blog_show_author": false,
           "blog_show_date": true
         }
-      },
-      "accessible-pagination": {
-        "type": "accessible-pagination",
-        "settings": {}
       }
     },
     "content_for_index": [

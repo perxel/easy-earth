@@ -19,7 +19,7 @@
     }
   {% endstyle %}
 {%- endif -%}
-<div class="page-width" data-section-id="{{ section.id }}" data-section-type="video-section">
+<div class="page-width ee-container" data-section-id="{{ section.id }}" data-section-type="video-section">
   {%- if section.settings.video_link != blank -%}
     <div class="video-section-wrapper
                 video-section-wrapper--{{ section.settings.height }}
@@ -77,7 +77,7 @@
       </noscript>
 
       <div class="video__text-content text-center">
-        <div class="page-width">
+        <div class="page-width ee-container">
           {%- unless section.settings.video_title == blank -%}
             <h2 class="h1 mega-title video__title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
               {{ section.settings.video_title | escape }}

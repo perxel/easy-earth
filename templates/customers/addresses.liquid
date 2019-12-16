@@ -1,6 +1,6 @@
 {% paginate customer.addresses by 5 %}
 
-<div class="page-width text-center">
+<div class="page-width ee-container text-center">
   <header class="section-header">
     <h1>{{ 'customer.addresses.title' | t }}</h1>
     <p><a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a></p>
@@ -10,7 +10,7 @@
   </header>
 </div>
 
-<div class="page-width">
+<div class="page-width ee-container">
   <div class="grid">
     <div class="grid__item medium-up--two-thirds medium-up--push-one-sixth">
       {% comment %}

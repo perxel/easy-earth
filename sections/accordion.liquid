@@ -1,3 +1,5 @@
+{% assign page_handle = page.handle %}
+
 <div class="ee-accordion-block">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
@@ -7,16 +9,18 @@
 
   <div class="ee-accordion">
     {% for block in section.blocks %}
-      <div class="ee-accordion__item">
-        <div class="ee-accordion__item-inner">
-          {% if block.settings.title != blank %}
-            <h4>{{ block.settings.title | escape }}</h4>
-          {% endif %}
-          {% if block.settings.text != blank %}
-            <div class="ee-accordion__item-content" style="display: none">{{ block.settings.text }}</div>
-          {% endif %}
+      {% if block.settings.page_handle == page_handle %}
+        <div class="ee-accordion__item">
+          <div class="ee-accordion__item-inner">
+            {% if block.settings.title != blank %}
+              <h4>{{ block.settings.title | escape }}</h4>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <div class="ee-accordion__item-content" style="display: none">{{ block.settings.text }}</div>
+            {% endif %}
+          </div>
         </div>
-      </div>
+      {% endif %}
     {% endfor %}
   </div>
 
@@ -122,6 +126,11 @@
         "zh-TW": "文字"
       },
       "settings": [
+        {
+          "type": "page",
+          "id": "page_handle",
+          "label": "Select a page"
+        },
         {
           "type": "text",
           "id": "title",

@@ -64,7 +64,7 @@
 
             <div class="slideshow__text-wrap slideshow__text-wrap--desktop">
               <div class="slideshow__text-content slideshow__text-content--vertical-{{ text_vertical_alignment }} text-{{ text_horizontal_alignment }}">
-                <div class="page-width">
+                <div class="page-width ee-container">
                   {% unless block.settings.slide_title == blank and block.settings.subheading == blank %}
                     <ul class="slideshow__text-content-list">
                       {%- unless block.settings.slide_title == blank -%}
@@ -142,7 +142,7 @@
         {%- endif -%}
         {%- if show_text or show_link_button -%}
           <div class="slideshow__text-content slideshow__text-content--mobile slideshow__text-content--mobile-{{ forloop.index0 }} text-center">
-            <div class="page-width">
+            <div class="page-width ee-container">
               {%- unless block.settings.slide_title == blank -%}
                 <h2 class="h1 mega-title slideshow__title slideshow__title--mobile{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
                   {{ block.settings.slide_title | escape }}

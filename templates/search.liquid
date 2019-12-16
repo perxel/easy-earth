@@ -1,6 +1,6 @@
 {% paginate search.results by 10 %}
 
-<div class="page-width">
+<div class="page-width ee-container">
   {% if search.performed == false %}
     <div class="text-center">
       <h1 class="h2">{{ 'general.search.title' | t }}</h1>
@@ -52,7 +52,7 @@
     <hr aria-hidden="true" />
   {% endif %}
   <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
-  <ul class="page-width list-view-items">
+  <ul class="page-width ee-container list-view-items">
     {% for item in search.results %}
       <li class="list-view-item">
           {% if item.object_type == 'product' %}
