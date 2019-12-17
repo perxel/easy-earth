@@ -162,6 +162,10 @@
               {% endfor %}
             </select>
 
+            {% if product.available and product.variants.size > 1 %}
+              {% render 'swatch' with 'Color' as swatch %}
+            {% endif %}
+
             {% if section.settings.show_quantity_selector %}
               <div class="product-form__item product-form__item--quantity">
                 <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
