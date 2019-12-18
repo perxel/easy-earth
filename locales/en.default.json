@@ -57,7 +57,7 @@
         "other": "{{ count }} results for \"{{ terms }}\""
       },
       "title": "Search our site",
-      "placeholder": "Search",
+      "placeholder": "What do you find",
       "submit": "Search",
       "close": "Close search",
       "heading": {
@@ -220,9 +220,10 @@
       "name": "Name",
       "email": "Email",
       "phone": "Telephone",
-      "address": "Address",
-      "order": "Order Number Or Shipping Address For Quicker Service",
-      "message": "Message",
+      "date": "Date Of Purchase",
+      "order": "Order Number",
+      "place": "Place Of Purchase",
+      "nonprofit": "Nonprofit Organizations",
       "submit": "Submit",
       "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
       "error_heading": "Please adjust the following:"

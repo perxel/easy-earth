@@ -207,14 +207,14 @@
       "custom-content": {
         "type": "custom-content",
         "blocks": {
-          "1575385605206": {
+          "1576408583507": {
             "type": "text",
             "settings": {
-              "title": "Mission Statement",
-              "text": "<p>EasyEarth began with one ambitious goal: protect the Earth. We strive to create products look good, work hard, and make it a no-brainer to be eco-friendly.<\/p>",
-              "width": "100%",
+              "title": "Talk about your brand test",
+              "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+              "width": "50%",
               "alignment": "center",
-              "align_text": "center"
+              "align_text": "left"
             }
           },
           "1575385696651": {
@@ -237,12 +237,12 @@
           }
         },
         "block_order": [
-          "1575385605206",
+          "1576408583507",
           "1575385696651",
           "1575385756743"
         ],
         "settings": {
-          "title": ""
+          "title": "test"
         }
       },
       "breadcrumbs": {
@@ -255,18 +255,21 @@
           "1575387017340": {
             "type": "image",
             "settings": {
+              "page_handle": "about-us",
               "slide_img": "shopify:\/\/shop_images\/5dcd034477425.jpg"
             }
           },
           "1575387106065": {
             "type": "image",
             "settings": {
+              "page_handle": "about-us",
               "slide_img": "shopify:\/\/shop_images\/photo-1556761175-5973dc0f32e7.jpg"
             }
           },
           "1575387122966": {
             "type": "image",
             "settings": {
+              "page_handle": "about-us",
               "slide_img": "shopify:\/\/shop_images\/5dcd0278d5a2b.jpg"
             }
           }
@@ -303,6 +306,193 @@
           "layout": "grid",
           "blog_show_author": false,
           "blog_show_date": true
+        }
+      },
+      "accordion": {
+        "type": "accordion",
+        "blocks": {
+          "1576413528312": {
+            "type": "text",
+            "settings": {
+              "page_handle": "care-instruction",
+              "title": "Quis autem vel eum iure reprehenderit",
+              "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit Sed do eiusmod tempor incididunt ut labore etting sit consecting uinet recting amet dolore magna aliqua. Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exerci tation ullamco laboris nisi ut aliquip hinging met commodo consequat.<\/p>"
+            }
+          },
+          "1576413594332": {
+            "type": "text",
+            "settings": {
+              "page_handle": "care-instruction",
+              "title": "Lorem Ipsum",
+              "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1576413528312",
+          "1576413594332"
+        ],
+        "settings": {
+          "title": "Reprehenderit quiin quam"
+        }
+      },
+      "quotes": {
+        "type": "quotes",
+        "blocks": {
+          "1576413673056": {
+            "type": "quote",
+            "settings": {
+              "page_handle": "care-instruction",
+              "quote": "<p>Lorem ipsum dolor sit ameting consectetur adipisicing etin eddo eiusmod temporing dor unde dolor sit nostrud.<\/p>",
+              "author": "David Lynch"
+            }
+          }
+        },
+        "block_order": [
+          "1576413673056"
+        ],
+        "settings": {
+          "title": "Testimonials"
+        }
+      },
+      "extra-content": {
+        "type": "extra-content",
+        "blocks": {
+          "1576413709449": {
+            "type": "image",
+            "settings": {
+              "page_handle": "care-instruction",
+              "image": "shopify:\/\/shop_images\/5dcd0278d5a2b.jpg",
+              "width": "100%",
+              "alignment": "center"
+            }
+          },
+          "1576413729104": {
+            "type": "text",
+            "settings": {
+              "page_handle": "care-instruction",
+              "title": "Quis autem vel eum iure reprehenderit qui in ea quam nihil voluptate velit quo tas esse connect sed omnis.",
+              "text": "<p>Excepteur sint occaecat cupidatat non proident mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volup aspernatur aut odit aut fugit.<\/p>",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          }
+        },
+        "block_order": [
+          "1576413709449",
+          "1576413729104"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "dynamic-text": {
+        "type": "dynamic-text",
+        "blocks": {
+          "1576409948803": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "about-us",
+              "title": "Mission Statement",
+              "text": "<p>EasyEarth began with one ambitious goal: protect the Earth. We strive to create products look good, work hard, and make it a no-brainer to be eco-friendly.<\/p>",
+              "alignment": "txt-center",
+              "text_size": "medium"
+            }
+          },
+          "1576409913310": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "care-instruction",
+              "title": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ncididunt ut labore et dolore magna aliqua enim ad minim nostrud<\/p>",
+              "alignment": "txt-center",
+              "text_size": "medium"
+            }
+          }
+        },
+        "block_order": [
+          "1576409948803",
+          "1576409913310"
+        ],
+        "settings": {}
+      },
+      "dynamic-content": {
+        "type": "dynamic-content",
+        "blocks": {
+          "1576411184874": {
+            "type": "text",
+            "settings": {
+              "page_handle": "about-us",
+              "title": "Mission Statement",
+              "text": "<p>EasyEarth began with one ambitious goal: protect the Earth. We strive to create products look good, work hard, and make it a no-brainer to be eco-friendly.<\/p>",
+              "width": "full-width",
+              "alignment": "center",
+              "align_text": "center"
+            }
+          },
+          "1576411623241": {
+            "type": "image",
+            "settings": {
+              "page_handle": "about-us",
+              "image": "shopify:\/\/shop_images\/5dcd034477425.jpg",
+              "width": "full-width",
+              "alignment": "center"
+            }
+          },
+          "1576411716036": {
+            "type": "text",
+            "settings": {
+              "page_handle": "about-us",
+              "title": "Our story",
+              "text": "<p>Our story begins with the facts. There is not one place on the planet that plastic pollution hasn't reached. Out of 100 billion plastic shopping bags consumed in the United States, only 1% is recycled. According to the report Marine Litter Vial Graphics&rdquo; published by the UN, marine plastic pollution is present in 100% of marine turtles, 59% of whales, 36% of seals, and 40% of seabird species examined. Our global population of 7 billion produced over 320 million tons of plastic, a number that will double by 2034. We need to join the fight against this. But how can we help? Big change starts with small steps. Our step was creating the EasyEarth reusable bags - a durable, practical, inexpensive, and, most importantly, an environmentally friendly alternative to the disposable plastic and paper bags. We all start by taking one step at a time. For us, creating a reusable, versatile alternative allows us to lead others in their first steps of a journey to protect our home.<\/p>",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          },
+          "1576411203192": {
+            "type": "text",
+            "settings": {
+              "page_handle": "care-instruction",
+              "title": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ncididunt ut labore et dolore magna aliqua enim ad minim nostrud<\/p>",
+              "width": "full-width",
+              "alignment": "center",
+              "align_text": "center"
+            }
+          },
+          "1576411676909": {
+            "type": "image",
+            "settings": {
+              "page_handle": "care-instruction",
+              "image": "shopify:\/\/shop_images\/photo-1556761175-5973dc0f32e7.jpg",
+              "width": "full-width",
+              "alignment": "center"
+            }
+          },
+          "1576413494331": {
+            "type": "text",
+            "settings": {
+              "page_handle": "care-instruction",
+              "title": "",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tem por incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.<\/p>",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          }
+        },
+        "block_order": [
+          "1576411184874",
+          "1576411623241",
+          "1576411716036",
+          "1576411203192",
+          "1576411676909",
+          "1576413494331"
+        ],
+        "settings": {
+          "title": ""
         }
       }
     },
