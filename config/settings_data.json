@@ -3,9 +3,9 @@
     "color_text": "#233c4c",
     "color_body_text": "#071425",
     "color_sale_text": "#557b97",
-    "color_button": "#557b97",
-    "color_button_text": "#fff",
-    "color_small_button_text_border": "#3d4246",
+    "color_button": "#41bfa9",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#162e3e",
     "color_text_field_text": "#000",
     "color_text_field_border": "#949494",
     "color_text_field": "#fff",
@@ -481,6 +481,39 @@
               "alignment": "center",
               "align_text": "left"
             }
+          },
+          "1576592882022": {
+            "type": "text",
+            "settings": {
+              "page_handle": "contact-us",
+              "title": "Lorem ipsum dolor",
+              "text": "<p>Nemo enim ipsam voluptatem quia voluptas aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sen nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit consectetur adipisci velit, sed quia non numquam eius tempora.<\/p>",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          },
+          "1576592917121": {
+            "type": "text",
+            "settings": {
+              "page_handle": "contact-us",
+              "title": "",
+              "text": "<p>CONTACT US<\/p>\n<p>Tel: 949-294-2597 Mail: help@easyearth.com<\/p>",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          },
+          "1576593147088": {
+            "type": "text",
+            "settings": {
+              "page_handle": "donate",
+              "title": "EasyEarth is a proud member of 1% for the Planet.",
+              "text": "<p>Each year, we donate one percent of our profits to environmental nonprofits that work to:<\/p>\n<p>Protect the environment Advocate for animals<\/p>\n<p>If you are an EasyEarth customer and want to help our missions, please complete this form and select your favorite charity you want us to donate to from the drop down lists.<\/p>",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "left"
+            }
           }
         },
         "block_order": [
@@ -489,10 +522,45 @@
           "1576411716036",
           "1576411203192",
           "1576411676909",
-          "1576413494331"
+          "1576413494331",
+          "1576592882022",
+          "1576592917121",
+          "1576593147088"
         ],
         "settings": {
           "title": ""
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 2,
+          "rows": 2,
+          "show_collection_image": false,
+          "show_vendor": false,
+          "sort_enable": false,
+          "tags_enable": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_vendor": false
         }
       }
     },
