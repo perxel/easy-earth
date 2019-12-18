@@ -7557,7 +7557,10 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,500,600,700&display=swap');
 $ee-transition: all 0.3s ease;
 $ee-green: #31BCA1;
+$ee-red: #e10032;
+$ee-hover-color:#162e3e;
 $ee-title-color: #233c4c;
+$ee-focus-color:#0b202d;
 $ee-font-poppins: 'Poppins', sans-serif;
 $ee-font-opensans: 'Open Sans', sans-serif;
 $ee-font-awesome: 'Font Awesome 5 Free';
@@ -7575,6 +7578,16 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
 a, button {transition: $ee-transition;}
+
+/************** Easy Earth Editor [eeeditor] ***************/
+.ee-btn-green {
+  font-size:20px; font-weight:700; font-family:$ee-font-poppins;
+  color:#fff; background:$ee-green; min-width:270px; text-align:center;
+  border:none; padding:15px;
+
+  &:hover {background:$ee-hover-color;}
+  &:focus {background:$ee-focus-color;}
+}
 
 /************** Easy Earth Custom ***************/
 body {
@@ -7791,7 +7804,12 @@ body {
 }
 
 /** Custom item **/
-.custom__item {padding-left:0;}
+.custom__item {
+  padding-left:0;
+  &:not(.full-width) {
+    margin-left:auto; margin-right:auto;
+  }
+}
 /*.custom__item-inner--text {
   h4 {font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color; font-size:40px;}
   .rte-setting {
@@ -7800,7 +7818,8 @@ body {
   }
 }*/
 
-/** Gallery slider **/
+/*********************** ABOUT ***********************/
+/* Gallery slider */
 .gallery-slider {
   .gallery-slider__item-inner {
     overflow:hidden;
@@ -7846,7 +7865,7 @@ body {
   }
 }
 
-/*********************** ABOUT ***********************/
+/* Custom link list */
 .main__content .custom-linklist {
   @include display-flexbox();
   @include align-items(center);
@@ -7869,6 +7888,36 @@ body {
       background:$ee-green; color:#fff;
     }
   }
+}
+
+/*********************** CONTACT ***********************/
+/* Form */
+.ee-form {
+  .ee-form-row {
+    position:relative;
+    &:not(:last-child) {
+      margin-bottom:20px;
+    }
+  }
+  .ee-form-label {
+    font-family: $ee-font-poppins; font-weight:500; color:#000; text-transform: uppercase; font-size:15px;
+  }
+  .ee-form-input, .ee-form-textarea, .ee-form-select {
+    display:block; height:57px; line-height:57px; width:100%;
+    background:#fff; padding:0 20px; border:none; outline:none; border-radius:0;
+    transition:$ee-transition;
+    &:hover, &:focus {
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+    }
+    &[aria-describedby*="error"] {
+      box-shadow:inset 0 0 0 1px $ee-red;
+    }
+  }
+  .input-error-message {
+    position:absolute; top:3px; right:0; margin:0;
+    font-family: $ee-font-poppins; font-weight:500; color:$ee-red; font-size:15px;
+  }
+  .form-message--error {display:none;}
 }
 
 /********************* FOOTER ****************************/
