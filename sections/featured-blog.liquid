@@ -11,17 +11,17 @@
     <ul class="grid grid--uniform grid--blog">
       {% for article in blog.articles limit: section.settings.post_limit %}
         <li class="grid__item medium-up--one-third">
-          <a href="{{ article.url }}" class="article__link">
+          <a href="{{ article.url }}" class="article-item__link">
             {% if article.image %}
               {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
               {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
               {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
               {% include 'image-style' with image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
-              <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
-                <div class="article__grid-image-container" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;">
+              <div id="{{ img_wrapper_id }}" class="article-item__image js">
+                <div data-ratio="1:1" class="article-item__image-bg ee-bg-cover" style="background-image:url({{ article.image | img_url: 'original' }})" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;">
                   <img id="{{ img_id }}"
-                      class="article__grid-image lazyload"
+                      class="article-item__image-tag lazyload"
                       src="{{ article.image | img_url: '300x300' }}"
                       data-src="{{ img_url }}"
                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
@@ -31,24 +31,24 @@
                 </div>
               </div>
               <noscript>
-                <div class="article__grid-image-wrapper">
-                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                <div class="article-item__image">
+                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article-item__image-tag' }}
                 </div>
               </noscript>
             {% endif %}
 
-            <h3 class="article__title">
+            <h3 class="article-item__title">
               {{ article.title }}
             </h3>
           </a>
 
           <div class="article__grid-meta">
             {% if section.settings.blog_show_author %}
-              <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+              <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
             {% endif %}
 
             {% if section.settings.blog_show_date %}
-              <span class="article__date">
+              <span class="article-item__date">
                 {{ article.published_at | time_tag: format: 'date' }}
               </span>
             {% endif %}
@@ -97,12 +97,12 @@
       {% for i in (1..section.settings.post_limit) %}
         <div class="grid__item medium-up--one-third">
           <div class="article__grid-meta">
-            <h3 class="article__title">
+            <h3 class="article-item__title">
               <a href="#">{{ 'homepage.onboarding.blog_title' | t }}</a>
             </h3>
 
             {% if section.settings.blog_show_author %}
-              <span class="article__author">{{ 'homepage.onboarding.blog_author' | t }}</span>
+              <span class="article-item__author">{{ 'homepage.onboarding.blog_author' | t }}</span>
             {% endif %}
 
             <div class="rte article__grid-excerpt">

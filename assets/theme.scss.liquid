@@ -4577,22 +4577,22 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   margin-bottom: $gutter-site;
 }
 
-.article__title {
+.article-item__title {
   margin-bottom: $gutter-site-mobile / 2;
 }
 
-.article__title--has-image {
+.article-item__title--has-image {
   @include media-query($small) {
     padding-left: $gutter-site-mobile;
   }
 }
 
-.article__author {
+.article-item__author {
   margin-right: 10px;
 }
 
-.article__author,
-.article__date {
+.article-item__author,
+.article-item__date {
   display: inline-block;
   margin-bottom: $gutter-site-mobile;
 
@@ -4609,7 +4609,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   font-style: italic;
 }
 
-.article__link {
+.article-item__link {
   display: block;
 
   @include media-query($small) {
@@ -4619,7 +4619,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
   &:not([disabled]):hover,
   &:focus {
-    .article__grid-image-wrapper {
+    .article-item__image {
       @include overlay(1);
     }
   }
@@ -4670,13 +4670,13 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   margin-bottom: $section-spacing-small / 2;
 }
 
-.article__grid-image-wrapper {
+.article-item__image {
   margin: 0 auto;
   position: relative;
   width: 100%;
 }
 
-.article__grid-image-container {
+.article-item__image-bg ee-bg-cover {
   display: block;
   clear: both;
   position: relative;
@@ -4696,7 +4696,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 }
 
-.article__grid-image {
+.article-item__image-tag {
   margin: 0 auto;
   width: 100%;
 
@@ -7567,6 +7567,7 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 .ee-display-flex {@include display-flexbox();}
 .ee-align-center {@include align-items(center);}
 .ee-justify-space-between {@include justify-content(space-between);}
+.ee-flex-wrap {flex-wrap:wrap;}
 .ee-font-poppins {font-family:$ee-font-poppins;}
 .ee-font-opensans {font-family:$ee-font-opensans;}
 .ee-bg-cover {
@@ -7918,6 +7919,25 @@ body {
     font-family: $ee-font-poppins; font-weight:500; color:$ee-red; font-size:15px;
   }
   .form-message--error {display:none;}
+}
+
+/*********************** BLOG ***********************/
+/* Grid */
+body .ee-grid {
+  list-style:none; margin:0;
+  .ee-grid__item {width:33.33%;}
+}
+
+/* Article item */
+.article-item {
+  .article-item__link {
+    display:block;
+  }
+  .article-item__image-tag {position:relative;}
+  .article-item__info {
+    .article-item__date {font-family: $ee-font-poppins; font-weight:600; color:$ee-red; font-size:14px;}
+    .article-item__title {font-size:20px; font-weight:600; color:$ee-title-color;}
+  }
 }
 
 /********************* FOOTER ****************************/

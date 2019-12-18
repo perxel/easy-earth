@@ -1,14 +1,14 @@
 <div class="section-header">
-  <h2 class="article__title">{{ blog.title }}</h2>
+  <h2 class="article-item__title">{{ blog.title }}</h2>
   <a href="{{ blog.url }}" class="return-link" title="BACK">
     <span>BACK</span>
   </a>
   {% if section.settings.blog_show_author %}
-    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+    <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
   {% endif %}
 
   {% if section.settings.blog_show_date %}
-    <span class="article__date">
+    <span class="article-item__date">
       {{ article.published_at | time_tag: format: 'date' }}
     </span>
   {% endif %}
@@ -59,20 +59,20 @@
 
       {% paginate blog.articles by 3 %}
 
-        <ul class="ee-blog__grid">
+        <ul class="ee-grid ee-grid--blog ee-display-flex ee-flex-wrap">
           {% for article in blog.articles %}
             {% if current_article != article.handle %}
               <li class="ee-grid__item {% if article.image %} article--has-image{% endif %}">
-                <a href="{{ article.url }}" class="article__link">
+                <a href="{{ article.url }}" class="article-item__link">
                   {% if article.image %}
                     {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
                     {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
                     {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                    <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper">
-                      <div class="article__grid-image-container">
+                    <div id="{{ img_wrapper_id }}" class="article-item__image">
+                      <div data-ratio="1:1" class="article-item__image-bg ee-bg-cover" style="background-image:url({{ article.image | img_url: 'original' }})">
                         <img id="{{ img_id }}"
-                             class="article__grid-image lazyload"
+                             class="article-item__image-tag lazyload"
                              src="{{ article.image | img_url: 'original' }}"
                              alt="{{ article.title }}">
                       </div>
@@ -80,17 +80,17 @@
                   {% endif %}
                 </a>
 
-                <div class="article__info">
-                  <h3 class="article__title h3">
+                <div class="article-item__info">
+                  <h3 class="article-item__title h3">
                     {{ article.title | escape }}
                   </h3>
 
                   {% if section.settings.blog_show_author %}
-                    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+                    <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
                   {% endif %}
 
                   {% if section.settings.blog_show_date %}
-                    <span class="article__date">
+                    <span class="article-item__date">
                       {{ article.published_at | date: "%d.%m.%Y" }}
                     </span>
                   {% endif %}
