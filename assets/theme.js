@@ -5144,12 +5144,13 @@ if ($('.gallery-slider').length > 0) {
     $('.gallery-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "0px",
+        /*centerMode: true,
+        centerPadding: "0px",*/
         dots: false,
         arrows: true,
         swipeToSlide: true,
-        infinite: true
+        infinite: true,
+        speed: 700,
     });
 }
 
@@ -5175,7 +5176,41 @@ EE.extraMenu = function () {
     });
 };
 
+/**
+ * Keep ratio v2.1
+ * Init via attribute data-ratio="x:y"
+ */
+EE.keepRatio = function (el, ratioX, ratioY) {
+    // init via script
+    if (typeof el !== "undefined") {
+        var $el = $(el);
+        if (typeof ratioX === "undefined") {
+            ratioX = 100;
+        }
+        if (typeof ratioY === "undefined") {
+            ratioY = $el.outerHeight() * 100 / $el.outerWidth();
+        }
+        $el.attr('data-ratio', ratioX + ':' + ratioY);
+    }
+
+    function run() {
+        $('[data-ratio]').each(function () {
+            var ratio = $(this).data('ratio').split(':'),
+                height = ratio[1] * $(this).outerWidth() / ratio[0];
+            $(this).height(height);
+        });
+    }
+
+    // resizing
+    $window.on('resize', function () {
+        run();
+    });
+    run();
+};
+
+
 EE.init = function () {
     EE.extraMenu();
+    EE.keepRatio('.gallery-slider__img', 85, 50);
 };
 EE.init();
