@@ -282,7 +282,7 @@
         "settings": {
           "carousel_autoplay": false,
           "carousel_dots": false,
-          "carousel_arrows": false,
+          "carousel_arrows": true,
           "autoplay_speed": "7000"
         }
       },
@@ -446,7 +446,7 @@
               "page_handle": "about-us",
               "title": "Our story",
               "text": "<p>Our story begins with the facts. There is not one place on the planet that plastic pollution hasn't reached. Out of 100 billion plastic shopping bags consumed in the United States, only 1% is recycled. According to the report Marine Litter Vial Graphics&rdquo; published by the UN, marine plastic pollution is present in 100% of marine turtles, 59% of whales, 36% of seals, and 40% of seabird species examined. Our global population of 7 billion produced over 320 million tons of plastic, a number that will double by 2034. We need to join the fight against this. But how can we help? Big change starts with small steps. Our step was creating the EasyEarth reusable bags - a durable, practical, inexpensive, and, most importantly, an environmentally friendly alternative to the disposable plastic and paper bags. We all start by taking one step at a time. For us, creating a reusable, versatile alternative allows us to lead others in their first steps of a journey to protect our home.<\/p>",
-              "width": "100%",
+              "width": "66%",
               "alignment": "center",
               "align_text": "left"
             }

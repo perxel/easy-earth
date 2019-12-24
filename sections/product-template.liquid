@@ -111,12 +111,16 @@
     </div>
 
     <div class="grid__item {{ product_description_width }}">
-      <div class="product-single__meta">
+      <div class="product-single__meta ee-product__meta">
 
-        <h1 class="product-single__title">{{ product.title }}</h1>
+        <h1 class="product-single__title ee-product__title">{{ product.title }}</h1>
 
-          <div class="product__price">
+          <div class="product__price ee-product__price">
             {% include 'product-price', variant: current_variant %}
+          </div>
+
+          <div class="product-single__description rte ee-product__description">
+            {{ product.description }}
           </div>
 
           {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -135,9 +139,45 @@
           {%- endcapture %}
 
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+
+            <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %} ee-product__error" data-error-message-wrapper role="alert">
+              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+              {% include 'icon-error' %}
+              <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
+            </div>
+
+            <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %} ee-product__submit">
+              <button type="submit" name="add"
+                      {% unless current_variant.available %} aria-disabled="true"{% endunless %}
+                      aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+                      class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
+                      data-add-to-cart>
+                <span data-add-to-cart-text>
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                    {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endunless %}
+                </span>
+                <span class="hide" data-loader>
+                  {% include 'icon-spinner' %}
+                </span>
+              </button>
+              {% if section.settings.enable_payment_button %}
+                {{ form | payment_button }}
+              {% endif %}
+            </div>
+
+            {% if section.settings.show_quantity_selector %}
+              <div class="product-form__item product-form__item--quantity ee-product__quantity">
+                <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*" data-quantity-input>
+              </div>
+            {% endif %}
+
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
-                <div class="selector-wrapper js product-form__item">
+                <div class="selector-wrapper js product-form__item" style="display: none">
                   <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
                     {{ option.name }}
                   </label>
@@ -150,7 +190,7 @@
               {% endfor %}
             {% endunless %}
 
-            <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+            <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js" style="display: none">
               {% for variant in product.variants %}
                 {% if variant.available %}
                   <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
@@ -163,53 +203,29 @@
             </select>
 
             {% if product.available and product.variants.size > 1 %}
-              {% render 'swatch' with 'Color' as swatch %}
+              {% render 'swatch' for product.options as swatch %}
             {% endif %}
 
-            {% if section.settings.show_quantity_selector %}
-              <div class="product-form__item product-form__item--quantity">
-                <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*" data-quantity-input>
-              </div>
-            {% endif %}
-
-            <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}" data-error-message-wrapper role="alert">
-              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-              {% include 'icon-error' %}
-              <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
+            <div class="product-form__information ee-product__information">
+              {% for field in product.metafields.information %}
+                <div class="ee-product__information-item">
+                  <div class="ee-product__information-label">
+                    {{ field | first }}
+                  </div>
+                  <div class="ee-product__information-value">
+                    {{ field | last }}
+                  </div>
+                </div>
+              {% endfor %}
             </div>
 
-            <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
-              <button type="submit" name="add"
-                {% unless current_variant.available %} aria-disabled="true"{% endunless %}
-                aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
-                data-add-to-cart>
-                <span data-add-to-cart-text>
-                  {% unless current_variant.available %}
-                    {{ 'products.product.sold_out' | t }}
-                  {% else %}
-                    {{ 'products.product.add_to_cart' | t }}
-                  {% endunless %}
-                </span>
-                <span class="hide" data-loader>
-                  {% include 'icon-spinner' %}
-                </span>
-              </button>
-              {% if section.settings.enable_payment_button %}
-                {{ form | payment_button }}
-              {% endif %}
-            </div>
           {% endform %}
         </div>
 
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
         {%- endcomment -%}
-        <p class="visually-hidden" data-product-status
-          aria-live="polite"
-          role="status"
-        ></p>
+        <p class="visually-hidden" data-product-status aria-live="polite" role="status"></p>
 
         {%- comment -%}
           Live region for announcing that the product form has been submitted and the
@@ -218,16 +234,35 @@
         <p class="visually-hidden" data-loader-status
           aria-live="assertive"
           role="alert"
-          aria-hidden="true"
-        >{{ 'products.product.loader_label' | t }}</p>
-
-        <div class="product-single__description rte">
-          {{ product.description }}
-        </div>
+          aria-hidden="true">{{ 'products.product.loader_label' | t }}</p>
 
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
         {% endif %}
+    </div>
+  </div>
+
+  <div class="ee-product__general-info">
+    <div class="ee-product__general-item">
+      <img src="{{ section.settings.image_1 | img_url: 'original' }}" />
+      <h4>{{ section.settings.heading_1 }}</h4>
+      <div class="ee-product__general-content">
+        {{ section.settings.text_1 }}
+      </div>
+    </div>
+    <div class="ee-product__general-item">
+      <img src="{{ section.settings.image_2 | img_url: 'original' }}" />
+      <h4>{{ section.settings.heading_2 }}</h4>
+      <div class="ee-product__general-content">
+        {{ section.settings.text_2 }}
+      </div>
+    </div>
+    <div class="ee-product__general-item">
+      <img src="{{ section.settings.image_3 | img_url: 'original' }}" />
+      <h4>{{ section.settings.heading_3 }}</h4>
+      <div class="ee-product__general-content">
+        {{ section.settings.text_3 }}
+      </div>
     </div>
   </div>
 </div>
@@ -564,6 +599,177 @@
         "zh-TW": "顯示社群分享按鈕"
       },
       "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Heading 1",
+      "default": {
+        "da": "Meddel noget her",
+        "de": "Hier etwas ankündigen",
+        "en": "Announce something here",
+        "es": "Anuncia algo aquí",
+        "fi": "Ilmoita jotakin tässä",
+        "fr": "Annoncez quelque chose ici",
+        "hi": "यहां कुछ घोषित करें",
+        "it": "Annuncia qualcosa qui",
+        "ja": "ここで告知してください",
+        "ko": "여기에 공지하십시오",
+        "ms": "Mengumumkan sesuatu di sini",
+        "nb": "Kunngjør noe her",
+        "nl": "Kondig hier iets aan",
+        "pt-BR": "Anuncie algo aqui",
+        "pt-PT": "Anunciar algo aqui",
+        "sv": "Meddela något här",
+        "th": "ประกาศข้อความที่นี่",
+        "zh-CN": "在此处进行公告",
+        "zh-TW": "在此公告資訊"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "label": "Text 1",
+      "default": {
+        "da": "<p>Del butiksoplysninger, reklamer eller brandindhold med dine kunder.</p>",
+        "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
+        "en": "<p>Share store details, promotions, or brand content with your customers.</p>",
+        "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
+        "fi": "<p>Jaa myymälän tiedot, tarjoukset tai brändin sisältö asiakkaittesi kanssa.</p>",
+        "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
+        "hi": "<p>अपने ग्राहकों के साथ स्टोर विवरण, प्रचार या ब्रांड सामग्री साझा करें.</p>",
+        "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
+        "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する。</p>",
+        "ko": "<p>스토어 세부 정보, 프로모션 또는 브랜드 콘텐츠를 고객과 공유하십시오.</p>",
+        "ms": "<p>Kongsi maklumat kedai, promosi atau kandungan jenama dengan pelanggan anda.</p>",
+        "nb": "<p>Del butikkdetaljer, kampanjer eller merkevareinnhold med kundene dine.</p>",
+        "nl": "<p>Deel winkeldetails, promoties of merkinhoud met je klanten.</p>",
+        "pt-BR": "<p>Compartilhe detalhes da loja, promoções ou conteúdo da marca com seus clientes.</p>",
+        "pt-PT": "<p>Partilhe detalhes da loja, promoções ou conteúdo de marca com os seus clientes.</p>",
+        "sv": "<p>Dela butikens detaljer, kampanjer eller varumärkesinnehåll med dina kunder.</p>",
+        "th": "<p>แชร์รายละเอียดร้านค้า โปรโมชัน หรือเนื้อหาแบรนด์กับลูกค้าของคุณ</p>",
+        "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
+        "zh-TW": "<p>與客戶分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
+      }
+    },
+    {
+    "type": "image_picker",
+    "id": "image_2",
+    "label": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Heading 2",
+      "default": {
+        "da": "Meddel noget her",
+        "de": "Hier etwas ankündigen",
+        "en": "Announce something here",
+        "es": "Anuncia algo aquí",
+        "fi": "Ilmoita jotakin tässä",
+        "fr": "Annoncez quelque chose ici",
+        "hi": "यहां कुछ घोषित करें",
+        "it": "Annuncia qualcosa qui",
+        "ja": "ここで告知してください",
+        "ko": "여기에 공지하십시오",
+        "ms": "Mengumumkan sesuatu di sini",
+        "nb": "Kunngjør noe her",
+        "nl": "Kondig hier iets aan",
+        "pt-BR": "Anuncie algo aqui",
+        "pt-PT": "Anunciar algo aqui",
+        "sv": "Meddela något här",
+        "th": "ประกาศข้อความที่นี่",
+        "zh-CN": "在此处进行公告",
+        "zh-TW": "在此公告資訊"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "text_2",
+      "label": "Text 2",
+      "default": {
+        "da": "<p>Del butiksoplysninger, reklamer eller brandindhold med dine kunder.</p>",
+        "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
+        "en": "<p>Share store details, promotions, or brand content with your customers.</p>",
+        "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
+        "fi": "<p>Jaa myymälän tiedot, tarjoukset tai brändin sisältö asiakkaittesi kanssa.</p>",
+        "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
+        "hi": "<p>अपने ग्राहकों के साथ स्टोर विवरण, प्रचार या ब्रांड सामग्री साझा करें.</p>",
+        "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
+        "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する。</p>",
+        "ko": "<p>스토어 세부 정보, 프로모션 또는 브랜드 콘텐츠를 고객과 공유하십시오.</p>",
+        "ms": "<p>Kongsi maklumat kedai, promosi atau kandungan jenama dengan pelanggan anda.</p>",
+        "nb": "<p>Del butikkdetaljer, kampanjer eller merkevareinnhold med kundene dine.</p>",
+        "nl": "<p>Deel winkeldetails, promoties of merkinhoud met je klanten.</p>",
+        "pt-BR": "<p>Compartilhe detalhes da loja, promoções ou conteúdo da marca com seus clientes.</p>",
+        "pt-PT": "<p>Partilhe detalhes da loja, promoções ou conteúdo de marca com os seus clientes.</p>",
+        "sv": "<p>Dela butikens detaljer, kampanjer eller varumärkesinnehåll med dina kunder.</p>",
+        "th": "<p>แชร์รายละเอียดร้านค้า โปรโมชัน หรือเนื้อหาแบรนด์กับลูกค้าของคุณ</p>",
+        "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
+        "zh-TW": "<p>與客戶分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
+      }
+    },
+    {
+    "type": "image_picker",
+    "id": "image_3",
+    "label": "Image 3"
+    },
+    {
+      "type": "text",
+      "id": "heading_3",
+      "label": "Heading 3",
+      "default": {
+        "da": "Meddel noget her",
+        "de": "Hier etwas ankündigen",
+        "en": "Announce something here",
+        "es": "Anuncia algo aquí",
+        "fi": "Ilmoita jotakin tässä",
+        "fr": "Annoncez quelque chose ici",
+        "hi": "यहां कुछ घोषित करें",
+        "it": "Annuncia qualcosa qui",
+        "ja": "ここで告知してください",
+        "ko": "여기에 공지하십시오",
+        "ms": "Mengumumkan sesuatu di sini",
+        "nb": "Kunngjør noe her",
+        "nl": "Kondig hier iets aan",
+        "pt-BR": "Anuncie algo aqui",
+        "pt-PT": "Anunciar algo aqui",
+        "sv": "Meddela något här",
+        "th": "ประกาศข้อความที่นี่",
+        "zh-CN": "在此处进行公告",
+        "zh-TW": "在此公告資訊"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "text_3",
+      "label": "Text 3",
+      "default": {
+        "da": "<p>Del butiksoplysninger, reklamer eller brandindhold med dine kunder.</p>",
+        "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
+        "en": "<p>Share store details, promotions, or brand content with your customers.</p>",
+        "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
+        "fi": "<p>Jaa myymälän tiedot, tarjoukset tai brändin sisältö asiakkaittesi kanssa.</p>",
+        "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
+        "hi": "<p>अपने ग्राहकों के साथ स्टोर विवरण, प्रचार या ब्रांड सामग्री साझा करें.</p>",
+        "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
+        "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する。</p>",
+        "ko": "<p>스토어 세부 정보, 프로모션 또는 브랜드 콘텐츠를 고객과 공유하십시오.</p>",
+        "ms": "<p>Kongsi maklumat kedai, promosi atau kandungan jenama dengan pelanggan anda.</p>",
+        "nb": "<p>Del butikkdetaljer, kampanjer eller merkevareinnhold med kundene dine.</p>",
+        "nl": "<p>Deel winkeldetails, promoties of merkinhoud met je klanten.</p>",
+        "pt-BR": "<p>Compartilhe detalhes da loja, promoções ou conteúdo da marca com seus clientes.</p>",
+        "pt-PT": "<p>Partilhe detalhes da loja, promoções ou conteúdo de marca com os seus clientes.</p>",
+        "sv": "<p>Dela butikens detaljer, kampanjer eller varumärkesinnehåll med dina kunder.</p>",
+        "th": "<p>แชร์รายละเอียดร้านค้า โปรโมชัน หรือเนื้อหาแบรนด์กับลูกค้าของคุณ</p>",
+        "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
+        "zh-TW": "<p>與客戶分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
+      }
     }
   ]
 }
