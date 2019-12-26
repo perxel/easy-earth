@@ -5240,6 +5240,42 @@ EE.swatches = function () {
     });
 };
 
+/**
+ * Loop Gallery
+ */
+
+EE.loopGallery = function () {
+    if ($('.ee-product-card__images').length > 0) {
+        $('.ee-product-card__images').slick({
+            slidesToShow: 1,
+            fade: true,
+            dots: true,
+            arrows: false,
+            swipeToSlide: true,
+            infinite: true
+        });
+    }
+};
+
+/**
+ * Shop Layout
+ */
+
+EE.loopGroupItems = function () {
+    var items = $("#shopify-section-collection-template .ee-grid__item");
+    if(items.length > 0){
+        for (var i = 0; i < items.length; i += 2) {
+            j = i + 1;
+            if(i === 0){
+                items.slice(i, i + 2).wrapAll("<div class='ee-grid__group-first'></div>");
+            }else{
+                items.slice(i, i + 2).wrapAll("<div class='ee-grid__group'></div>");
+            }
+        }
+        $('.ee-grid__item-first, .ee-grid__group-first').wrapAll("<div class='ee-grid__group'></div>");
+    }
+};
+
 EE.init = function () {
     EE.gallerySlider();
     EE.accordion();
@@ -5247,5 +5283,7 @@ EE.init = function () {
     EE.keepRatio('.gallery-slider__img', 85, 50);
     EE.productGallery();
     EE.swatches();
+    EE.loopGallery();
+    EE.loopGroupItems();
 };
 EE.init();

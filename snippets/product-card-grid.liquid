@@ -11,26 +11,18 @@
     {% include 'image-style' with image: product.featured_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
   {% endunless %}
 
-  <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
-    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
-      <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
-        <img id="{{ img_id }}"
-              class="grid-view-item__image lazyload"
-              alt="{{ product.featured_image.alt }}"
-              data-src="{{ img_url }}"
-              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-              data-aspectratio="{{ product.featured_image.aspect_ratio }}"
-              data-sizes="auto"
-              data-image>
-      </div>
-    </div>
-    <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
-  </div>
-
-  <noscript>
-    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
-    <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
-  </noscript>
+  <ul class="ee-product-card__images">
+    {% for image in product.images %}
+      <li class="ee-product-card__image js">
+        <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
+           class="text-link ee-product-card__link"
+           data-thumbnail-id="{{ image.id }}"
+           {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+          <img class="ee-product-card__img" src="{{ image.src | img_url: 'original' }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 
   <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
 

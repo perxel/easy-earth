@@ -547,12 +547,21 @@
         "type": "product-template",
         "settings": {
           "image_size": "medium",
-          "show_quantity_selector": false,
+          "show_quantity_selector": true,
           "show_variant_labels": true,
           "show_vendor": false,
           "enable_zoom": true,
           "enable_payment_button": false,
-          "show_share_buttons": false
+          "show_share_buttons": false,
+          "image_1": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "heading_1": "FREE SHIPPING",
+          "text_1": "<p>Share store details, promotions, or brand content with your customers.<\/p>",
+          "image_2": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "heading_2": "SIMPLE TO USE",
+          "text_2": "<p>Designed USA. We wanted to keep usage as easy as possible. Ta-da!&nbsp;<\/p>",
+          "image_3": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "heading_3": "1 YEAR WARRANT",
+          "text_3": "<p>Our commitment to quality for 1 year. We believe in bag for keeping.<\/p>"
         }
       },
       "product-recommendations": {

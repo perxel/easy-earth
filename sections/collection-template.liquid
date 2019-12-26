@@ -35,7 +35,7 @@
              data-bgset="{% include 'bgset', image: collection.image %}"
              data-sizes="auto"
              data-parent-fit="cover"
-             style="background-image: url('{{ collection.image | img_url: '300x300' }});"></div>
+             style="background-image: url('{{ collection.image | img_url: '300x300' }}')"></div>
         <noscript>
           <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
         </noscript>
@@ -58,14 +58,6 @@
           {{ collection.description }}
         </div>
       {% endif %}
-    {% else %}
-      <div class="page-width ee-container">
-        <div class="section-header ee-section-header">
-          <div class="breadcrumbs">{% include 'breadcrumbs' %}</div>
-          <h1>Shop</h1>
-          <div class="ee-section-header__search">{% include 'search-form' %}</div>
-        </div>
-      </div>
     {% endif %}
 
     {% if is_filter_by_available or section.settings.sort_enable %}
@@ -142,11 +134,16 @@
         {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {% endcase %}
 
-      <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %} ee-grid">
+        <div class="ee-grid__item-first">
+          <div class="breadcrumbs">{% include 'breadcrumbs' %}</div>
+          <h1>Shop</h1>
+          <div class="ee-grid__item__search">{% include 'search-form' %}</div>
+        </div>
         {% for product in collection.products %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }} ee-grid__item">
             {% include 'product-card-grid', max_height: max_height %}
-          </li>
+          </div>
         {% else %}
           {% comment %}
           Add default products to help with onboarding for collections/all only.
@@ -155,7 +152,7 @@
           store has no products.
           {% endcomment %}
           {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-            <li class="grid__item">
+            <div class="grid__item ee-grid__item">
               <div class="grid grid--uniform">
                 {% for i in (1..limit) %}
                   <div class="grid__item {{ grid_item_width }}">
@@ -174,12 +171,12 @@
                   </div>
                 {% endfor %}
               </div>
-            </li>
+            </div>
           {% else %}
             {%- assign is_empty_collection = true -%}
           {% endif %}
         {% endfor %}
-      </ul>
+      </div>
     {% else %}
       <ul class="list-view-items">
         {% for product in collection.products %}
