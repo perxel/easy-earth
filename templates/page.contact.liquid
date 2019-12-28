@@ -4,10 +4,12 @@
         <div class="breadcrumbs">{% section 'breadcrumbs' %}</div>
     </div>
 
-    <div class="page__content">
-        {% section 'dynamic-content' %}
+    <div class="page__content contact-page ee-display-flex ee-flex-wrap">
+        <div class="ee-dynamic-section">
+            {% section 'dynamic-content' %}
+        </div>
 
-        <div class="ee-contact-form ee-form ee-margin-bottom-40px">
+        <div class="ee-contact-form ee-form ee-margin-bottom-80px">
             {%- assign formId = 'ContactForm' -%}
             {% form 'contact', id: formId %}
                 {% include 'form-status', form_id: formId %}
@@ -20,14 +22,14 @@
                 <div class="ee-form-row">
                     <label class="ee-form-label" for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span
                                 aria-hidden="true">*</span></label>
-                    <input  class="ee-form-input"
-                            type="email"
-                            id="{{ formId }}-email"
-                            name="contact[email]"
-                            autocorrect="off"
-                            autocapitalize="off"
-                            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                            aria-required="true"
+                    <input class="ee-form-input"
+                           type="email"
+                           id="{{ formId }}-email"
+                           name="contact[email]"
+                           autocorrect="off"
+                           autocapitalize="off"
+                           value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                           aria-required="true"
                             {%- if form.errors contains 'email' -%}
                                 class="input--error"
                                 aria-invalid="true"
@@ -45,7 +47,8 @@
 
                 <div class="ee-form-row">
                     <label class="ee-form-label" for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
-                    <input class="ee-form-input" type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*"
+                    <input class="ee-form-input" type="tel" id="{{ formId }}-phone" name="contact[phone]"
+                           pattern="[0-9\-]*"
                            value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
                 </div>
 

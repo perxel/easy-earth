@@ -7575,6 +7575,7 @@ $ee-font-awesome: 'Font Awesome 5 Free';
   img {opacity: 0; width: 100%; height: 100%;}
 }
 .ee-margin-bottom-40px {margin-bottom:40px;}
+.ee-margin-bottom-80px {margin-bottom:80px;}
 
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
@@ -7892,6 +7893,24 @@ body {
 }
 
 /*********************** CONTACT ***********************/
+/* Layout */
+.contact-page {
+  .ee-dynamic-section {
+    width:43%; padding-right:60px; box-sizing:border-box;
+    .ee-container {padding:0;}
+    .custom-content {margin:0;}
+    .custom__item:not(:last-child) {
+      border-bottom:2px solid #e1e1e1; padding-bottom:30px;
+    }
+    h4.h3 {font-size:42px; font-weight:600;}
+    .custom__item:nth-child(2){
+      p:first-child {font-family: $ee-font-poppins; letter-spacing: 3px; font-size: 18px; margin-bottom:5px;}
+      p:not(:first-child) {font-weight:600; margin-bottom:0;}
+    }
+  }
+  .ee-contact-form {width:57%;}
+}
+
 /* Form */
 .ee-form {
   .ee-form-row {
