@@ -7828,6 +7828,8 @@ body {
   }
 }*/
 
+/*********************** CARE INSTRUCTION ***********************/
+
 /*********************** ABOUT ***********************/
 /* image */
 .custom__item {
@@ -7835,18 +7837,17 @@ body {
     padding:0!important;
     img {width:100%;}
   }
-  h4.h3 {font-size:42px; font-weight:600;}
+  h4.h3 {font-size:42px; font-weight:600; color:$ee-title-color;}
+  &.custom__item--1576411184874, &.custom__item--1576411203192 {
+    max-width:900px; margin-left: auto; margin-right: auto;
+    p {font-weight:600; font-size:20px; color:$ee-title-color;}
+  }
 }
 
 /* Layout */
-.about-page {
+.about-page, .care-instruction-page {
   .ee-dynamic-section {
     .ee-container {padding:0;}
-    /* mission */
-    .custom__item.custom__item--1576411184874 {
-      max-width:900px; margin-left: auto; margin-right: auto;
-      p {font-weight:600; font-size:20px; color:$ee-title-color;}
-    }
     .custom-content {margin:0;}
   }
 }
@@ -7900,26 +7901,29 @@ body {
 }
 
 /* Custom link list */
-.main__content .custom-linklist {
-  @include display-flexbox();
-  @include align-items(center);
-  @include justify-content(space-between);
-  margin:0; list-style:none; background:#fff; position:relative;
+#shopify-section-link-list {
+  width:100%;
+  .custom-linklist {
+    @include display-flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+    margin:0; list-style:none; background:#fff; position:relative;
 
-  &:before {
-    content:''; position:absolute; top:0; bottom:0; left:50%;
-    transform: translateX(-50%); width:100vw; background:#fff;
-  }
-
-  li {
-    margin:0; width:100%; position:relative;
-    &:not(:last-child) {border-right:1px solid #f0f0f0;}
-    a {
-      font-size:20px; font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color;
-      text-decoration: none; border:none; padding:15px; display: block; text-align:center;
+    &:before {
+      content:''; position:absolute; top:0; bottom:0; left:50%;
+      transform: translateX(-50%); width:100vw; background:#fff;
     }
-    &.active a, a:hover, a:focus {
-      background:$ee-green; color:#fff;
+
+    li {
+      margin:0; width:100%; position:relative;
+      &:not(:last-child) {border-right:1px solid #f0f0f0;}
+      a {
+        font-size:20px; font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color;
+        text-decoration: none; border:none; padding:15px; display: block; text-align:center;
+      }
+      &.active a, a:hover, a:focus {
+        background:$ee-green; color:#fff;
+      }
     }
   }
 }
