@@ -6981,14 +6981,14 @@ $toolbar-height-small: 46px;
   position: relative;
   margin: 0 auto;
 }
-
+/*
 .custom__image {
   width: 100%;
   display: block;
   position: absolute;
   top: 0;
 }
-
+*/
 /*================ Flex item alignment ================*/
 .align--top-middle {
   text-align: center;
@@ -7603,7 +7603,7 @@ body {
   box-sizing:border-box; border:30px solid #fff;
   background:#f4f3f0 url($ee-img-body-pattern);
 }
-.ee-container {max-width: 1121px; padding:0 20px;}
+.ee-container {max-width: 1210px; padding:0 20px;}
 
 /* HEADER */
 .shopify-section {position: relative; z-index: 3;}
@@ -7827,17 +7827,41 @@ body {
 }*/
 
 /*********************** ABOUT ***********************/
+/* image */
+.custom__item {
+  .custom__item-inner--image > div {
+    padding:0!important;
+    img {width:100%;}
+  }
+  h4.h3 {font-size:42px; font-weight:600;}
+}
+
+/* Layout */
+.about-page {
+  .ee-dynamic-section {
+    .ee-container {padding:0;}
+    /* mission */
+    .custom__item.custom__item--1576411184874 {
+      max-width:900px; margin-left: auto; margin-right: auto;
+      p {font-weight:600; font-size:20px; color:$ee-title-color;}
+    }
+    .custom-content {margin:0;}
+  }
+}
+
 /* Gallery slider */
 .gallery-slider {
+  max-width: 870px; margin-left: auto; margin-right: auto;
+
   .gallery-slider__item-inner {
     overflow:hidden;
     .gallery-slider__img {transition: $ee-transition;}
   }
   .slick-arrow {
-    color:#000; width:40px; height:40px;
+    color:#000; width:40px; height:40px; z-index:2;
 
     &:before {
-      font-family: $ee-font-awesome; font-weight: 600; color:inherit;
+      font-family: $ee-font-awesome; font-weight: 600; font-size:28px; color:inherit;
       position:absolute; top:50%; left:50%;
       transform:translate(-50%,-50%);
     }
@@ -7908,8 +7932,7 @@ body {
     .custom__item:not(:last-child) {
       border-bottom:2px solid #e1e1e1; padding-bottom:30px;
     }
-    h4.h3 {font-size:42px; font-weight:600;}
-    .custom__item:nth-child(2){
+    .custom__item.custom__item--1576592917121 {
       p:first-child {font-family: $ee-font-poppins; letter-spacing: 3px; font-size: 18px; margin-bottom:5px;}
       p:not(:first-child) {font-weight:600; margin-bottom:0;}
     }
