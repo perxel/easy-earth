@@ -67,7 +67,7 @@
     },
     "newsletter_form": {
       "newsletter_email": "Subscribe to our mailing list",
-      "email_placeholder": "Email address",
+      "email_placeholder": "Your email address",
       "confirmation": "Thanks for subscribing!",
       "submit": "Subscribe"
     },
@@ -182,7 +182,7 @@
   },
   "collections": {
     "general": {
-      "view_all": "View all",
+      "view_all": "Learn more",
       "view_all_label": "View all products in the {{ collection_name }} collection",
       "no_matches": "Sorry, there are no products in this collection",
       "items_with_count": {
