@@ -571,13 +571,32 @@
           "heading": "You may also like",
           "show_vendor": false
         }
+      },
+      "1577372567794": {
+        "type": "custom-content",
+        "blocks": {
+          "1577372583675": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"insta-feed\"><\/div>",
+              "width": "100%"
+            }
+          }
+        },
+        "block_order": [
+          "1577372583675"
+        ],
+        "settings": {
+          "title": ""
+        }
       }
     },
     "content_for_index": [
       "hero",
       "featured-collections",
       "feature-row",
-      "slideshow"
+      "slideshow",
+      "1577372567794"
     ]
   },
   "presets": {
