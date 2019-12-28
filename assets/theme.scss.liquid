@@ -2646,7 +2646,7 @@ textarea {
 
 .page-container {
   transition: $transition-drawer;
-  position: relative;
+  position: relative; z-index:2;
   overflow: hidden;
 
   @include media-query($medium-up) {
@@ -7577,6 +7577,12 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 .ee-margin-bottom-40px {margin-bottom:40px;}
 .ee-margin-bottom-80px {margin-bottom:80px;}
 
+/************** Easy Earth Images [eeimages] ***************/
+$ee-img-body-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/body-pattern.jpg?v=1576292855';
+$ee-img-header-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/header-pattern.jpg?v=1576292993';
+$ee-img-decor-01: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-01.png?v=1577507265';
+$ee-img-decor-02: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-02.png?v=1577507265';
+
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
 a, button {transition: $ee-transition;}
@@ -7595,14 +7601,14 @@ a, button {transition: $ee-transition;}
 body {
   font-size:15px; line-height:1.8; font-family: $ee-font-opensans;
   box-sizing:border-box; border:30px solid #fff;
-  background:#f4f3f0 url(https://cdn.shopify.com/s/files/1/0258/0158/8808/files/body-pattern.jpg?v=1576292855);
+  background:#f4f3f0 url($ee-img-body-pattern);
 }
 .ee-container {max-width: 1121px; padding:0 20px;}
 
 /* HEADER */
 .shopify-section {position: relative; z-index: 3;}
 .site-header {
-  background:url(https://cdn.shopify.com/s/files/1/0258/0158/8808/files/header-pattern.jpg?v=1576292993);
+  background:url($ee-img-header-pattern);
   position: relative; z-index: 2; padding:0 35px;
 }
 .site-header__mobile-nav {background:none;}
@@ -7995,6 +8001,24 @@ body .ee-grid {
     &:not(:last-child) {margin-bottom: 5px;}
     a {
       svg {display: none;}
+    }
+  }
+}
+
+/*********************** DECOR IMAGES ***********************/
+.ee-decor-img {
+  position:absolute;
+  pointer-events:none;
+  &.contact {
+    &.nth-01 {
+      right:0; top:50%;
+      width:117px; height:172px;
+      background:url($ee-img-decor-01);
+    }
+    &.nth-02 {
+      left:0; top:100%;
+      width:161px; height:195px;
+      background: url($ee-img-decor-02);
     }
   }
 }
