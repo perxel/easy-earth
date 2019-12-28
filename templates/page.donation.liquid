@@ -1,13 +1,17 @@
+<div class="ee-decor-img contact nth-01"></div>
+<div class="ee-decor-img contact nth-02"></div>
 <div class="page-width ee-container">
     <div class="section-header ee-section-header">
     <h1>{{ page.title }}</h1>
     <div class="breadcrumbs">{% section 'breadcrumbs' %}</div>
   </div>
 
-    <div class="page__content">
-        {% section 'dynamic-content' %}
+    <div class="page__content donation-page contact-page ee-display-flex ee-flex-wrap">
+        <div class="ee-dynamic-section">
+            {% section 'dynamic-content' %}
+        </div>
 
-        <div class="ee-donation-form ee-form ee-margin-bottom-40px">
+        <div class="ee-right-col ee-donation-form ee-form ee-margin-bottom-80px">
             {%- assign formId = 'DonationForm' -%}
             {% form 'contact', id: formId %}
                 {% include 'form-status', form_id: formId %}
@@ -52,7 +56,7 @@
                         <input class="ee-form-input" type="text" id="{{ formId }}-date" name="donation[date]" value="{% if form[date] %}{{ form[date] }}{% endif %}">
                     </div>
 
-                    <div class="ee-form-row">
+                    <div class="ee-form-row ee-form-row--select">
                         <label class="ee-form-label" for="{{ formId }}-place">{{ 'donation.form.place' | t }}</label>
                         <select class="ee-form-select" id="{{ formId }}-place" name="donation[place]">
                             <option selected>SightPro.com</option>
@@ -60,7 +64,7 @@
                         </select>
                     </div>
 
-                    <div class="ee-form-row">
+                    <div class="ee-form-row ee-form-row--select">
                         <label class="ee-form-label" for="{{ formId }}-nonprofit">{{ 'donation.form.nonprofit' | t }}</label>
                         <select class="ee-form-select" id="{{ formId }}-nonprofit" name="donation[place]">
                             <option selected>World Wildlife Fund</option>

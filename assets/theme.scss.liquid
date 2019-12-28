@@ -7586,6 +7586,8 @@ $ee-img-decor-02: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
 a, button {transition: $ee-transition;}
+.ee-dynamic-section ul {margin-left:18px;}
+p:empty {display:none;}
 
 /************** Easy Earth Editor [eeeditor] ***************/
 .ee-btn-green {
@@ -7937,7 +7939,7 @@ body {
       p:not(:first-child) {font-weight:600; margin-bottom:0;}
     }
   }
-  .ee-contact-form {width:57%;}
+  .ee-right-col {width:57%;}
 }
 
 /* Form */
@@ -7955,11 +7957,20 @@ body {
     display:block; height:57px; line-height:57px; width:100%;
     background:#fff; padding:0 20px; border:none; outline:none; border-radius:0;
     transition:$ee-transition;
+    font-weight:500; font-size:18px;
+
     &:hover, &:focus {
       box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
     }
     &[aria-describedby*="error"] {
       box-shadow:inset 0 0 0 1px $ee-red;
+    }
+  }
+  .ee-form-select {color:$ee-green;}
+  .ee-form-row--select {
+    &:before {
+      content:'\f078'; font-family: $ee-font-awesome; font-weight:600;
+      position:absolute; bottom:13px; right:20px; color:$ee-green;
     }
   }
   .input-error-message {

@@ -5283,6 +5283,42 @@ EE.decorImages = function () {
     $('.ee-decor-img').detach().appendTo('body');
 };
 
+/**
+ * Convert text to ul
+ */
+EE.markdownList = function () {
+    $('p:empty').detach();
+    $('p').each(function () {
+        let $this = $(this), content = $this.html();
+        if (content[0] === "*") {
+            let begin = true, char, listItems = '';
+            for (let i = 0; i <= content.length; i++) {
+                char = content[i];
+
+                // begin
+                if (char === "*" && begin) {
+                    begin = false;
+                    listItems += '<li>';
+                } else if (char === "*" && !begin) {
+                    // end
+                    begin = true;
+                    listItems += '</li><li>';
+                } else {
+                    listItems += char;
+                }
+            }
+            listItems += '</li>';
+
+            // replace
+            listItems = listItems.replace("<br>", "");
+            listItems = listItems.replace("<span>", "");
+            listItems = listItems.replace("</span>", "");
+            $this.html('<ul>' + listItems + '</ul>');
+            console.log(listItems);
+        }
+    });
+};
+
 EE.init = function () {
     EE.gallerySlider();
     EE.accordion();
@@ -5293,5 +5329,6 @@ EE.init = function () {
     EE.loopGallery();
     EE.loopGroupItems();
     EE.decorImages();
+    EE.markdownList();
 };
 EE.init();
