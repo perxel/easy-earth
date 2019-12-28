@@ -65,79 +65,28 @@
           "color_text": "#fff"
         }
       },
-      "hero": {
-        "type": "hero",
-        "settings": {
-          "image": "",
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "medium",
-          "text_size": "large",
-          "title": "Image with text overlay",
-          "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
-          "button_label": "",
-          "button_link": ""
-        }
-      },
-      "slideshow": {
-        "type": "slideshow",
-        "blocks": {
-          "slideshow-0": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/shutterstock_1117543868-1.jpg",
-              "alignment": "center center",
-              "slide_title": "",
-              "subheading": "",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "slideshow-1": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/5dcd034477425.jpg",
-              "alignment": "center top",
-              "slide_title": "",
-              "subheading": "",
-              "button_label": "",
-              "button_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "slideshow-0",
-          "slideshow-1"
-        ],
-        "settings": {
-          "slideshow_height": "adapt",
-          "text_size": "medium",
-          "text_alignment": "center center",
-          "show_overlay": false,
-          "autorotate": false,
-          "autorotate_speed": 3
-        }
-      },
       "featured-collections": {
         "type": "collection",
         "settings": {
-          "title": "Featured collection",
+          "title": "OUR FAVORITES",
+          "text": "<p>Our bags are out of the ordinary &ndash; in the best way possible. We use top-notch materials and innovative design to create products you&rsquo;ll love using for years to come. With a variety of shapes, sizes, and patterns, there&rsquo;s something for everyone. These bags are made in the USA, made to last, and ready to take on your heaviest loads.<\/p>\n<p>We&rsquo;re not trying to sell the most bags. We&rsquo;re trying to sell the <em>best<\/em> bags.<\/p>",
           "collection": "frontpage",
           "grid": 3,
           "rows": 2,
           "show_vendor": false,
-          "show_view_all": false
+          "show_view_all": true,
+          "view_all": "SHOW ME MORE"
         }
       },
       "feature-row": {
         "type": "feature-row",
         "settings": {
-          "image": "",
+          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
           "layout": "left",
-          "title": "Image with text",
-          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-          "button_label": "",
-          "button_link": ""
+          "title": "Lorem Consecteru Doloren",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ulco laboris aliquipnatus.<\/p>",
+          "button_label": "LEARN MORE",
+          "button_link": "shopify:\/\/collections\/all"
         }
       },
       "footer": {
@@ -344,7 +293,8 @@
             "settings": {
               "page_handle": "care-instruction",
               "quote": "<p>Lorem ipsum dolor sit ameting consectetur adipisicing etin eddo eiusmod temporing dor unde dolor sit nostrud.<\/p>",
-              "author": "David Lynch"
+              "author": "David Lynch",
+              "position": ""
             }
           }
         },
@@ -352,7 +302,8 @@
           "1576413673056"
         ],
         "settings": {
-          "title": "Testimonials"
+          "title": "Testimonials",
+          "class_name": ""
         }
       },
       "extra-content": {
@@ -436,7 +387,7 @@
             "settings": {
               "page_handle": "about-us",
               "image": "shopify:\/\/shop_images\/5dcd034477425.jpg",
-              "width": "full-width",
+              "width": "100%",
               "alignment": "center"
             }
           },
@@ -445,7 +396,7 @@
             "settings": {
               "page_handle": "about-us",
               "title": "Our story",
-              "text": "<p>Our story begins with the facts. There is not one place on the planet that plastic pollution hasn't reached. Out of 100 billion plastic shopping bags consumed in the United States, only 1% is recycled. According to the report Marine Litter Vial Graphics&rdquo; published by the UN, marine plastic pollution is present in 100% of marine turtles, 59% of whales, 36% of seals, and 40% of seabird species examined. Our global population of 7 billion produced over 320 million tons of plastic, a number that will double by 2034. We need to join the fight against this. But how can we help? Big change starts with small steps. Our step was creating the EasyEarth reusable bags - a durable, practical, inexpensive, and, most importantly, an environmentally friendly alternative to the disposable plastic and paper bags. We all start by taking one step at a time. For us, creating a reusable, versatile alternative allows us to lead others in their first steps of a journey to protect our home.<\/p>",
+              "text": "<p>Our story begins with the facts.<\/p>\n<p>There is not one place on the planet that plastic pollution hasn't reached.<\/p>\n<p>Out of 100 billion plastic shopping bags consumed in the United States, only 1% is recycled. According to the report Marine Litter Vial Graphics&rdquo; published by the UN, marine plastic pollution is present in 100% of marine turtles, 59% of whales, 36% of seals, and 40% of seabird species examined. Our global population of 7 billion produced over 320 million tons of plastic, a number that will double by 2034. We need to join the fight against this. But how can we help?<\/p>\n<p>Big change starts with small steps. Our step was creating the EasyEarth reusable bags - a durable, practical, inexpensive, and, most importantly, an environmentally friendly alternative to the disposable plastic and paper bags. We all start by taking one step at a time. For us, creating a reusable, versatile alternative allows us to lead others in their first steps of a journey to protect our home.<\/p>",
               "width": "66%",
               "alignment": "center",
               "align_text": "left"
@@ -498,7 +449,7 @@
             "settings": {
               "page_handle": "contact-us",
               "title": "",
-              "text": "<p>CONTACT US<\/p>\n<p>Tel: 949-294-2597 Mail: help@easyearth.com<\/p>",
+              "text": "<p><strong>CONTACT US<\/strong><\/p>\n<p>Tel: 949-294-2597<\/p>\n<p>Mail: help@easyearth.com<\/p>",
               "width": "100%",
               "alignment": "center",
               "align_text": "left"
@@ -509,7 +460,7 @@
             "settings": {
               "page_handle": "donate",
               "title": "EasyEarth is a proud member of 1% for the Planet.",
-              "text": "<p>Each year, we donate one percent of our profits to environmental nonprofits that work to:<\/p>\n<p>Protect the environment Advocate for animals<\/p>\n<p>If you are an EasyEarth customer and want to help our missions, please complete this form and select your favorite charity you want us to donate to from the drop down lists.<\/p>",
+              "text": "<p>Each year, we donate one percent of our profits to environmental nonprofits that work to:<\/p>\n<p><\/p>\n<p>* Protect the environment<br><span>* Advocate for animals<\/span><\/p>\n<p><\/p>\n<p>If you are an EasyEarth customer and want to help our missions, please complete this form and select your favorite charity you want us to donate to from the drop down lists.<\/p>",
               "width": "100%",
               "alignment": "center",
               "align_text": "left"
@@ -571,13 +522,138 @@
           "heading": "You may also like",
           "show_vendor": false
         }
+      },
+      "1577372567794": {
+        "type": "custom-content",
+        "blocks": {
+          "1577372583675": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"insta-feed\"><\/div>",
+              "width": "100%"
+            }
+          },
+          "1577511805340": {
+            "type": "html",
+            "settings": {
+              "code": "@easyearth",
+              "width": "50%"
+            }
+          }
+        },
+        "block_order": [
+          "1577511805340",
+          "1577372583675"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "1577509196175": {
+        "type": "newsletter",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
+          "section_title": "Subscribe & save 10%",
+          "subheading": "<p>Planet-saving deals, straight to your inbox. Become a member of EasyEarth today and get 10% off your order.&nbsp;<\/p>",
+          "show_background": true
+        }
+      },
+      "1577509583474": {
+        "type": "box-text",
+        "settings": {
+          "section_title": "We walk the walk",
+          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
+          "text": "<p>You&rsquo;re supporting an initiative for a better world in more ways than one when you shop with us. A portion of our profits goes to specially chosen non-profits that are just as dedicated to the environment as we are. You can feel good using your product and knowing that your dollars will be double effective.&nbsp;<\/p>",
+          "button_label": "LEARN MORE",
+          "button_link": "shopify:\/\/pages\/donate"
+        }
+      },
+      "1577511653204": {
+        "type": "icon-text",
+        "settings": {
+          "title_1": "Free Shipping",
+          "image_1": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "text_1": "<p>In-stock items will ship out the same day you buy it, with no additional cost to you.&nbsp;<\/p>",
+          "title_2": "Home Grown",
+          "image_2": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "text_2": "<p>Made in the USA and made to last. And that makes these bags an easy choice.<\/p>",
+          "title_3": "1 Year Warranty",
+          "image_3": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "text_3": "<p>We&rsquo;re so confident in our bags, we&rsquo;ll fully cover any flaws or failures for a full year.<\/p>"
+        }
+      },
+      "1577511739183": {
+        "type": "testimonials-with-text",
+        "blocks": {
+          "1577511739183-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name",
+              "position": "LOREM AGENCY"
+            }
+          },
+          "1577511739183-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name",
+              "position": "LOREM AGENCY"
+            }
+          },
+          "1577511739183-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name",
+              "position": "LOREM AGENCY"
+            }
+          }
+        },
+        "block_order": [
+          "1577511739183-0",
+          "1577511739183-1",
+          "1577511739183-2"
+        ],
+        "settings": {
+          "title": "TESTIMONIAL",
+          "sub_title": "What people are saying",
+          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
+          "class_name": ""
+        }
+      },
+      "1577511829036": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/about-img.png",
+          "layout": "left",
+          "title": "Easy, eco-friendly excellence.",
+          "text": "<p>When it comes to waste, our planet is filled with more than just plastic bags that never got recycled. We&rsquo;ve only got one planet. We plan to make the most of it.<\/p>\n<p>Our mission is creating a product you never have to buy again. Our items make it easy to be kind to our earth for generations, giving you a strong, quality alternative to all the disposables plastics. By making our products easy to find, affordable, and durable, we&rsquo;re making it easier to do right by our planet.<\/p>",
+          "button_label": "DISCOVER THE BRAND",
+          "button_link": "shopify:\/\/pages\/about-us"
+        }
+      },
+      "1577511903372": {
+        "type": "box-text",
+        "settings": {
+          "section_title": "We walk the walk",
+          "image": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "text": "<p>You&rsquo;re supporting an initiative for a better world in more ways than one when you shop with us. A portion of our profits goes to specially chosen non-profits that are just as dedicated to the environment as we are. You can feel good using your product and knowing that your dollars will be double effective.&nbsp;<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
       }
     },
     "content_for_index": [
-      "hero",
-      "featured-collections",
       "feature-row",
-      "slideshow"
+      "featured-collections",
+      "1577511653204",
+      "1577511739183",
+      "1577372567794",
+      "1577509583474",
+      "1577511829036",
+      "1577511903372",
+      "1577509196175"
     ]
   },
   "presets": {

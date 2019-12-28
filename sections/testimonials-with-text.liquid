@@ -1,36 +1,42 @@
-{% assign page_handle = page.handle %}
-
-<div class="page-width ee-container {{ section.blocks.class }}" data-section-id="{{ section.id }}" data-section-type="quotes">
-  {% if section.settings.title != blank %}
-    <div class="section-header text-center">
-      <h2>{{ section.settings.title | escape }}</h2>
+<div class="page-width ee-container {{ section.blocks.class }}" data-section-id="{{ section.id }}">
+  <div class="ee-testimonials">
+    <div class="ee-testimonials-image">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | img_url: 'original' }}" alt="Testimonial" />
+      {% endif %}
     </div>
-  {% endif %}
+    <div class="ee-testimonials-content">
+      {% if section.settings.title != blank %}
+        <div class="ee-section-header">
+          <h3>{{ section.settings.title | escape }}</h3>
+          <h2>{{ section.settings.sub_title | escape }}</h2>
+        </div>
+      {% endif %}
 
-  {% if section.blocks.size > 0 %}
-    <div class="quotes-wrapper ee-quotes-wrapper">
-      <div class="quotes-slider ee-quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
-        {% for block in section.blocks %}
-          {% if block.settings.page_handle == page_handle %}
-            <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
-              <blockquote class="quotes-slider__text ee-quote-slider__text text-center">
-                <span class="quote-icon ee-quote-icon">{% include 'icon-quote' %}</span>
-                {% if block.settings.quote != blank %}
-                  <div class="rte-setting rte">{{ block.settings.quote }}</div>
-                {% endif %}
-                {% if block.settings.author != blank %}
-                  <div class="ee-quote-author">{{ block.settings.author | escape }}</div>
-                {% endif %}
-                {% if block.settings.position != blank %}
-                  <div class="ee-quote-position">{{ block.settings.position | escape }}</div>
-                {% endif %}
-              </blockquote>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+      {% if section.blocks.size > 0 %}
+        <div class="ee-testimonials-wrapper">
+          <div class="ee-testimonials-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
+            {% for block in section.blocks %}
+              <div class="ee-testimonials--slide">
+                <blockquote class="ee-testimonials-slide__text">
+                  <span class="ee-testimonial-icon">{% include 'icon-quote' %}</span>
+                  {% if block.settings.quote != blank %}
+                    <div class="rte-setting rte">{{ block.settings.quote }}</div>
+                  {% endif %}
+                  {% if block.settings.author != blank %}
+                    <div class="ee-testimonial-author">{{ block.settings.author | escape }}</div>
+                  {% endif %}
+                  {% if block.settings.position != blank %}
+                    <div class="ee-testimonial-position">{{ block.settings.position | escape }}</div>
+                  {% endif %}
+                </blockquote>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
     </div>
-  {% endif %}
+  </div>
 
   {% if section.blocks.size == 0 %}
     {% include 'no-blocks' %}
@@ -41,27 +47,7 @@
 
 {% schema %}
 {
-  "name": {
-    "da": "Udtalelser",
-    "de": "Testimonials",
-    "en": "Testimonials",
-    "es": "Testimonios",
-    "fi": "Suositukset",
-    "fr": "Témoignages",
-    "hi": "प्रमाणपत्र",
-    "it": "Testimonial",
-    "ja": "お客様の声",
-    "ko": "추천",
-    "ms": "Testimoni",
-    "nb": "Tilbakemeldinger fra kunder",
-    "nl": "Getuigenissen",
-    "pt-BR": "Depoimentos",
-    "pt-PT": "Depoimentos",
-    "sv": "Kundberättelser",
-    "th": "เสียงชื่นชมจากลูกค้า",
-    "zh-CN": "感言",
-    "zh-TW": "推薦文"
-  },
+  "name": "Testimonials with text",
   "class": "index-section",
   "max_blocks": 9,
   "settings": [
@@ -89,27 +75,17 @@
         "zh-CN": "标题",
         "zh-TW": "標題"
       },
-      "default": {
-        "da": "Udtalelser",
-        "de": "Testimonials",
-        "en": "Testimonials",
-        "es": "Testimonios",
-        "fi": "Suositukset",
-        "fr": "Témoignages",
-        "hi": "प्रमाणपत्र",
-        "it": "Testimonial",
-        "ja": "お客様の声",
-        "ko": "추천",
-        "ms": "Testimoni",
-        "nb": "Tilbakemeldinger fra kunder",
-        "nl": "Getuigenissen",
-        "pt-BR": "Depoimentos",
-        "pt-PT": "Depoimentos",
-        "sv": "Kundberättelser",
-        "th": "เสียงชื่นชมจากลูกค้า",
-        "zh-CN": "感言",
-        "zh-TW": "推薦文"
-      }
+      "default": "Testimonials with text"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub-Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
     },
     {
       "type": "text",
@@ -142,11 +118,6 @@
         "zh-TW": "推薦文"
       },
       "settings": [
-        {
-          "type": "page",
-          "id": "page_handle",
-          "label": "Select a page"
-        },
         {
           "type": "richtext",
           "id": "quote",
@@ -242,34 +213,15 @@
         {
           "type": "text",
           "id": "position",
-          "label": "position"
+          "label": "position",
+          "default": "LOREM AGENCY"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": {
-        "da": "Udtalelser",
-        "de": "Testimonials",
-        "en": "Testimonials",
-        "es": "Testimonios",
-        "fi": "Suositukset",
-        "fr": "Témoignages",
-        "hi": "प्रमाणपत्र",
-        "it": "Testimonial",
-        "ja": "お客様の声",
-        "ko": "추천",
-        "ms": "Testimoni",
-        "nb": "Tilbakemeldinger fra kunder",
-        "nl": "Getuigenissen",
-        "pt-BR": "Depoimentos",
-        "pt-PT": "Depoimentos",
-        "sv": "Kundberättelser",
-        "th": "เสียงชื่นชมจากลูกค้า",
-        "zh-CN": "感言",
-        "zh-TW": "推薦文"
-      },
+      "name": "Testimonials with text",
       "category": {
         "da": "Tekst",
         "de": "Text",

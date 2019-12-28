@@ -1,15 +1,17 @@
-<div class="page-width ee-container">
-  <div class="section-header ee-section-header">
-    <h1>{{ page.title }}</h1>
-    <div class="breadcrumbs">{% section 'breadcrumbs' %}</div>
-  </div>
-
-  <div class="main__content rte">
-    <div class="page__content">
-      {% section 'dynamic-content' %}
-      {% section 'accordion' %}
-      {% section 'quotes' %}
-      {% section 'extra-content' %}
+<div class="page-width ee-container care-instruction-page">
+    <div class="section-header ee-section-header">
+        <h1>{{ page.title }}</h1>
+        <div class="breadcrumbs">{% section 'breadcrumbs' %}</div>
     </div>
-  </div>
+
+    <div class="main__content rte">
+        <div class="page__content">
+            <div class="ee-dynamic-section">
+                {% section 'dynamic-content' %}
+            </div>
+            {% section 'accordion' %}
+            {% section 'quotes' %}
+            {% section 'extra-content' %}
+        </div>
+    </div>
 </div>
