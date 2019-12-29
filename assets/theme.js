@@ -5319,6 +5319,46 @@ EE.markdownList = function () {
     });
 };
 
+/**
+ * Blog Masonry
+ */
+
+EE.masonry = function(){
+    if($('.ee-blog-items .ee-grid--blog').length > 0){
+        $('.ee-blog-items .ee-grid--blog').masonry({
+            // options
+            itemSelector: '.ee-grid__item'
+        });
+    }
+};
+
+/**
+ * Testimonial SLider
+ */
+
+EE.testimonialSlider = function (){
+    if($('.ee-testimonials-slider').length > 0){
+        $('.ee-testimonials-slider').slick({
+            slidesToShow: 1,
+            fade: true,
+            dots: true,
+            arrows: false,
+            swipeToSlide: true,
+            infinite: true
+        });
+    }
+    if($('.ee-quotes-slider').length > 0){
+        $('.ee-quotes-slider').slick({
+            slidesToShow: 1,
+            fade: true,
+            dots: true,
+            arrows: false,
+            swipeToSlide: true,
+            infinite: true
+        });
+    }
+};
+
 EE.init = function () {
     EE.gallerySlider();
     EE.accordion();
@@ -5330,5 +5370,7 @@ EE.init = function () {
     EE.loopGroupItems();
     EE.decorImages();
     EE.markdownList();
+    EE.masonry();
+    EE.testimonialSlider();
 };
 EE.init();

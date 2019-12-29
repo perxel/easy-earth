@@ -296,10 +296,30 @@
               "author": "David Lynch",
               "position": ""
             }
+          },
+          "1577608158538": {
+            "type": "quote",
+            "settings": {
+              "page_handle": "care-instruction",
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name",
+              "position": ""
+            }
+          },
+          "1577608218495": {
+            "type": "quote",
+            "settings": {
+              "page_handle": "care-instruction",
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name",
+              "position": ""
+            }
           }
         },
         "block_order": [
-          "1576413673056"
+          "1576413673056",
+          "1577608158538",
+          "1577608218495"
         ],
         "settings": {
           "title": "Testimonials",
