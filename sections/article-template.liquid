@@ -1,36 +1,43 @@
-<div class="section-header">
+<div class="section-header ee-section-header">
   <h2 class="article-item__title">{{ blog.title }}</h2>
-  <a href="{{ blog.url }}" class="return-link" title="BACK">
-    <span>BACK</span>
+  <a href="{{ blog.url }}" class="ee-btn-return" title="BACK">
+    <span class="icon">{% include 'icon-return' %}</span>
+    <span class="text">BACK</span>
   </a>
-  {% if section.settings.blog_show_author %}
-    <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-  {% endif %}
 
-  {% if section.settings.blog_show_date %}
-    <span class="article-item__date">
-      {{ article.published_at | time_tag: format: 'date' }}
-    </span>
-  {% endif %}
+  {% comment %}
+    {% if section.settings.blog_show_author %}
+      <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+    {% endif %}
+
+    {% if section.settings.blog_show_date %}
+      <span class="article-item__date">
+        {{ article.published_at | time_tag: format: 'date' }}
+      </span>
+    {% endif %}
+  {% endcomment %}
 </div>
 
 <div class="main__content rte">
 
-  <div class="ee-article__top">
-    <h1>{{ article.title }}</h1>
+  <div class="ee-article__top ee-margin-bottom-50px">
 
-    {% if article.excerpt %}
-    <div class="ee-article__excerpt">
-      {{ article.excerpt }}
+    <div class="ee-article__top-inner">
+      <h1>{{ article.title }}</h1>
+
+      {% if article.excerpt %}
+      <div class="ee-article__excerpt">
+        {{ article.excerpt }}
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
     {% if article.image %}
       {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
       {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
       {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-      <div id="{{ img_wrapper_id }}" class="ee-article__image">
+      <div id="{{ img_wrapper_id }}" class="ee-article__image ee-padding-top-40px">
         <img id="{{ img_id }}"
              class="ee-article__img"
              src="{{ article.image | img_url: 'original' }}"
@@ -39,10 +46,13 @@
     {% endif %}
   </div>
 
-  <div class="ee-content">
-    {% if section.settings.show_share_buttons %}
-      {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-    {% endif %}
+  <div class="ee-content ee-margin-bottom-50px">
+
+    <div class="ee-content__sharing">
+      {% if section.settings.show_share_buttons %}
+        {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+      {% endif %}
+    </div>
 
     <div class="ee-content__article">
       {{ article.content }}
@@ -51,58 +61,58 @@
 
   {% if blog.articles_count > 1 %}
 
-    <div class="ee-related-blog">
+    <div class="ee-related-blog ee-padding-top-50px">
 
-      <h2 class="ee-related-blog___heading">Related Blog</h2>
+      <h2 class="ee-related-blog___heading ee-margin-bottom-40px">Related Blog</h2>
 
       {% assign current_article = article.handle %}
 
       {% paginate blog.articles by 3 %}
 
-        <ul class="ee-grid ee-grid--blog ee-display-flex ee-flex-wrap">
+        <ul class="ee-grid ee-grid--blog ee-display-flex ee-flex-wrap ee-justify-center related-grid ee-margin-bottom-40px">
           {% for article in blog.articles %}
             {% if current_article != article.handle %}
-              <li class="ee-grid__item {% if article.image %} article--has-image{% endif %}">
-                <a href="{{ article.url }}" class="article-item__link">
-                  {% if article.image %}
-                    {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
-                    {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
-                    {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+              <li class="ee-grid__item article-item {% if article.image %} article--has-image{% endif %}">
+                <div class="article-item-inner">
+                  <a href="{{ article.url }}" class="article-item__link">
+                    {% if article.image %}
+                      {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+                      {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
+                      {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                    <div id="{{ img_wrapper_id }}" class="article-item__image">
-                      <div data-ratio="1:1" class="article-item__image-bg ee-bg-cover" style="background-image:url({{ article.image | img_url: 'original' }})">
-                        <img id="{{ img_id }}"
-                             class="article-item__image-tag lazyload"
-                             src="{{ article.image | img_url: 'original' }}"
-                             alt="{{ article.title }}">
+                      <div id="{{ img_wrapper_id }}" class="article-item__image">
+                        <div data-ratio="1:1" class="article-item__image-bg ee-bg-cover" style="background-image:url({{ article.image | img_url: 'original' }})">
+                          <img id="{{ img_id }}"
+                               class="article-item__image-tag lazyload"
+                               src="{{ article.image | img_url: 'original' }}"
+                               alt="{{ article.title }}">
+                        </div>
                       </div>
+                    {% endif %}
+                  </a>
+
+                  <div class="article-item__info">
+                    {% if section.settings.blog_show_date %}
+                      <span class="article-item__date">
+                        {{ article.published_at | date: "%d.%m.%Y" }}
+                      </span>
+                    {% endif %}
+
+                    <h3 class="article-item__title h3{% if article.image %} article-item__title--has-image{% endif %}">
+                      {{ article.title | escape }}
+                    </h3>
+
+                    {% if section.settings.blog_show_author %}
+                      <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+                    {% endif %}
+
+                    <div class="article-item__button">
+                      <a href="{{ featured_article.url }}" class="ee-btn-arrow" aria-label="{{ 'blogs.article.read_more_title' | t: title: featured_article.title }}">
+                        {% include 'icon-right-arrow' %}
+                        <span class="icon__fallback-text">{{ 'blogs.article.read_more' | t }}</span>
+                      </a>
                     </div>
-                  {% endif %}
-                </a>
 
-                <div class="article-item__info">
-                  <h3 class="article-item__title h3">
-                    {{ article.title | escape }}
-                  </h3>
-
-                  {% if section.settings.blog_show_author %}
-                    <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-                  {% endif %}
-
-                  {% if section.settings.blog_show_date %}
-                    <span class="article-item__date">
-                      {{ article.published_at | date: "%d.%m.%Y" }}
-                    </span>
-                  {% endif %}
-
-                  <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
-                    <ul class="list--inline article__meta-buttons">
-                      <li>
-                        <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
-                          {{ 'blogs.article.read_more' | t }}
-                        </a>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </li>
@@ -112,9 +122,11 @@
 
       {% endpaginate %}
 
-      <a href="{{ blog.url }}" class="ee-related-blog__btn" title="VIEW ALL BLOGS">
-        VIEW ALL BLOGS
-      </a>
+      <div class="ee-related-blog__btn ee-margin-bottom-80px">
+        <a href="{{ blog.url }}" class="ee-btn-transparent" title="VIEW ALL BLOGS">
+          VIEW ALL BLOGS
+        </a>
+      </div>
 
     </div>
 

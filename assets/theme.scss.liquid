@@ -1383,6 +1383,8 @@ h1 {
   font-size: em(floor($font-size-header * 1.35));
   text-transform: none;
   letter-spacing: 0;
+  font-weight:600;
+  color:#233c4c;
 
   @include media-query($small) {
     font-size: em(floor($font-size-header * 1.25));
@@ -1391,8 +1393,8 @@ h1 {
 
 h2 {
   font-size: em(floor($font-size-header * 0.78));
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-weight:600;
+  color:#233c4c;
 
   @include media-query($small) {
     font-size: em(floor(($font-size-header * 0.78) * 0.9));
@@ -1403,6 +1405,8 @@ h3 {
   font-size: em($font-size-header);
   text-transform: none;
   letter-spacing: 0;
+  font-weight:600;
+  color:#233c4c;
 
   @include media-query($small) {
     font-size: em(floor($font-size-header * 0.78));
@@ -1411,6 +1415,8 @@ h3 {
 
 h4 {
   font-size: em(floor($font-size-header * 0.68));
+  font-weight:600;
+  color:#233c4c;
 
   @include media-query($small) {
     font-size: em(floor(($font-size-header * 0.68) * 0.9));
@@ -1419,6 +1425,8 @@ h4 {
 
 h5 {
   font-size: em(floor($font-size-header * 0.58));
+  font-weight:600;
+  color:#233c4c;
 
   @include media-query($small) {
     font-size: em(floor(($font-size-header * 0.58) * 0.9));
@@ -1427,6 +1435,8 @@ h5 {
 
 h6 {
   font-size: em(floor($font-size-header * 0.54));
+  font-weight:600;
+  color:#233c4c;
 
   @include media-query($small) {
     font-size: em(floor(($font-size-header * 0.54) * 0.9));
@@ -7567,6 +7577,7 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 .ee-display-flex {@include display-flexbox();}
 .ee-align-center {@include align-items(center);}
 .ee-justify-space-between {@include justify-content(space-between);}
+.ee-justify-center {@include justify-content(center);}
 .ee-flex-wrap {flex-wrap:wrap;}
 .ee-font-poppins {font-family:$ee-font-poppins;}
 .ee-font-opensans {font-family:$ee-font-opensans;}
@@ -7574,10 +7585,12 @@ $ee-font-awesome: 'Font Awesome 5 Free';
   background-size:cover; background-position: center;
   img {opacity: 0; width: 100%; height: 100%;}
 }
-.ee-margin-bottom-40px {margin-bottom:40px;}
-.ee-padding-bottom-50px {padding-bottom:50px;}
-.ee-margin-bottom-50px {margin-bottom:50px;}
-.ee-margin-bottom-80px {margin-bottom:80px;}
+.ee-margin-bottom-40px {margin-bottom:40px!important;}
+.ee-padding-top-40px {padding-top:40px!important;}
+.ee-padding-top-50px {padding-top:50px!important;}
+.ee-padding-bottom-50px {padding-bottom:50px!important;}
+.ee-margin-bottom-50px {margin-bottom:50px!important;}
+.ee-margin-bottom-80px {margin-bottom:80px!important;}
 
 /************** Easy Earth Images [eeimages] ***************/
 $ee-img-body-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/body-pattern.jpg?v=1576292855';
@@ -7789,8 +7802,8 @@ body {
   @include justify-content(space-between);
   border-bottom:2px solid #e6e4e2;
 
-  h1 {
-    font-weight:600; font-size:55px;
+  h1, h2 {
+    font-weight:600; font-size:55px; text-transform:unset; letter-spacing: unset;
   }
 
   .breadcrumb {
@@ -8040,8 +8053,34 @@ body {
 /*********************** BLOG ***********************/
 /* Grid */
 body .ee-grid {
-  list-style:none; margin:0;
-  .ee-grid__item {width:33.33%;}
+  list-style:none; margin-left:-40px; margin-right:-40px; position:relative; width:auto;
+
+  &:before, &:after {
+    content:''; position:absolute; top:0; bottom:30px;
+    width:2px; background:#e1e1e1;
+  }
+  &:before {left:33.33%;}
+  &:after {right:33.33%;}
+
+  .ee-grid__item {
+    width:33.33%; padding:0 40px; margin:0;
+    box-sizing:border-box;
+    .article-item-inner {
+      border-bottom:2px solid #e1e1e1; margin-bottom:30px; padding-bottom:10px;
+    }
+  }
+
+  &.related-grid {
+    &:before, &:after {display:none;}
+    .ee-grid__item {
+      position:relative;
+      &:not(:last-child):before {
+        content:''; position:absolute; top:0; bottom:0; right:0;
+        width:2px; background:#e1e1e1;
+      }
+      .article-item-inner {border-bottom:none; margin-bottom:0; padding-bottom:0;}
+    }
+  }
 }
 
 /* Article item */
@@ -8082,6 +8121,80 @@ a.ee-btn-arrow {
     svg {transform: translateX(5px);}
     polygon {fill:$ee-green;}
   }
+}
+
+/********************* BLOG DETAIL ****************************/
+/* Top section */
+.ee-article__top {
+  text-align:center;
+  .ee-article__top-inner {max-width:830px; margin:0 auto;}
+  h1 {font-size:40px; color:$ee-title-color; font-weight:600; line-height:1.25; margin-bottom:10px;}
+  .ee-article__excerpt {
+    font-size:20px; color:$ee-title-color; font-weight:600;
+  }
+}
+.ee-content {
+  max-width:600px; margin-left:auto; margin-right:auto; position:relative;
+  .ee-content__sharing {
+    position:absolute; top:0; left:-80px;
+  }
+}
+
+/* Social sharing */
+body .ee-social-sharing {
+  list-style:none; margin:0;
+  li {
+    display:block; padding:0;
+    &:not(:last-child) {margin-bottom:20px;}
+    a {
+      color:#8e8e8e; text-align:center; display:flex; flex-direction:column; align-items:center;
+      padding:0!important; border:none!important;
+      svg {
+        max-width:15px!important;
+        path {fill:#8e8e8e; transition:$ee-transition;}
+      }
+      .share-icon {
+        border:1px solid #8e8e8e; width:34px; height:34px; border-radius:50%; margin-bottom:3px;
+        transition:$ee-transition;
+      }
+      .share-title {font-size:9px; font-family:$ee-font-poppins; font-weight:600;}
+      &:hover, &:focus {
+        .share-icon {background:$ee-green;}
+        path {fill:#fff;}
+      }
+    }
+  }
+}
+
+/* Related blog */
+.ee-related-blog {
+  position:relative;
+  &:before {
+    content:''; position:absolute; top:0; left:50%;
+    transform:translateX(-50%); width:100vw;
+    height:2px; background:#e6e4e2;
+  }
+  .ee-related-blog___heading {text-align:center; font-size:30px; font-weight:600;}
+}
+.ee-related-blog__btn {text-align:center;}
+
+.ee-btn-return {
+  font-size:12px; font-family:$ee-font-poppins; color:$ee-title-color; font-weight:700;
+  padding:0!important; border:none!important;
+  .icon {width:12px; margin-right:5px; display:inline-block;}
+  path {transition:$ee-transition;}
+  &:hover, &:focus {
+    color:$ee-green!important;
+    path {fill:$ee-green;}
+  }
+}
+.ee-btn-transparent {
+  padding:20px!important; border:1px solid #000!important; box-sizing:border-box;
+  font-family:$ee-font-poppins; font-size:14px; font-weight:600;
+  text-transform:uppercase; color:#000; letter-spacing:2px;
+  width:100%; text-align:center; max-width:360px; display:inline-block;
+  &:hover {background:#162e3e; color:#fff!important;}
+  &:focus {background:#0b202d; color:#fff!important;}
 }
 
 /********************* FOOTER ****************************/
