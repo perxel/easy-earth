@@ -2,8 +2,8 @@
 
 <div class="ee-accordion-block">
   {% if section.settings.title != blank %}
-    <div class="section-header text-center">
-      <h4 class="h2">{{ section.settings.title | escape }}</h4>
+    <div class="section-header">
+      <h4>{{ section.settings.title | escape }}</h4>
     </div>
   {% endif %}
 
@@ -13,7 +13,10 @@
         <div class="ee-accordion__item">
           <div class="ee-accordion__item-inner">
             {% if block.settings.title != blank %}
-              <h4>{{ block.settings.title | escape }}</h4>
+              <h4>
+                {{ block.settings.title | escape }}
+                <span class="ee-accordion__item-icon"></span>
+              </h4>
             {% endif %}
             {% if block.settings.text != blank %}
               <div class="ee-accordion__item-content" style="display: none">{{ block.settings.text }}</div>
