@@ -149,11 +149,11 @@
                     {% endif %}
                 {% endif %}
 
-                <div class="ee-header-icon ee-header-icon--wishlist">
-                    <a href="#swym-wishlist" title="Wishlist">
-                        Wishlist
-                    </a>
-                </div>
+                <!-- wishlist -->
+                <a href="#swym-wishlist" title="Wishlist" class="ee-header-icon ee-header-icon--wishlist">
+                    {% include 'icon-heart' %}
+                    <span class="icon__fallback-text">Wishlist</span>
+                </a>
 
                 <!-- currency -->
                 {% if shop.enabled_currencies.size > 1 %}

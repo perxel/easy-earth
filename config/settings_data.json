@@ -272,8 +272,8 @@
             "type": "text",
             "settings": {
               "page_handle": "care-instruction",
-              "title": "Lorem Ipsum",
-              "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+              "title": "error sit voluptatem",
+              "text": "<p>* Lorem ipsum dolor sit amet consectetur adipisicing elit<br>* Sed do eiusmod tempor incididunt ut labore etting sit consecting uinet recting amet dolore magna aliqua.<br><span>* Tempor incididunt ut labore et dolore magna aliqua.<br><\/span>* Ut enim ad minim veniam quis nostrud exerci tation ullamco laboris nisi ut aliquip hinging met commodo consequat.<\/p>"
             }
           }
         },
@@ -314,7 +314,7 @@
             "settings": {
               "page_handle": "care-instruction",
               "image": "shopify:\/\/shop_images\/5dcd0278d5a2b.jpg",
-              "width": "100%",
+              "width": "50%",
               "alignment": "center"
             }
           },
@@ -324,7 +324,7 @@
               "page_handle": "care-instruction",
               "title": "Quis autem vel eum iure reprehenderit qui in ea quam nihil voluptate velit quo tas esse connect sed omnis.",
               "text": "<p>Excepteur sint occaecat cupidatat non proident mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volup aspernatur aut odit aut fugit.<\/p>",
-              "width": "100%",
+              "width": "50%",
               "alignment": "center",
               "align_text": "left"
             }
@@ -418,7 +418,7 @@
             "settings": {
               "page_handle": "care-instruction",
               "image": "shopify:\/\/shop_images\/photo-1556761175-5973dc0f32e7.jpg",
-              "width": "full-width",
+              "width": "100%",
               "alignment": "center"
             }
           },
@@ -428,7 +428,7 @@
               "page_handle": "care-instruction",
               "title": "",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tem por incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.<\/p>",
-              "width": "100%",
+              "width": "50%",
               "alignment": "center",
               "align_text": "left"
             }
@@ -526,18 +526,18 @@
       "1577372567794": {
         "type": "custom-content",
         "blocks": {
-          "1577372583675": {
-            "type": "html",
-            "settings": {
-              "code": "<div id=\"insta-feed\"><\/div>",
-              "width": "100%"
-            }
-          },
           "1577511805340": {
             "type": "html",
             "settings": {
               "code": "@easyearth",
               "width": "50%"
+            }
+          },
+          "1577372583675": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"insta-feed\"><\/div>",
+              "width": "100%"
             }
           }
         },
