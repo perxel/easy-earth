@@ -7586,7 +7586,7 @@ $ee-img-decor-02: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
 a, button {transition: $ee-transition;}
-.ee-dynamic-section ul {margin-left:18px;}
+.ee-container ul {margin-left:18px;}
 p:empty {display:none;}
 
 /************** Easy Earth Editor [eeeditor] ***************/
@@ -7829,6 +7829,44 @@ body {
 }*/
 
 /*********************** CARE INSTRUCTION ***********************/
+/* Accordion */
+.ee-accordion-block {
+  width:50%; margin-left:auto; margin-right:auto;
+  .section-header {
+    margin-bottom: 20px;
+    h4 {font-size:25px; font-weight:600; color:$ee-title-color; font-family: $ee-font-poppins; margin:0;}
+  }
+  .ee-accordion {
+    .ee-accordion__item {
+      border-top:2px solid #828280;
+      &:last-child {border-bottom:2px solid #828280;}
+      h4 {
+        font-weight:600; font-size:15px; color:#000; cursor: pointer;
+        margin:0; padding:18px 0; text-transform: uppercase; position:relative;
+      }
+      .ee-accordion__item-icon {
+        display:block; width: 20px; height:20px;
+        border:1px solid #e4e4e4; border-radius:50%;
+        position:absolute; top:50%; right:8px;
+        transform:translateY(-50%);
+        transition: $ee-transition;
+        &:before, &:after {
+          content:''; position:absolute; top:50%; left:50%;
+          transform:translate(-50%,-50%); transition: $ee-transition;
+          width:10px; height:2px; background:#828280;
+        }
+        &:before {width:2px; height:10px;}
+      }
+      .ee-accordion__item-content {padding:0 20px 20px 20px;}
+      &.active {
+        .ee-accordion__item-icon {
+          &:before, &:after {transform:translate(-50%,-50%) rotate(180deg);}
+          &:before {opacity:0;}
+        }
+      }
+    }
+  }
+}
 
 /*********************** ABOUT ***********************/
 /* image */
