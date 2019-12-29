@@ -58,26 +58,27 @@
 
     {% endif %}
 
-    <ul class="ee-grid ee-grid--blog ee-display-flex ee-flex-wrap related-grid">
+    <ul class="ee-grid ee-grid--blog ee-display-flex ee-flex-wrap">
       {% for article in blog.articles offset:blog_offset %}
         <li class="ee-grid__item article-item {% if article.image %} article--has-image{% endif %}">
             <div class="article-item-inner">
-              <a href="{{ article.url }}" class="article-item__link">
-                {% if article.image %}
-                  {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
-                  {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
-                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                  <div id="{{ img_wrapper_id }}" class="article-item__image">
-                    <div data-ratio="1:1" class="article-item__image-bg ee-bg-cover" style="background-image:url({{ article.image | img_url: 'original' }})">
-                      <img id="{{ img_id }}"
-                           class="article-item__image-tag lazyload"
-                           src="{{ article.image | img_url: 'original' }}"
-                           alt="{{ article.title }}">
+              {% if article.image %}
+                <a href="{{ article.url }}" class="article-item__link">
+                    {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+                    {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
+                    {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                    <div id="{{ img_wrapper_id }}" class="article-item__image">
+                      <div data-ratio="1:1" class="article-item__image-bg ee-bg-cover" style="background-image:url({{ article.image | img_url: 'original' }})">
+                        <img id="{{ img_id }}"
+                             class="article-item__image-tag lazyload"
+                             src="{{ article.image | img_url: 'original' }}"
+                             alt="{{ article.title }}">
+                      </div>
                     </div>
-                  </div>
-                {% endif %}
-              </a>
+                </a>
+              {% endif %}
 
               <div class="article-item__info">
 

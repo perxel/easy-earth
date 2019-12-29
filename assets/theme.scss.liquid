@@ -8123,6 +8123,25 @@ a.ee-btn-arrow {
   }
 }
 
+/* Pagination */
+.ee-pagination {
+  .ee-pagination__link {
+    background:none; border:none!important; padding:0!important; margin:0 2px; display:block;
+    width:50px; height:50px; line-height:50px; text-align:center; border-radius:50%; font-weight:600;
+    &.prev, &.next {
+      @extend .ee-pagination__link;
+      svg {width:10px;}
+      path {transition:$ee-transition;}
+    }
+    &.active {background:#233c4c; color:#fff;}
+    &:not(.active):hover, &:not(.active):focus {
+      background:rgba(35, 60, 76, .7)!important; color:#fff!important;
+      path {fill:#fff;}
+    }
+    &[disabled] {pointer-events:none;}
+  }
+}
+
 /********************* BLOG DETAIL ****************************/
 /* Top section */
 .ee-article__top {
