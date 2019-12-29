@@ -8,7 +8,7 @@
       {% assign blog_offset = 1 %}
       {% assign featured_article = blog.articles[0] %}
 
-      <div class="ee-blog-items__featured">
+      <div class="article-item article-item--featured ee-display-flex ee-flex-wrap ee-align-center ee-margin-bottom-50px ee-padding-bottom-50px">
         <a href="{{ featured_article.url }}" class="article-item__link">
           {% if featured_article.image %}
             {% capture img_id %}ArticleImage-{{ featured_article.image.id }}{% endcapture %}
@@ -27,6 +27,14 @@
         </a>
 
         <div class="article-item__info">
+          <div class="article-item__info-inner">
+
+          {% if section.settings.blog_show_date %}
+            <span class="article-item__date">
+              {{ featured_article.published_at | date: "%d.%m.%Y" }}
+            </span>
+          {% endif %}
+
           <h3 class="article-item__title">
             {{ featured_article.title | escape }}
           </h3>
@@ -35,20 +43,13 @@
             <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: featured_article.author }}</span>
           {% endif %}
 
-          {% if section.settings.blog_show_date %}
-            <span class="article-item__date">
-              {{ featured_article.published_at | date: "%d.%m.%Y" }}
-            </span>
-          {% endif %}
+          <div class="article-item__button">
+            <a href="{{ featured_article.url }}" class="ee-btn-arrow" aria-label="{{ 'blogs.article.read_more_title' | t: title: featured_article.title }}">
+              {% include 'icon-right-arrow' %}
+              <span class="icon__fallback-text">{{ 'blogs.article.read_more' | t }}</span>
+            </a>
+          </div>
 
-          <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
-            <ul class="list--inline article__meta-buttons">
-              <li>
-                <a href="{{ featured_article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: featured_article.title }}">
-                  {{ 'blogs.article.read_more' | t }}
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
 
@@ -92,15 +93,13 @@
               <span class="article-item__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
             {% endif %}
 
-            <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
-              <ul class="list--inline article__meta-buttons">
-                <li>
-                  <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
-                    {{ 'blogs.article.read_more' | t }}
-                  </a>
-                </li>
-              </ul>
+            <div class="article-item__button">
+              <a href="{{ featured_article.url }}" class="ee-btn-arrow" aria-label="{{ 'blogs.article.read_more_title' | t: title: featured_article.title }}">
+                {% include 'icon-right-arrow' %}
+                <span class="icon__fallback-text">{{ 'blogs.article.read_more' | t }}</span>
+              </a>
             </div>
+
           </div>
         </li>
       {% endfor %}
