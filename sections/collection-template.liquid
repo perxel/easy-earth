@@ -139,12 +139,14 @@
       <div class="ee-shop-grid ee-display-flex ee-flex-wrap">
 
         <!-- header item -->
-        <div class="ee-grid__item ee-grid__item--header">
-          <div class="section-header ee-section-header">
-            <div class="breadcrumbs">{% include 'breadcrumbs' %}</div>
-            <h1>Shop</h1>
+        <div class="ee-grid__item ee-grid__item--header ee-display-flex ee-align-center">
+          <div class="ee-grid__item--header__inner">
+            <div class="ee-section-header ee-section-header--shop-item">
+              <div class="breadcrumbs">{% include 'breadcrumbs' %}</div>
+              <h1>Shop</h1>
+            </div>
+            <div class="ee-grid__item__search">{% include 'search-form' %}</div>
           </div>
-          <div class="ee-grid__item__search">{% include 'search-form' %}</div>
         </div>
 
         {% for product in collection.products %}
@@ -234,9 +236,12 @@
       </div>
     {% endif %}
 
-    {% if paginate.pages > 1 %}
-      {% include 'pagination' %}
-    {% endif %}
+    {% comment %}
+      {% if paginate.pages > 1 %}
+        {% include 'pagination' %}
+      {% endif %}
+    {% endcomment %}
+
   </div>
 </div>
 

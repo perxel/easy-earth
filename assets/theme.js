@@ -5245,16 +5245,20 @@ EE.swatches = function () {
  */
 
 EE.loopGallery = function () {
-    if ($('.ee-product-card__images').length > 0) {
-        $('.ee-product-card__images').slick({
+    $('.ee-product-item').each(function () {
+        let $wrapper = $(this),
+            $slider = $wrapper.find('.ee-product-card__images'),
+            $dots = $wrapper.find('.ee-product-item__image-dots');
+        $slider.slick({
             slidesToShow: 1,
             fade: true,
             dots: true,
+            appendDots: $dots,
             arrows: false,
             swipeToSlide: true,
             infinite: true
         });
-    }
+    });
 };
 
 /**
@@ -5323,8 +5327,8 @@ EE.markdownList = function () {
  * Blog Masonry
  */
 
-EE.masonry = function(){
-    if($('.ee-blog-items .ee-grid--blog').length > 0){
+EE.masonry = function () {
+    if ($('.ee-blog-items .ee-grid--blog').length > 0) {
         $('.ee-blog-items .ee-grid--blog').masonry({
             // options
             itemSelector: '.ee-grid__item'
@@ -5336,8 +5340,8 @@ EE.masonry = function(){
  * Testimonial SLider
  */
 
-EE.testimonialSlider = function (){
-    if($('.ee-testimonials-slider').length > 0){
+EE.testimonialSlider = function () {
+    if ($('.ee-testimonials-slider').length > 0) {
         $('.ee-testimonials-slider').slick({
             slidesToShow: 1,
             fade: true,
@@ -5347,7 +5351,7 @@ EE.testimonialSlider = function (){
             infinite: true
         });
     }
-    if($('.ee-quotes-slider').length > 0){
+    if ($('.ee-quotes-slider').length > 0) {
         $('.ee-quotes-slider').slick({
             slidesToShow: 1,
             fade: true,
