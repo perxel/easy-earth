@@ -7597,6 +7597,7 @@ $ee-img-body-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/bo
 $ee-img-header-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/header-pattern.jpg?v=1576292993';
 $ee-img-decor-01: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-01.png?v=1577507265';
 $ee-img-decor-02: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-02.png?v=1577507265';
+$ee-img-quote: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/quote-icon.png?v=1577664968';
 
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
@@ -7835,19 +7836,13 @@ body {
     margin-left:auto; margin-right:auto;
   }
 }
-/*.custom__item-inner--text {
-  h4 {font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color; font-size:40px;}
-  .rte-setting {
-    max-width:900px; margin:0 auto;
-    font-size:20px; font-family:$ee-font-poppins; font-weight:600; color:$ee-title-color;
-  }
-}*/
 
 /*********************** CARE INSTRUCTION ***********************/
 /* Layout */
 .care-instruction-page {
   padding-top:0;
   #shopify-section-extra-content {
+    padding:0;
     .custom-content {flex-direction:column; margin:0;}
     .custom__item--1576413729104 {
       h4.h3 {font-size:25px;}
@@ -7895,6 +7890,27 @@ body {
 }
 
 /* Testimonial */
+#shopify-section-quotes {padding:0;}
+.ee-quotes {
+  width:50%; margin-left:auto; margin-right:auto;
+  .ee-quotes-slide {display:block!important;}
+  .ee-quote-icon {
+    width:48px; height:48px; background:url($ee-img-quote) center/contain no-repeat;
+    margin-bottom:15px;
+  }
+  .ee-quote-content {
+    font-family:$ee-font-poppins; font-size:25px; font-weight:600; font-style:italic;
+    color:$ee-title-color; border-bottom:1px solid #233c4c; line-height:1.5;
+    margin-bottom:15px; padding-bottom:15px;
+  }
+  .ee-quote-author {
+    font-weight:700; font-style:italic; text-align:right;
+    &:before {
+      content:''; width:15px; height:2px; background:#071425;
+      position:relative; display:inline-block; bottom:5px; margin-right:5px;
+    }
+  }
+}
 
 /*********************** ABOUT ***********************/
 /* image */

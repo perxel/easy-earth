@@ -1,36 +1,34 @@
 {% assign page_handle = page.handle %}
 
-<div class="page-width ee-container {{ section.blocks.class }}" data-section-id="{{ section.id }}" data-section-type="quotes">
+<div class="ee-quotes {{ section.blocks.class }}" data-section-id="{{ section.id }}" data-section-type="quotes">
   {% comment %}
-  {% if section.settings.title != blank %}
-    <div class="section-header text-center">
-      <h2>{{ section.settings.title | escape }}</h2>
-    </div>
-  {% endif %}
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </div>
+    {% endif %}
   {% endcomment %}
 
   {% if section.blocks.size > 0 %}
-    <div class="ee-quotes-wrapper">
-      <div class="ee-quotes-slider">
-        {% for block in section.blocks %}
-          {% if block.settings.page_handle == page_handle %}
-            <div class="quotes-slide--{{ block.id }} ee-quotes-slide" {{ block.shopify_attributes }}>
-              <blockquote class="quotes-slider__text ee-quote-slider__text text-center">
-                <span class="quote-icon ee-quote-icon">{% include 'icon-quote' %}</span>
-                {% if block.settings.quote != blank %}
-                  <div class="rte-setting rte">{{ block.settings.quote }}</div>
-                {% endif %}
-                {% if block.settings.author != blank %}
-                  <div class="ee-quote-author">{{ block.settings.author | escape }}</div>
-                {% endif %}
-                {% if block.settings.position != blank %}
-                  <div class="ee-quote-position">{{ block.settings.position | escape }}</div>
-                {% endif %}
-              </blockquote>
+    <div class="ee-quotes-slider">
+      {% for block in section.blocks %}
+        {% if block.settings.page_handle == page_handle %}
+          <div class="quotes-slide--{{ block.id }} ee-quotes-slide" {{ block.shopify_attributes }}>
+            <div class="ee-quote-slider__text">
+              <div class="ee-quote-icon"></div>
+              {% if block.settings.quote != blank %}
+                <div class="ee-quote-content">{{ block.settings.quote }}</div>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <div class="ee-quote-author">{{ block.settings.author | escape }}</div>
+              {% endif %}
+              {% if block.settings.position != blank %}
+                <div class="ee-quote-position">{{ block.settings.position | escape }}</div>
+              {% endif %}
             </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
   {% endif %}
 
