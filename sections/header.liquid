@@ -110,13 +110,7 @@
 
         <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right ee-header-icons{% if shop.customer_accounts_enabled %} ee-header-icons--plus{% endif %}">
             <div class="site-header__icons-wrapper">
-                {% comment %}
-                    <div class="site-header__search ee-header-icon">
-                        {% include 'search-form' %}
-                    </div>
-                {% endcomment %}
-
-                <!-- search open drawer from top -->
+                <!-- search form -->
                 <button type="button" class="btn--link ee-header-icon ee-header-icon--search site-header__search-toggle js-drawer-open-top">
                     {% include 'icon-search' %}
                     <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
@@ -328,6 +322,9 @@
 <nav class="ee-nav__extra-menu" role="navigation">
     {% include 'extra-nav' %}
 </nav>
+
+<div class="ee-header-search-wrapper">{% include 'search-form' %}</div>
+
 </div>
 
 

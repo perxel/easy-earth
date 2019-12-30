@@ -5174,9 +5174,30 @@ EE.accordion = function () {
 };
 
 /* extra menu */
-EE.extraMenu = function () {
-    $('.ee-header-icon--extra-menu').click(function () {
+EE.menu = function () {
+    // extra menu
+    let $extraMenuTrigger = $('.ee-header-icon--extra-menu');
+    $extraMenuTrigger.click(function () {
         $html.toggleClass('extra-menu-open');
+    });
+
+    // search
+    let $searchTrigger = $('.ee-header-icon--search');
+    $searchTrigger.click(function () {
+        $html.toggleClass('ee-search-open');
+    });
+
+    // close when click outside of header
+    $(document).click(function (event) {
+        var $target = $(event.target);
+        if (!$target.closest('#shopify-section-header').length) {
+            if ($html.hasClass('ee-search-open')) {
+                $searchTrigger.trigger('click');
+            }
+            if ($html.hasClass('extra-menu-open')) {
+                $extraMenuTrigger.trigger('click');
+            }
+        }
     });
 };
 
@@ -5366,7 +5387,7 @@ EE.testimonialSlider = function () {
 EE.init = function () {
     EE.gallerySlider();
     EE.accordion();
-    EE.extraMenu();
+    EE.menu();
     EE.keepRatio('.gallery-slider__img', 85, 50);
     EE.productGallery();
     EE.swatches();
