@@ -1,31 +1,39 @@
-<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
-  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
-    <span class="visually-hidden">{{ product.title }}</span>
-  </a>
-
-  {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
-  {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
-  {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-  {% unless product.featured_image == blank %}
-    {% include 'image-style' with image: product.featured_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
-  {% endunless %}
-
-  <ul class="ee-product-card__images">
-    {% for image in product.images %}
-      <li class="ee-product-card__image js">
-        <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
-           class="text-link ee-product-card__link"
-           data-thumbnail-id="{{ image.id }}"
-           {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-          <img class="ee-product-card__img" src="{{ image.src | img_url: 'original' }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+<div class="ee-product-item {% unless product.available %}ee-product-item--sold-out{% endunless %}">
+    <div class="ee-product-item__inner">
+        <a class="ee-product-item__link ee-product-item__image-container full-width-link"
+           href="{{ product.url | within: collection }}">
+            <span class="visually-hidden">{{ product.title }}</span>
         </a>
-      </li>
-    {% endfor %}
-  </ul>
 
-  <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+        {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+        {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+        {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-  {% include 'product-price', variant: product.selected_or_first_available_variant %}
+        {% unless product.featured_image == blank %}
+            {% include 'image-style' with image: product.featured_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+        {% endunless %}
 
+        <ul class="ee-product-card__images">
+            {% for image in product.images %}
+                <li class="ee-product-card__image js">
+                    <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                       class="text-link ee-product-card__link"
+                       data-thumbnail-id="{{ image.id }}"
+                       {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+                        <img class="ee-product-card__img" src="{{ image.src | img_url: 'original' }}"
+                             alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="ee-product-item__bottom ee-display-flex ee-justify-space-between">
+          <div class="ee-product-item__bottom--left ee-product-item__name-price">
+            <div class="ee-product-item__title" aria-hidden="true">{{ product.title }}</div>
+            {% include 'product-price', variant: product.selected_or_first_available_variant %}
+          </div>
+          <div class="ee-product-item__bottom--right"></div>
+        </div>
+
+    </div>
 </div>

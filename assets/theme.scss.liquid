@@ -5890,12 +5890,8 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   visibility: hidden;
 }
 
-.price__regular {
-  color: $color-body-text;
-}
-
 .price__sale {
-  color: $color-sale-text;
+  /*color: $color-sale-text;*/
   display: none;
 
   .price--on-sale & {
@@ -5921,10 +5917,6 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   .price--unit-available & {
     display: block;
   }
-}
-
-.price-item {
-  font-weight: $font-weight-header;
 }
 
 .price-item--regular {
@@ -7598,6 +7590,7 @@ $ee-img-header-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/
 $ee-img-decor-01: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-01.png?v=1577507265';
 $ee-img-decor-02: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-02.png?v=1577507265';
 $ee-img-quote: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/quote-icon.png?v=1577664968';
+$ee-img-shop-bg: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/shop-background.jpg?v=1577666155';
 
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
@@ -8230,6 +8223,33 @@ body .ee-social-sharing {
   width:100%; text-align:center; max-width:360px; display:inline-block;
   &:hover {background:#162e3e; color:#fff!important;}
   &:focus {background:#0b202d; color:#fff!important;}
+}
+
+/*********************** SHOP ***********************/
+.ee-shop-page {
+  margin-top:-55px; padding:140px 0;
+  background:url($ee-img-shop-bg) center/cover;
+  .ee-pagination {margin-bottom:0!important;}
+}
+.ee-shop-grid {
+  .ee-grid__item {width:33.33%;}
+}
+
+/* Product item */
+.ee-product-item {
+  position:relative;
+  &:before {}
+  .ee-product-item__inner {
+    position:relative; background:#fff;
+    .ee-product-item__name-price {
+      font-family:$ee-font-poppins; font-size:14px; font-weight:600; text-transform:uppercase;
+      .ee-product-item__title {color:$ee-title-color;}
+      .price {
+        color:#f94146;
+        &.price--on-sale .price__regular {color:#8e8e8e;}
+      }
+    }
+  }
 }
 
 /********************* FOOTER ****************************/

@@ -5367,7 +5367,7 @@ EE.init = function () {
     EE.productGallery();
     EE.swatches();
     EE.loopGallery();
-    EE.loopGroupItems();
+    //EE.loopGroupItems();
     EE.decorImages();
     EE.markdownList();
     EE.masonry();
