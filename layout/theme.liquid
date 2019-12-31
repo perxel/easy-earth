@@ -106,11 +106,11 @@
    href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
 {% comment %}
-    <div id="SearchDrawer" class="search-bar drawer drawer--top ee-display-flex" aria-modal="true"
+    <div id="SearchDrawer" class="search-bar drawer drawer--top ee-flex" aria-modal="true"
          aria-label="{{ 'general.search.placeholder' | t }}">
-        <div class="ee-search-bar ee-display-flex ee-align-center">
+        <div class="ee-search-bar ee-flex ee-align-center">
             <div class="ee-search-bar-item ee-search-bar__form-wrapper">
-                <form class="search search-bar__form ee-display-flex" action="{{ routes.search_url }}" method="get"
+                <form class="search search-bar__form ee-flex" action="{{ routes.search_url }}" method="get"
                       role="search">
                     <input class="ee-search__input search-bar__input" type="search" name="q"
                            value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}"

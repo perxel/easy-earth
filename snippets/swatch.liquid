@@ -39,7 +39,7 @@
         {% else %}
         <div class="ee-product__meta-block ee-swatch" data-option-index="{{ option_index }}">
             <div class="ee-swatch__label">{{ swatch }}</div>
-            <div class="ee-swatch__list ee-display-flex">
+            <div class="ee-swatch__list ee-flex">
                 {% assign values = '' %}
                 {% for variant in product.variants %}
                     {% assign value = variant.options[option_index] %}

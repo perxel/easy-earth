@@ -1,4 +1,4 @@
-<ul class="ee-site-nav ee-display-flex ee-justify-space-between {{ nav_alignment }}" id="ExtraNav">
+<ul class="ee-site-nav ee-flex ee-justify-space-between {{ nav_alignment }}" id="ExtraNav">
     {% for link in linklists[section.settings.extra_linklist].links %}
         {%- assign child_list_handle = link.title | handleize -%}
 
@@ -87,7 +87,7 @@
 
             {% if link.title == "Image" %}
                 {% if settings.menu_image %}
-                    <li class="ee-site-nav--item {% if link.active %}ee-site-nav--active{% endif %} ee-site-nav--image ee-display-flex">
+                    <li class="ee-site-nav--item {% if link.active %}ee-site-nav--active{% endif %} ee-site-nav--image ee-flex">
                         <div class="ee-site-nav--image-bg ee-bg-cover"
                              style="background-image: url({{ settings.menu_image | img_url: 'original' }})">
                             <img class="ee-site-nav__link-image" src="{{ settings.menu_image | img_url: 'original' }}"

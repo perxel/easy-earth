@@ -39,10 +39,10 @@
       {%- assign enable_zoom = false -%}
   {% endcase %}
 
-  <div class="ee-product-detail__info ee-display-flex ee-flex-wrap{% if section.settings.enable_payment_button %} product-single--{{ section.settings.image_size }}-image{% endif %}">
+  <div class="ee-product-detail__info ee-flex ee-flex-wrap{% if section.settings.enable_payment_button %} product-single--{{ section.settings.image_size }}-image{% endif %}">
 
     <!-- photo column -->
-    <div class="ee-product-detail__info-photo {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
+    <div class="ee-product-detail__info-photo ee-margin-bottom-40px {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
       {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
       {% for image in product.images %}
         {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
@@ -113,7 +113,7 @@
     </div>
 
     <!-- summary column -->
-    <div class="ee-product-detail__info-summnary {{ product_description_width }}">
+    <div class="ee-product-detail__info-summnary ee-margin-bottom-40px {{ product_description_width }}">
       <div class="product-single__meta ee-product__meta">
 
           <div class="ee-product__meta-block">
@@ -178,10 +178,10 @@
 
             <!-- quantity -->
             {% if section.settings.show_quantity_selector %}
-              <div class="ee-product__meta-block ee-product__quantity ee-display-flex ee-justify-space-between ee-align-center">
+              <div class="ee-product__meta-block ee-product__quantity ee-flex ee-justify-space-between ee-align-center">
                 <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
 
-                <div class="ee-product__quantity-group ee-display-flex hide-number-markup">
+                <div class="ee-product__quantity-group ee-flex hide-number-markup">
                   <a class="ee-product__quantity-btn decrease" data-id="<?php echo esc_attr( $input_id ); ?>">-</a>
                   <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="ee-product__quantity-input" pattern="[0-9]*" data-quantity-input>
                   <a class="ee-product__quantity-btn increase" data-id="<?php echo esc_attr( $input_id ); ?>">+</a>
@@ -260,28 +260,40 @@
 
   </div>
 
-  <div class="ee-product__general-info">
-    <div class="ee-product__general-item">
-      <img src="{{ section.settings.image_1 | img_url: 'original' }}" />
-      <h4>{{ section.settings.heading_1 }}</h4>
-      <div class="ee-product__general-content">
-        {{ section.settings.text_1 }}
+  <div class="ee-key-selling-point ee-margin-bottom-40px">
+      <div class="ee-ksp__inner ee-flex">
+
+        <div class="ee-ksp__item">
+          <div class="ee-ksp__item-inner">
+            <img class="ee-ksp__item-img" src="{{ section.settings.image_1 | img_url: 'original' }}" />
+            <h4 class="ee-ksp__item-title">{{ section.settings.heading_1 }}</h4>
+            <div class="ee-ksp__item-content">
+              {{ section.settings.text_1 }}
+            </div>
+          </div>
+        </div>
+
+        <div class="ee-ksp__item">
+          <div class="ee-ksp__item-inner">
+            <img class="ee-ksp__item-img" src="{{ section.settings.image_2 | img_url: 'original' }}" />
+            <h4 class="ee-ksp__item-title">{{ section.settings.heading_2 }}</h4>
+            <div class="ee-ksp__item-content">
+              {{ section.settings.text_2 }}
+            </div>
+          </div>
+        </div>
+
+        <div class="ee-ksp__item">
+          <div class="ee-ksp__item-inner">
+            <img class="ee-ksp__item-img" src="{{ section.settings.image_3 | img_url: 'original' }}" />
+            <h4 class="ee-ksp__item-title">{{ section.settings.heading_3 }}</h4>
+            <div class="ee-ksp__item-content">
+              {{ section.settings.text_3 }}
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-    <div class="ee-product__general-item">
-      <img src="{{ section.settings.image_2 | img_url: 'original' }}" />
-      <h4>{{ section.settings.heading_2 }}</h4>
-      <div class="ee-product__general-content">
-        {{ section.settings.text_2 }}
-      </div>
-    </div>
-    <div class="ee-product__general-item">
-      <img src="{{ section.settings.image_3 | img_url: 'original' }}" />
-      <h4>{{ section.settings.heading_3 }}</h4>
-      <div class="ee-product__general-content">
-        {{ section.settings.text_3 }}
-      </div>
-    </div>
   </div>
 </div>
 

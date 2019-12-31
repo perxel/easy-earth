@@ -69,7 +69,7 @@
 
       {% paginate blog.articles by 3 %}
 
-        <ul class="ee-grid ee-grid--blog ee-display-flex ee-flex-wrap ee-justify-center related-grid ee-margin-bottom-40px">
+        <ul class="ee-grid ee-grid--blog ee-flex ee-flex-wrap ee-justify-center related-grid ee-margin-bottom-40px">
           {% for article in blog.articles %}
             {% if current_article != article.handle %}
               <li class="ee-grid__item article-item {% if article.image %} article--has-image{% endif %}">

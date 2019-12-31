@@ -9,7 +9,7 @@
       {% assign featured_article = blog.articles[0] %}
 
       <div class="article-item article-item--featured ee-margin-bottom-50px ee-padding-bottom-50px">
-        <div class="article-item-inner ee-display-flex ee-flex-wrap ee-align-center">
+        <div class="article-item-inner ee-flex ee-flex-wrap ee-align-center">
           <a href="{{ featured_article.url }}" class="article-item__link">
             {% if featured_article.image %}
               {% capture img_id %}ArticleImage-{{ featured_article.image.id }}{% endcapture %}
@@ -58,7 +58,7 @@
 
     {% endif %}
 
-    <ul class="ee-grid ee-grid--blog ee-display-flex ee-flex-wrap">
+    <ul class="ee-grid ee-grid--blog ee-flex ee-flex-wrap">
       {% for article in blog.articles offset:blog_offset %}
         <li class="ee-grid__item article-item {% if article.image %} article--has-image{% endif %}">
             <div class="article-item-inner">
