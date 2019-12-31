@@ -5255,7 +5255,9 @@ EE.productGallery = function () {
  */
 
 EE.swatches = function () {
-    $('.swatch .swatch-element').click(function () {
+    let $swatchElement = $('.ee-swatch__element');
+    $swatchElement.click(function () {
+        $swatchElement.removeClass('selected');
         $(this).addClass('selected');
         $("select.single-option-selector").val($(this).data("value")).trigger('change');
     });
@@ -5384,6 +5386,31 @@ EE.testimonialSlider = function () {
     }
 };
 
+/**
+ * Custom quantity control
+ */
+EE.customQuantity = function () {
+    $('.ee-product__quantity-group').each(function () {
+        let $wrapper = $(this), $btn = $wrapper.find('a'), newVal, id, $input = $wrapper.find('input');
+
+        $btn.click(function () {
+            newVal = parseInt($input.val());
+
+            // if up
+            if ($(this).hasClass('increase')) {
+                newVal += 1;
+            }
+            // if down
+            if ($(this).hasClass('decrease') && newVal > 1) {
+                newVal -= 1;
+            }
+            $input.val(newVal);
+            $input.focus();
+            $input.keydown();
+        });
+    });
+};
+
 EE.init = function () {
     EE.gallerySlider();
     EE.accordion();
@@ -5397,5 +5424,6 @@ EE.init = function () {
     EE.markdownList();
     EE.masonry();
     EE.testimonialSlider();
+    EE.customQuantity();
 };
 EE.init();

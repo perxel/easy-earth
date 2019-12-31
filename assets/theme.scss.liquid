@@ -7606,6 +7606,15 @@ p:empty {display:none;}
 
   &:hover {background:$ee-hover-color;}
   &:focus {background:$ee-focus-color;}
+
+  &.ee-btn-green--icon {
+    display:block; width:100%; font-size:14px; font-weight:600; text-transform:uppercase;
+    svg {
+      width:20px; display:inline-block; margin-right:5px;
+      position: relative; bottom: -3px;
+      path {fill:#fff;}
+    }
+  }
 }
 
 /************** Easy Earth Custom ***************/
@@ -7949,23 +7958,7 @@ html:not(.ee-search-open) .ee-header-search-wrapper {opacity:0; visibility:hidde
     overflow:hidden;
     .gallery-slider__img {transition: $ee-transition;}
   }
-  .slick-arrow {
-    color:#000; width:40px; height:40px; z-index:2;
 
-    &:before {
-      font-family: $ee-font-awesome; font-weight: 600; font-size:28px; color:inherit;
-      position:absolute; top:50%; left:50%;
-      transform:translate(-50%,-50%);
-    }
-    &.slick-prev {left:-40px;}
-    &.slick-next {right:-40px;}
-    &.slick-prev:before {content: '\f053';}
-    &.slick-next:before {content: '\f054';}
-
-    &:hover, &:focus {
-      background: $ee-green; color:#fff;
-    }
-  }
   .slick-list {
     overflow:visible;
 
@@ -8308,6 +8301,120 @@ body .slick-dots {
 }
 body .slick-slide > div > div {display:block!important;}
 
+/* Slick arrows */
+body .slick-arrow {
+  color:#000; width:40px; height:40px; z-index:2;
+
+  &:before {
+    font-family: $ee-font-awesome; font-weight: 600; font-size:28px; color:inherit;
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+  }
+  &.slick-prev {left:-40px;}
+  &.slick-next {right:-40px;}
+  &.slick-prev:before {content: '\f053';}
+  &.slick-next:before {content: '\f054';}
+
+  &:hover, &:focus {
+    background: $ee-green; color:#fff;
+  }
+}
+
+/*********************** SHOP DETAIL ***********************/
+.ee-meta-label {
+   font-size:14px; font-family: $ee-font-poppins; font-weight:600; text-transform:uppercase; color:$ee-title-color;
+}
+.ee-product-detail__info {
+  .ee-product-detail__info-photo {
+    width:45%;
+    .ee-thumbnails-wrapper {padding:0 35px;}
+    .ee-product-detail_thumbnails {
+      margin:0!important;
+      .ee-product-detail_thumbnails-item {
+        padding:0 5px;
+        .ee-product-detail_thumbnails-link {
+          position:relative; display:block;
+          &:before {
+            content:''; position:absolute; top:0; left:0; bottom:0; right:0;
+            border:1px solid #bababa; transition:$ee-transition;
+          }
+          .ee-product-detail_thumbnails-image {}
+          &.active-thumb {
+            &:before {border:4px solid #f94146;}
+          }
+          &:focus {outline:none;}
+        }
+      }
+    }
+  }
+  .ee-product-detail__info-summnary {
+    width:55%; padding-left:70px; box-sizing:border-box;
+    .ee-product__meta-block {border-bottom:1px solid #e1e1e1; padding-bottom:20px; margin-bottom:20px;}
+    .ee-product__title {font-size:30px; margin:0 0 10px;}
+    .ee-product__price {font-size:30px; color:#f94146; font-weight:600; font-family:$ee-font-poppins; line-height:1;}
+    .ee-product__form {
+      .product-form {display:block; padding:0;}
+      .ee-product__quantity {
+        label {
+          @extend .ee-meta-label;
+          margin:0;
+        }
+        input, a {
+          width:40px; height:40px; line-height:40px; min-height:unset;
+          background:transparent; padding:0; text-align:center; user-select:none;
+        }
+        a {
+          cursor:pointer;
+          &:hover {background:$ee-green; color:#fff;}
+        }
+        input {border:none; border-left:1px solid #bababa; border-right:1px solid #bababa;}
+        .ee-product__quantity-group {border:1px solid #bababa; width:auto;}
+      }
+    }
+    .ee-product__information {
+      .ee-product__information-item {
+        display:flex;
+        &:not(:last-child) {margin-bottom:10px;}
+        .ee-product__information-label {
+          min-width:120px; @extend .ee-meta-label;
+        }
+      }
+    }
+    .ee-swatch {
+      .ee-swatch__label {@extend .ee-meta-label; margin-bottom:20px;}
+      .ee-swatch__element {
+        margin-right:15px; position:relative;
+        input {display:none;}
+        label {
+          width:74px; height:74px; border-radius:50%; overflow:hidden;
+          img {opacity:0; width:100%; height:100%;} position:relative; z-index:2;
+          &:before {
+            content:''; position:absolute; top:0; left:0; bottom:0; right:0;
+            border:1px solid #bbbbbb; transition:$ee-transition; border-radius:50%;
+          }
+        }
+        .ee-swatch__tooltip {
+          position:absolute; bottom:100%; left:50%;
+          transform:translateX(-50%); transition:$ee-transition;
+          background:$ee-green; padding:5px 10px; color:#fff;
+          margin-bottom:5px; white-space:nowrap;
+        }
+        &:not(:hover) {
+          .ee-swatch__tooltip {bottom:90%; opacity:0; visibility:hidden;}
+        }
+        &.selected {
+          label:before {border:4px solid #f94146;}
+        }
+      }
+    }
+  }
+}
+.hide-number-markup input[type="number"]::-webkit-outer-spin-button,
+.hide-number-markup input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; margin: 0;
+}
+.hide-number-markup input[type="number"] {-moz-appearance: textfield;}
+
 /********************* FOOTER ****************************/
 .site-footer {
   margin:0;
@@ -8364,165 +8471,4 @@ body .slick-slide > div > div {display:block!important;}
       background: url($ee-img-decor-02);
     }
   }
-}
-
-/*
-   Swatches Styles
-*/
-
-{% assign width = '50px' %}
-{% assign height = '35px' %}
-.swatch {
-  margin:1em 0;
-}
-/* Label */
-.swatch .header {
-  margin: 0.5em 0;
-}
-/* Hide radio buttons.*/
-.swatch input {
-  display:none;
-}
-.swatch label {
-  /* Rounded corners */
-  -webkit-border-radius:2px;
-  -moz-border-radius:2px;
-  border-radius:2px;
-  /* To give width and height */
-  float:left;
-  /* Color swatches contain no text so they need to have a width. */
-  min-width:{{ width }} !important;
-  height:{{ height }} !important;
-  /* No extra spacing between them */
-  margin:0;
-  /* The border when the button is not selected */
-  border:#ccc 1px solid;
-  /* Background color */
-  background-color:#ddd;
-  /* Styling text */
-  font-size:13px;
-  text-align:center;
-  line-height:{{ height }};
-  white-space:nowrap;
-  text-transform:uppercase;
-}
-.swatch-element label { padding:0 10px; }
-.color.swatch-element label { padding:0; }
-/* Styling selected swatch */
-/* Slightly raised */
-.swatch input:checked + label {
-  -webkit-box-shadow:0px 1px 2px rgba(0,0,0,0.8);
-  -moz-box-shadow:0px 1px 2px rgba(0,0,0,0.8);
-  box-shadow:0px 1px 2px rgba(0,0,0,0.8);
-  border-color:transparent;
-}
-.swatch .swatch-element {
-  float:left;
-  -webkit-transform:translateZ(0); /* webkit flicker fix */
-  -webkit-font-smoothing:antialiased; /* webkit text rendering fix */
-  /* Spacing between buttons */
-  margin:0px 10px 10px 0;
-  /* To position the sold out graphic and tooltip */
-  position:relative;
-}
-/* Image with the cross in it */
-.crossed-out { position:absolute; width:100%; height:100%; left:0; top:0; }
-.swatch .swatch-element .crossed-out { display:none; }
-.swatch .swatch-element.soldout .crossed-out { display:block; }
-.swatch .swatch-element.soldout label {
-  filter: alpha(opacity=60); /* internet explorer */
-  -khtml-opacity: 0.6;      /* khtml, old safari */
-  -moz-opacity: 0.6;       /* mozilla, netscape */
-  opacity: 0.6;           /* fx, safari, opera */
-}
-/* Tooltips */
-.swatch .tooltip {
-  text-align:center;
-  background:gray;
-  color:#fff;
-  bottom:100%;
-  padding: 10px;
-  display:block;
-  position:absolute;
-  width:100px;
-  left:{{ width | remove: 'px' | to_number | divided_by: 2 | minus: 50 | plus: 2 }}px;
-  margin-bottom:15px;
-  /* Make it invisible by default */
-  filter:alpha(opacity=0);
-  -khtml-opacity: 0;
-  -moz-opacity: 0;
-  opacity:0;
-  visibility:hidden;
-  /* Animations */
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  -o-transform: translateY(10px);
-  transform: translateY(10px);
-  -webkit-transition: all .25s ease-out;
-  -moz-transition: all .25s ease-out;
-  -ms-transition: all .25s ease-out;
-  -o-transition: all .25s ease-out;
-  transition: all .25s ease-out;
-  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  z-index: 10000;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
-}
-.swatch .tooltip:before {
-  bottom:-20px;
-  content:" ";
-  display:block;
-  height:20px;
-  left:0;
-  position:absolute;
-  width:100%;
-}
-/* CSS triangle */
-.swatch .tooltip:after {
-  border-left:solid transparent 10px;
-  border-right:solid transparent 10px;
-  border-top:solid gray 10px;
-  bottom:-10px;
-  content:" ";
-  height:0;
-  left:50%;
-  margin-left:-13px;
-  position:absolute;
-  width:0;
-}
-.swatch .swatch-element:hover .tooltip {
-  filter:alpha(opacity=100);
-  -khtml-opacity:1;
-  -moz-opacity:1;
-  opacity:1;
-  visibility:visible;
-  -webkit-transform:translateY(0px);
-  -moz-transform:translateY(0px);
-  -ms-transform:translateY(0px);
-  -o-transform:translateY(0px);
-  transform:translateY(0px);
-}
-.swatch.error {
-  background-color:#E8D2D2!important;
-  color:#333!important;
-  padding:1em;
-  border-radius:5px;
-}
-.swatch.error p {
-  margin:0.7em 0;
-}
-.swatch.error p:first-child {
-  margin-top:0;
-}
-.swatch.error p:last-child {
-  margin-bottom:0;
-}
-.swatch.error code {
-  font-family:monospace;
 }
