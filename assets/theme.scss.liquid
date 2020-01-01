@@ -7590,6 +7590,7 @@ $ee-img-body-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/bo
 $ee-img-header-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/header-pattern.jpg?v=1576292993';
 $ee-img-decor-01: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-01.png?v=1577507265';
 $ee-img-decor-02: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-02.png?v=1577507265';
+$ee-img-decor-03: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-03.png?v=1577918657';
 $ee-img-quote: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/quote-icon.png?v=1577664968';
 $ee-img-shop-bg: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/shop-background.jpg?v=1577666155';
 
@@ -7616,6 +7617,32 @@ p:empty {display:none;}
       path {fill:#fff;}
     }
   }
+}
+a.ee-btn-arrow {
+  display:block; width:30px; border:none!important; padding:0!important;
+  svg, polygon {transition: $ee-transition;}
+  &:hover, &:focus {
+    svg {transform: translateX(5px);}
+    polygon {fill:$ee-green;}
+  }
+}
+.ee-btn-return {
+  font-size:12px; font-family:$ee-font-poppins; color:$ee-title-color; font-weight:700;
+  padding:0!important; border:none!important;
+  .icon {width:12px; margin-right:5px; display:inline-block;}
+  path {transition:$ee-transition;}
+  &:hover, &:focus {
+    color:$ee-green!important;
+    path {fill:$ee-green;}
+  }
+}
+.ee-btn-transparent {
+  padding:20px!important; border:1px solid #000!important; box-sizing:border-box;
+  font-family:$ee-font-poppins; font-size:14px; font-weight:600;
+  text-transform:uppercase; color:#000; letter-spacing:2px;
+  width:100%; text-align:center; max-width:360px; display:inline-block;
+  &:hover {background:#162e3e; color:#fff!important;}
+  &:focus {background:#0b202d; color:#fff!important;}
 }
 
 /************** Easy Earth Custom ***************/
@@ -7851,6 +7878,25 @@ html:not(.ee-search-open) .ee-header-search-wrapper {opacity:0; visibility:hidde
   padding-left:0;
   &:not(.full-width) {
     margin-left:auto; margin-right:auto;
+  }
+}
+
+/*********************** HOME ***********************/
+.ee-feature-section {
+  .ee-feature-row__item {width:50%; box-sizing: border-box;}
+  .ee-feature-row__image {
+    .ee-feature-row__image-wrapper {
+      width:100%!important; max-width:unset!important; border:20px solid #fff; position:relative;
+      &:before {
+        content:''; position:absolute; top:10%; left:-13%;
+        width:99px; height:114px; background:url($ee-img-decor-03) center/contain no-repeat;
+      }
+    }
+  }
+  .ee-feature-row__text {
+    padding:0 100px;
+    .ee-feature-row__text-title {font-size:60px;}
+    .ee-feature-row__text-content {font-size:15px; font-weight:700; margin-bottom: 25px;}
   }
 }
 
@@ -8131,14 +8177,6 @@ body .ee-grid {
     }
   }
 }
-a.ee-btn-arrow {
-  display:block; width:30px; border:none!important; padding:0!important;
-  svg, polygon {transition: $ee-transition;}
-  &:hover, &:focus {
-    svg {transform: translateX(5px);}
-    polygon {fill:$ee-green;}
-  }
-}
 
 /* Pagination */
 .ee-pagination {
@@ -8213,25 +8251,6 @@ body .ee-social-sharing {
   .ee-related-blog___heading {text-align:center; font-size:30px; font-weight:600;}
 }
 .ee-related-blog__btn {text-align:center;}
-
-.ee-btn-return {
-  font-size:12px; font-family:$ee-font-poppins; color:$ee-title-color; font-weight:700;
-  padding:0!important; border:none!important;
-  .icon {width:12px; margin-right:5px; display:inline-block;}
-  path {transition:$ee-transition;}
-  &:hover, &:focus {
-    color:$ee-green!important;
-    path {fill:$ee-green;}
-  }
-}
-.ee-btn-transparent {
-  padding:20px!important; border:1px solid #000!important; box-sizing:border-box;
-  font-family:$ee-font-poppins; font-size:14px; font-weight:600;
-  text-transform:uppercase; color:#000; letter-spacing:2px;
-  width:100%; text-align:center; max-width:360px; display:inline-block;
-  &:hover {background:#162e3e; color:#fff!important;}
-  &:focus {background:#0b202d; color:#fff!important;}
-}
 
 /*********************** SHOP ***********************/
 .ee-shop-page {
