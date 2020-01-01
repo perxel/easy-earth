@@ -1,54 +1,36 @@
-<div class="page-width ee-container ee-icon-text">
-  <div class="ee-icon-text__content">
-    {% if section.settings.title_1 != blank %}
-      <div class="ee-icon-text__heading">
-        <h3>{{ section.settings.title_1 | escape }}</h3>
-      </div>
-    {% endif %}
-    {% if section.settings.text_1 != blank %}
-      <div class="ee-icon-text__txt">
-        {% if section.settings.image_1 != blank %}
-        <div class="ee-icon-text__icon">
-            <img src="{{ section.settings.image_1 | img_url: 'original' }}" alt="Icon" />
+<div class="ee-key-selling-point ee-key-selling-point--home ee-container">
+  <div class="ee-ksp__inner ee-flex">
+
+    <div class="ee-ksp__item">
+      <div class="ee-ksp__item-inner">
+        <img class="ee-ksp__item-img" src="{{ section.settings.image_1 | img_url: 'original' }}" />
+        <h4 class="ee-ksp__item-title">{{ section.settings.title_1 }}</h4>
+        <div class="ee-ksp__item-content">
+          {{ section.settings.text_1 }}
         </div>
-        {% endif %}
-        <div class="ee-icon-text__rte">{{ section.settings.text_1 }}</div>
       </div>
-    {% endif %}
-  </div>
-  <div class="ee-icon-text__content">
-    {% if section.settings.title_2 != blank %}
-      <div class="ee-icon-text__heading">
-        <h3>{{ section.settings.title_2 | escape }}</h3>
+    </div>
+
+    <div class="ee-ksp__item">
+      <div class="ee-ksp__item-inner">
+        <img class="ee-ksp__item-img" src="{{ section.settings.image_2 | img_url: 'original' }}" />
+        <h4 class="ee-ksp__item-title">{{ section.settings.title_2 }}</h4>
+        <div class="ee-ksp__item-content">
+          {{ section.settings.text_2 }}
+        </div>
       </div>
-    {% endif %}
-    {% if section.settings.text_2 != blank %}
-      <div class="ee-icon-text__txt">
-        {% if section.settings.image_2 != blank %}
-          <div class="ee-icon-text__icon">
-            <img src="{{ section.settings.image_2 | img_url: 'original' }}" alt="Icon" />
-          </div>
-        {% endif %}
-        <div class="ee-icon-text__rte">{{ section.settings.text_2 }}</div>
+    </div>
+
+    <div class="ee-ksp__item">
+      <div class="ee-ksp__item-inner">
+        <img class="ee-ksp__item-img" src="{{ section.settings.image_3 | img_url: 'original' }}" />
+        <h4 class="ee-ksp__item-title">{{ section.settings.title_3 }}</h4>
+        <div class="ee-ksp__item-content">
+          {{ section.settings.text_3 }}
+        </div>
       </div>
-    {% endif %}
-  </div>
-  <div class="ee-icon-text__content">
-    {% if section.settings.title_3 != blank %}
-      <div class="ee-icon-text__heading">
-        <h3>{{ section.settings.title_3 | escape }}</h3>
-      </div>
-    {% endif %}
-    {% if section.settings.text_3 != blank %}
-      <div class="ee-icon-text__txt">
-        {% if section.settings.image_3 != blank %}
-          <div class="ee-icon-text__icon">
-            <img src="{{ section.settings.image_3 | img_url: 'original' }}" alt="Icon" />
-          </div>
-        {% endif %}
-        <div class="ee-icon-text__rte">{{ section.settings.text_3 }}</div>
-      </div>
-    {% endif %}
+    </div>
+
   </div>
 </div>
 
