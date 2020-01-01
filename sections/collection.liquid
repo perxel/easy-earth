@@ -1,4 +1,6 @@
-<div class="page-width ee-container">
+<div class="ee-featured-collection">
+  <div class="ee-decor-img featured-collection nth-01"></div>
+  <div class="ee-decor-img featured-collection nth-02"></div>
 
   {%- assign collection = collections[section.settings.collection] -%}
 
@@ -19,48 +21,53 @@
 
   {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-  <ul class="grid ee-grid grid--uniform grid--view-items">
-    <div class="ee-grid__item-first">
-      {% if section.settings.title != blank %}
-        <div class="section-header text-center">
-          <h2>{{ section.settings.title | escape }}</h2>
-          <div class="ee-section-header__txt">
-            {{ section.settings.text }}
-          </div>
-          {% if section.settings.show_view_all %}
-            <div class="ee-section-header__btn">
-              <a href="{{ collection.url }}" class="btn" aria-label="{{ section.settings.view_all | t: collection_name: collection.title }}">
-                {{ section.settings.view_all | escape }}
-              </a>
+  <div class="ee-product-grid ee-featured-collection__grid">
+    <div class="ee-product-grid__container">
+      <div class="ee-product-grid__inner ee-flex ee-flex-wrap">
+
+        <!-- first item -->
+        <div class="ee-grid__item ee-grid__item--header ee-flex ee-align-center">
+          <div class="ee-grid__item--header__inner">
+            <h2 class="ee-grid__item--header__title ee-text-white">{{ section.settings.title | escape }}</h2>
+            <div class="ee-text-white ee-section-header__txt ee-margin-bottom-25px">
+              {{ section.settings.text }}
             </div>
-          {% endif %}
+            {% if section.settings.show_view_all %}
+              <div class="ee-section-header__btn">
+                <a href="{{ collection.url }}" class="ee-btn-transparent ee-btn-transparent--white" aria-label="{{ section.settings.view_all | t: collection_name: collection.title }}">
+                  {{ section.settings.view_all | escape }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
         </div>
-      {% endif %}
-    </div>
-    {% for product in collection.products limit: product_limit %}
-      <li class="grid__item ee-grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-        {% include 'product-card-grid', max_height: max_height %}
-      </li>
-    {% else %}
 
-      {% for i in (1..product_limit) %}
-        <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-          <div class="grid-view-item product-card">
-            <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
-              <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
-            </a>
-            <div class="grid-view-item__image-wrapper">
-              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-            </div>
-            <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
-            {% include 'product-price', variant: nil %}
+        {% for product in collection.products limit: product_limit %}
+          <div class="ee-grid__item">
+            {% include 'product-card-grid', max_height: max_height %}
           </div>
-        </li>
-      {% endfor %}
-    {% endfor %}
-  </ul>
+        {% else %}
 
+          {% for i in (1..product_limit) %}
+            <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+              <div class="grid-view-item product-card">
+                <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+                  <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+                </a>
+                <div class="grid-view-item__image-wrapper">
+                  {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+                <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+                {% include 'product-price', variant: nil %}
+              </div>
+            </li>
+          {% endfor %}
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
 </div>
 
 

@@ -5307,7 +5307,7 @@ EE.loopGroupItems = function () {
  * Move decor images element out to body tag
  */
 EE.decorImages = function () {
-    $('.ee-decor-img').detach().appendTo('body');
+    $('.ee-decor-img.move-to-body').detach().appendTo('body');
 };
 
 /**

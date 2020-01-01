@@ -17,7 +17,7 @@
 
 {% paginate collection.products by limit %}
 
-<div class="ee-shop-page" data-section-id="{{ section.id }}" data-section-type="collection-template">
+<div class="ee-product-grid ee-shop-page" data-section-id="{{ section.id }}" data-section-type="collection-template">
   {% comment %}
   <header class="collection-header">
     {%- assign is_filter_by_available = false -%}
@@ -123,7 +123,7 @@
   </header>
   {% endcomment %}
 
-  <div class="ee-shop-page__container" id="Collection">
+  <div class="ee-product-grid__container" id="Collection">
     {% if section.settings.layout == 'grid' %}
       {% case section.settings.grid %}
       {% when 2 %}
@@ -136,7 +136,7 @@
         {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {% endcase %}
 
-      <div class="ee-shop-grid ee-flex ee-flex-wrap">
+      <div class="ee-product-grid__inner ee-flex ee-flex-wrap">
 
         <!-- header item -->
         <div class="ee-grid__item ee-grid__item--header ee-flex ee-align-center">
