@@ -6,7 +6,7 @@
 {% section 'product-recommendations' %}
 
 {% if collection %}
-  <div class="text-center return-link-wrapper page-width ee-container">
+  <div class="text-center return-link-wrapper page-width ee-container hidden">
     <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
       {% include 'icon-arrow-left' %}
       {{ 'products.product.back_to_collection' | t: title: collection.title }}

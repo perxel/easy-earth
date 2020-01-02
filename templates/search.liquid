@@ -52,7 +52,7 @@
     <hr aria-hidden="true" />
   {% endif %}
   <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
-  <ul class="page-width ee-container list-view-items">
+  <ul class="page-width ee-container list-view-items shopify-section">
     {% for item in search.results %}
       <li class="list-view-item">
           {% if item.object_type == 'product' %}
