@@ -23,9 +23,9 @@
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
-    "social_twitter_link": "#",
+    "social_twitter_link": "",
     "social_facebook_link": "#",
-    "social_pinterest_link": "#",
+    "social_pinterest_link": "",
     "social_instagram_link": "",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
@@ -68,7 +68,7 @@
       "featured-collections": {
         "type": "collection",
         "settings": {
-          "title": "OUR FAVORITES",
+          "title": "Our favorites",
           "text": "<p>Our bags are out of the ordinary &ndash; in the best way possible. We use top-notch materials and innovative design to create products you&rsquo;ll love using for years to come. With a variety of shapes, sizes, and patterns, there&rsquo;s something for everyone. These bags are made in the USA, made to last, and ready to take on your heaviest loads.<\/p>\n<p>We&rsquo;re not trying to sell the most bags. We&rsquo;re trying to sell the <em>best<\/em> bags.<\/p>",
           "collection": "frontpage",
           "grid": 3,
@@ -83,8 +83,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
           "layout": "left",
-          "title": "Lorem Consecteru Doloren",
-          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ulco laboris aliquipnatus.<\/p>",
+          "title": "One trillion. In one year.",
+          "text": "<p>That&rsquo;s how many plastic bags our planet consumes. If a number this big doesn&rsquo;t scare you, rest assured &ndash; it scares us. And we&rsquo;re ready to do something about it. For ourselves, our children, our planet, and our collective future.<\/p>",
           "button_label": "LEARN MORE",
           "button_link": "shopify:\/\/collections\/all"
         }
@@ -96,7 +96,7 @@
             "type": "text",
             "settings": {
               "title": "CONTACT US",
-              "text": "<p>Tel: 949-294-2597<br>Mail: <a href=\"mailto:help@easyearth.com\" title=\"mailto:help@easyearth.com\">help@easyearth.com<\/a><\/p>",
+              "text": "<p>Mail: <a href=\"mailto:help@easyearth.com\" title=\"mailto:help@easyearth.com\">help@easyearth.com<\/a><\/p>",
               "show_social_icons": false,
               "show_copyright": false
             }
@@ -608,25 +608,25 @@
           "1577511739183-0": {
             "type": "quote",
             "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-              "author": "Author's name",
-              "position": "LOREM AGENCY"
+              "quote": "<p>Eleifend montes ut tristique lacinia phasellus nec interdum tortor penatibus. Dictumst blandit ridiculus convallis ad. Tristique adipiscing quis lectus aliquam placerat integer ut.<\/p>",
+              "author": "Lorem ipsum",
+              "position": "Tristique adipiscing quis"
             }
           },
           "1577511739183-1": {
             "type": "quote",
             "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-              "author": "Author's name",
-              "position": "LOREM AGENCY"
+              "quote": "<p>Lorem laoreet fames ornare consectetur. Sapien velit nisi enim nec tortor eget odio penatibus hendrerit.<\/p>",
+              "author": "Lorem laoreet",
+              "position": "Sapien velit"
             }
           },
           "1577511739183-2": {
             "type": "quote",
             "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-              "author": "Author's name",
-              "position": "LOREM AGENCY"
+              "quote": "<p>Dapibus dignissim quam vivamus nec. Adipiscing fames quam elementum massa lacus. Praesent diam malesuada eros ridiculus dapibus. Sociosqu magna auctor viverra commodo netus.<\/p>",
+              "author": "Montes vel enim",
+              "position": "Sociosqu magna auctor"
             }
           }
         },
@@ -638,7 +638,7 @@
         "settings": {
           "title": "TESTIMONIAL",
           "sub_title": "What people are saying",
-          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
+          "image": "shopify:\/\/shop_images\/testimonial-image.png",
           "class_name": ""
         }
       },
