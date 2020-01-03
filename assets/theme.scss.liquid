@@ -7579,7 +7579,7 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 }
 
 /* SPACING */
-.shopify-section {margin-bottom:55px;}
+.shopify-section {margin-bottom:55px; position:relative;}
 hr {margin:0 0 55px;}
 .ee-padding-top-40px {padding-top:40px!important;}
 .ee-padding-top-50px {padding-top:50px!important;}
@@ -7944,6 +7944,38 @@ html:not(.ee-search-open) .ee-header-search-wrapper {opacity:0; visibility:hidde
 /* FEATURE COLLECTION */
 #shopify-section-featured-collections {
   padding:0; position:relative;
+}
+
+/* TESTIMONIAL */
+.ee-testimonials {
+  .ee-testimonials-inner {
+    > div {box-sizing:border-box; width:50%;}
+
+    .ee-testimonials-content {
+      padding:0 100px;
+      .ee-testimonials-header {
+        position:relative; max-width:300px; padding-bottom: 15px; margin-bottom: 30px;
+        &:before {
+          content:''; position:absolute; bottom:0; left:-100px;
+          width:165px; height:3px; background:#ccc;
+        }
+        .ee-testimonials-header__subtitle {font-size:15px; margin:0;}
+        .ee-testimonials-header__title {font-size:40px;}
+      }
+      .ee-testimonials-slide__text {text-align:left; padding:0;}
+      .ee-testimonial-author {font-size:16px; font-weight:600; font-family:$ee-font-poppins; color:$ee-title-color;}
+      .ee-testimonial-position {font-size:14px; font-weight:600; font-family:$ee-font-poppins; color:$ee-green; text-transform:uppercase;}
+      .slick-dots {
+        text-align:left; margin:0; padding-top: 30px;
+        li:first-child {padding-left:0;}
+      }
+    }
+
+    .ee-testimonials-image {}
+  }
+
+
+
 }
 
 /*********************** CARE INSTRUCTION ***********************/
@@ -8577,5 +8609,10 @@ body .slick-arrow {
       bottom:0; transform: translateY(50%);
       width:138px; height:168px; background:url($ee-img-decor-04) center/contain no-repeat;
     }
+  }
+  &.testimonials {
+    left:-30px; top:0;
+    width:161px; height:195px;
+    background: url($ee-img-decor-02);
   }
 }

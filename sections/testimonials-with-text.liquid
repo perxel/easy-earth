@@ -1,41 +1,48 @@
+<div class="ee-decor-img testimonials"></div>
 <div class="page-width ee-container {{ section.blocks.class_name }}" data-section-id="{{ section.id }}">
   <div class="ee-testimonials">
-    <div class="ee-testimonials-image">
-      {% if section.settings.image != blank %}
-        <img src="{{ section.settings.image | img_url: 'original' }}" alt="Testimonial" />
-      {% endif %}
-    </div>
-    <div class="ee-testimonials-content">
-      {% if section.settings.title != blank %}
-        <div class="ee-section-header">
-          <h3>{{ section.settings.title | escape }}</h3>
-          <h2>{{ section.settings.sub_title | escape }}</h2>
-        </div>
-      {% endif %}
+      <div class="ee-testimonials-inner ee-flex ee-align-center ee-flex-wrap">
 
-      {% if section.blocks.size > 0 %}
-        <div class="ee-testimonials-wrapper">
-          <div class="ee-testimonials-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
-            {% for block in section.blocks %}
-              <div class="ee-testimonials--slide">
-                <blockquote class="ee-testimonials-slide__text">
-                  <span class="ee-testimonial-icon">{% include 'icon-quote' %}</span>
-                  {% if block.settings.quote != blank %}
-                    <div class="rte-setting rte">{{ block.settings.quote }}</div>
-                  {% endif %}
-                  {% if block.settings.author != blank %}
-                    <div class="ee-testimonial-author">{{ block.settings.author | escape }}</div>
-                  {% endif %}
-                  {% if block.settings.position != blank %}
-                    <div class="ee-testimonial-position">{{ block.settings.position | escape }}</div>
-                  {% endif %}
-                </blockquote>
+        <!-- content -->
+        <div class="ee-testimonials-content">
+          {% if section.settings.title != blank %}
+            <div class="ee-testimonials-header">
+              <h3 class="ee-testimonials-header__subtitle">{{ section.settings.title | escape }}</h3>
+              <h2 class="ee-testimonials-header__title">{{ section.settings.sub_title | escape }}</h2>
+            </div>
+          {% endif %}
+
+          {% if section.blocks.size > 0 %}
+            <div class="ee-testimonials-wrapper">
+              <div class="ee-testimonials-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
+                {% for block in section.blocks %}
+                  <div class="ee-testimonials--slide">
+                    <blockquote class="ee-testimonials-slide__text">
+                      {% if block.settings.quote != blank %}
+                        <div class="rte-setting rte">{{ block.settings.quote }}</div>
+                      {% endif %}
+                      {% if block.settings.author != blank %}
+                        <div class="ee-testimonial-author">{{ block.settings.author | escape }}</div>
+                      {% endif %}
+                      {% if block.settings.position != blank %}
+                        <div class="ee-testimonial-position">{{ block.settings.position | escape }}</div>
+                      {% endif %}
+                    </blockquote>
+                  </div>
+                {% endfor %}
               </div>
-            {% endfor %}
-          </div>
+            </div>
+          {% endif %}
         </div>
-      {% endif %}
-    </div>
+
+        <!-- image -->
+        <div class="ee-testimonials-image">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: 'original' }}" alt="Testimonial" />
+          {% endif %}
+        </div>
+
+      </div>
   </div>
 
   {% if section.blocks.size == 0 %}
