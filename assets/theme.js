@@ -5482,5 +5482,13 @@ EE.init = function () {
         }
     });
     $('.ee-box-text').parent().addClass('no-margin-bottom');
+
+    // SmoothScroll
+    if (typeof SmoothScroll !== "undefined") {
+        SmoothScroll({
+            animationTime: 1500, // [ms]
+            stepSize: 60 // [px]
+        });
+    }
 };
 EE.init();
