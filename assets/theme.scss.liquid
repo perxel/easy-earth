@@ -7589,6 +7589,7 @@ hr {margin:0 0 55px;}
 .ee-margin-bottom-50px {margin-bottom:50px!important;}
 .ee-margin-bottom-40px {margin-bottom:40px!important;}
 .ee-margin-bottom-25px {margin-bottom:25px!important;}
+.no-margin-bottom {margin-bottom:0!important;}
 
 /************** Easy Earth Images [eeimages] ***************/
 $ee-img-body-pattern: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/body-pattern.jpg?v=1576292855';
@@ -7601,6 +7602,7 @@ $ee-img-decor-03: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-
 $ee-img-decor-04: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-04.png?v=1577920520';
 $ee-img-quote: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/quote-icon.png?v=1577664968';
 $ee-img-shop-bg: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/shop-background.jpg?v=1577666155';
+$ee-img-donation-bg: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/ee-donation-bg.jpg?v=1578010998';
 
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
@@ -8007,6 +8009,25 @@ body .index-section--flush:last-child{margin-bottom:0;}
   }
 }
 
+/* DONATION */
+.ee-box-text {
+  .ee-box-text__inner {
+    padding:100px 0; background:url($ee-img-donation-bg) center/cover;
+    .ee-box-text__content {
+      max-width:480px; margin:0 auto; padding:13px;
+      background:#fff;
+      .ee-box-text__content-inner {
+        border:2px solid #979797; padding:25px;
+        .ee-box-text__icon img {max-width:100px;}
+        .ee-box-text--heading {
+          text-transform: uppercase; font-weight:600; font-family: $ee-font-poppins;
+          letter-spacing: 2px;
+        }
+        .ee-box-text__rte {margin-bottom:20px;}
+      }
+    }
+  }
+}
 
 /*********************** CARE INSTRUCTION ***********************/
 /* Layout */

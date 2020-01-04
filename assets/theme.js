@@ -5480,6 +5480,7 @@ EE.init = function () {
         if ($(this).find('.ee-newsletter').length) {
             $body.addClass('ee-footer-overlap');
         }
-    })
+    });
+    $('.ee-box-text').parent().addClass('no-margin-bottom');
 };
 EE.init();

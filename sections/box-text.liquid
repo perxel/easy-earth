@@ -1,36 +1,40 @@
-<div class="page-width ee-container ee-box-text">
-  <div class="ee-box-text__content">
-    {% if section.settings.text != blank %}
-      <div class="ee-box-text__txt">
-        {% if section.settings.image != blank %}
-        <div class="ee-box-text__icon">
-            <img src="{{ section.settings.image | img_url: 'original' }}" alt="Icon" />
-        </div>
+<div class="ee-box-text">
+  <div class="ee-box-text__inner ee-flex ee-justify-center">
+    <div class="ee-box-text__content">
+        <div class="ee-box-text__content-inner text-center">
+        {% if section.settings.text != blank %}
+          <div class="ee-box-text__txt">
+            {% if section.settings.image != blank %}
+            <div class="ee-box-text__icon">
+                <img src="{{ section.settings.image | img_url: 'original' }}" alt="Icon" />
+            </div>
+            {% endif %}
+            {% if section.settings.section_title != blank %}
+              <div class="ee-box-text--heading">{{ section.settings.section_title | escape }}</div>
+            {% endif %}
+            <div class="ee-box-text__rte">{{ section.settings.text }}</div>
+          </div>
         {% endif %}
-        {% if section.settings.section_title != blank %}
-          <div class="ee-box-text--heading">{{ section.settings.section_title | escape }}</div>
-        {% endif %}
-        <div class="ee-box-text__rte">{{ section.settings.text }}</div>
-      </div>
-    {% endif %}
-    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-      {%- capture ariaLabel -%}
-        {{- section.settings.button_label -}}
-        {%- if section.settings.button_link.type == 'frontpage_link' -%}
-          : {{ 'homepage.general.title' | t -}}
-          {%- elsif section.settings.button_link.type == 'catalog_link' -%}
-          : {{ 'collections.catalog.title' | t -}}
-          {%- elsif section.settings.button_link.object.title -%}
-          : {{ section.settings.button_link.object.title -}}
-        {%- endif -%}
-      {%- endcapture -%}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          {%- capture ariaLabel -%}
+            {{- section.settings.button_label -}}
+            {%- if section.settings.button_link.type == 'frontpage_link' -%}
+              : {{ 'homepage.general.title' | t -}}
+              {%- elsif section.settings.button_link.type == 'catalog_link' -%}
+              : {{ 'collections.catalog.title' | t -}}
+              {%- elsif section.settings.button_link.object.title -%}
+              : {{ section.settings.button_link.object.title -}}
+            {%- endif -%}
+          {%- endcapture -%}
 
-      <a href="{{ section.settings.button_link }}"
-         class="btn"
-         aria-label="{{ ariaLabel }}">
-        {{- section.settings.button_label | escape -}}
-      </a>
-    {% endif %}
+          <a href="{{ section.settings.button_link }}"
+             class="ee-btn-transparent"
+             aria-label="{{ ariaLabel }}">
+            {{- section.settings.button_label | escape -}}
+          </a>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </div>
 
