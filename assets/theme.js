@@ -5474,5 +5474,12 @@ EE.init = function () {
     EE.testimonialSlider();
     EE.customQuantity();
     EE.scrollingStatus();
+
+    // check for newsletter section overlap footer
+    $('.shopify-section:last-child').each(function () {
+        if ($(this).find('.ee-newsletter').length) {
+            $body.addClass('ee-footer-overlap');
+        }
+    })
 };
 EE.init();

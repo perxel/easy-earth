@@ -7579,7 +7579,7 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 }
 
 /* SPACING */
-.shopify-section {margin-bottom:55px; position:relative;}
+.shopify-section, .shopify-challenge__container {margin-bottom:55px; position:relative;}
 hr {margin:0 0 55px;}
 .ee-padding-top-40px {padding-top:40px!important;}
 .ee-padding-top-50px {padding-top:50px!important;}
@@ -7626,6 +7626,7 @@ p:empty {display:none;}
       path {fill:#fff;}
     }
   }
+  &.ee-btn-green--small {font-size:14px; min-width:190px;}
 }
 a.ee-btn-arrow {
   display:block; width:30px; border:none!important; padding:0!important;
@@ -7666,6 +7667,7 @@ body {
   overflow-x:hidden;
 }
 .ee-container {max-width: 1210px; padding:0 20px; margin-left:auto; margin-right:auto;}
+#MainContent {position:relative; z-index:2;}
 
 /* HEADER */
 .site-header__mobile-nav {background:none;}
@@ -7973,10 +7975,38 @@ html:not(.ee-search-open) .ee-header-search-wrapper {opacity:0; visibility:hidde
 
     .ee-testimonials-image {}
   }
-
-
-
 }
+
+/* NEWSLETTER */
+body [class*="index-section--flush"]:last-child,
+body .index-section--flush:last-child{margin-bottom:0;}
+.ee-footer-overlap {
+  .ee-newsletter__inner {margin-bottom:-80px;}
+  #shopify-section-footer {padding-top:80px;}
+}
+.ee-newsletter {
+  .ee-newsletter__inner {
+    padding-top:80px;
+    .ee-newsletter__img {width:40%;}
+    .ee-newsletter__content {
+      width:60%; padding-left:100px; box-sizing: border-box;
+      .ee-newsletter__content-title {font-size:50px; margin-bottom: 10px;}
+      .ee-newsletter__content-txt {
+        font-family: $ee-font-poppins; font-weight:600; margin-bottom: 40px;
+        text-transform: uppercase; letter-spacing: 2px; color:$ee-title-color;
+      }
+      .ee-newsletter__form {
+        .input-group {border-bottom:2px solid #134531;}
+        input {border:none; border-radius:0; background: none; margin:0;}
+      }
+      .form-message--success {
+        background:none; color:$ee-green; border:none; text-align:center;
+        font-weight:600; padding:0; font-size:1.2em;
+      }
+    }
+  }
+}
+
 
 /*********************** CARE INSTRUCTION ***********************/
 /* Layout */
@@ -8543,7 +8573,7 @@ body .slick-arrow {
 
 /********************* FOOTER ****************************/
 #shopify-section-footer {
-  margin:0;
+  margin:0; color: #ffffff; background-color: #132531;
   .site-footer {
     margin:0;
     .site-footer__item-inner {

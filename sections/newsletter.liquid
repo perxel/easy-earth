@@ -1,21 +1,23 @@
-<div class="newsletter-section{% if section.settings.show_background %} index-section--newsletter-background{% endif %} ee-newsletter-section">
-  <div class="page-width ee-container">
-    <div class="ee-newsletter-section__img">
+<div class="ee-newsletter{% if section.settings.show_background %} index-section--newsletter-background{% endif %}">
+  <div class="ee-newsletter__inner page-width ee-container ee-flex ee-align-center ee-flex-wrap">
+
+    <div class="ee-newsletter__img">
       {% if section.settings.image != blank %}
         <img src="{{ section.settings.image | img_url: 'original' }}" alt="Newsletter" />
       {% endif %}
     </div>
-    <div class="ee-newsletter-section__content">
-      <div class="section-header text-center">
+
+    <div class="ee-newsletter__content">
+      <div class="ee-newsletter__content-inner">
           {% if section.settings.section_title != blank %}
-            <h2 class="h2">{{ section.settings.section_title | escape }}</h2>
+            <h2 class="ee-newsletter__content-title">{{ section.settings.section_title | escape }}</h2>
           {% endif %}
           {% if section.settings.subheading != blank %}
-            <div class="rte">{{ section.settings.subheading }}</div>
+            <div class="ee-newsletter__content-txt">{{ section.settings.subheading }}</div>
           {% endif %}
         </div>
         {%- assign formId = 'Contact_' | append: section.id -%}
-        {% form 'customer', id: formId, novalidate: 'novalidate', class: 'contact-form form-single-field' %}
+        {% form 'customer', id: formId, novalidate: 'novalidate', class: 'ee-newsletter__form' %}
           {%- if form.posted_successfully? -%}
             <p class="form-message form-message--success" tabindex="-1" data-form-status>
               {{ 'general.newsletter_form.confirmation' | t }}
@@ -40,7 +42,7 @@
                     {% endif %}
             >
             <span class="input-group__btn">
-            <button type="submit" class="btn" name="commit" id="Subscribe">
+            <button type="submit" class="ee-btn-green ee-btn-green--small" name="commit" id="Subscribe">
               <span>{{ 'general.newsletter_form.submit' | t }}</span>
             </button>
           </span>
@@ -54,6 +56,7 @@
           {%- endif -%}
         {% endform %}
       </div>
+
     </div>
 </div>
 
