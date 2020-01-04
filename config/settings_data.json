@@ -582,7 +582,7 @@
         "type": "box-text",
         "settings": {
           "section_title": "We walk the walk",
-          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
+          "image": "shopify:\/\/shop_images\/ee-donation-bg.jpg",
           "text": "<p>You&rsquo;re supporting an initiative for a better world in more ways than one when you shop with us. A portion of our profits goes to specially chosen non-profits that are just as dedicated to the environment as we are. You can feel good using your product and knowing that your dollars will be double effective.&nbsp;<\/p>",
           "button_label": "LEARN MORE",
           "button_link": "shopify:\/\/pages\/donate"
@@ -608,25 +608,25 @@
           "1577511739183-0": {
             "type": "quote",
             "settings": {
-              "quote": "<p>Eleifend montes ut tristique lacinia phasellus nec interdum tortor penatibus. Dictumst blandit ridiculus convallis ad. Tristique adipiscing quis lectus aliquam placerat integer ut.<\/p>",
-              "author": "Lorem ipsum",
-              "position": "Tristique adipiscing quis"
+              "quote": "<p>I love, love these bags. I hate plastic and have been using reusable bags for a while. These are large and extremely durable.&nbsp;<\/p>",
+              "author": "Laura Ash",
+              "position": "Senior Manager @ KPMG UK"
             }
           },
           "1577511739183-1": {
             "type": "quote",
             "settings": {
-              "quote": "<p>Lorem laoreet fames ornare consectetur. Sapien velit nisi enim nec tortor eget odio penatibus hendrerit.<\/p>",
-              "author": "Lorem laoreet",
-              "position": "Sapien velit"
+              "quote": "<p>I like the packaging of the bags. It's like an envelope and I can store them there while I'm not using them and it doesn't take too much space in the car.&nbsp;<\/p>",
+              "author": "Castaneda",
+              "position": "UX\/ UI Designer"
             }
           },
           "1577511739183-2": {
             "type": "quote",
             "settings": {
-              "quote": "<p>Dapibus dignissim quam vivamus nec. Adipiscing fames quam elementum massa lacus. Praesent diam malesuada eros ridiculus dapibus. Sociosqu magna auctor viverra commodo netus.<\/p>",
-              "author": "Montes vel enim",
-              "position": "Sociosqu magna auctor"
+              "quote": "<p>OMG!! These are soooo durable. I stacked 2 layers of soda cans and the straps didn&rsquo;t break. I had the free usable bags and they break so easily.<\/p>",
+              "author": "Jacqui Nguyen",
+              "position": "Architect @ Foolscap Studio"
             }
           }
         },
@@ -646,7 +646,7 @@
         "type": "feature-row",
         "settings": {
           "image": "shopify:\/\/shop_images\/about-img.png",
-          "layout": "left",
+          "layout": "right",
           "title": "Easy, eco-friendly excellence.",
           "text": "<p>When it comes to waste, our planet is filled with more than just plastic bags that never got recycled. We&rsquo;ve only got one planet. We plan to make the most of it.<\/p>\n<p>Our mission is creating a product you never have to buy again. Our items make it easy to be kind to our earth for generations, giving you a strong, quality alternative to all the disposables plastics. By making our products easy to find, affordable, and durable, we&rsquo;re making it easier to do right by our planet.<\/p>",
           "button_label": "DISCOVER THE BRAND",

@@ -4,6 +4,7 @@
     name="q"
     placeholder="{{ 'general.search.placeholder' | t }}"
     aria-label="{{ 'general.search.placeholder' | t }}">
+   <input type="hidden" name="type" value="product" />
   <button class="ee-search__submit" type="submit">
     {% include 'icon-search' %}
     <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
