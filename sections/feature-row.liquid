@@ -38,7 +38,7 @@
 
       {% if section.settings.layout == 'left' %}
         <div class="ee-feature-row__item ee-feature-row__image left">
-          <div class="ee-decor-img featured-row--image-left"></div>
+          <div class="ee-decor-img featured-row--image-left" data-anim="scale-up"></div>
             {{ image_layout }}
         </div>
       {% endif %}
@@ -74,7 +74,7 @@
         <div class="ee-feature-row__item ee-feature-row__image right">
           {{ image_layout }}
         </div>
-        <div class="ee-decor-img featured-row--image-right"></div>
+        <div class="ee-decor-img featured-row--image-right" data-anim="from-left"></div>
       {% endif %}
 
   </div>
