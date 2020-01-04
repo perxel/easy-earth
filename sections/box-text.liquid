@@ -5,35 +5,46 @@
         <div class="ee-box-text__content-inner text-center">
         {% if section.settings.text != blank %}
           <div class="ee-box-text__txt">
+
+            <!-- icon -->
             {% if section.settings.image != blank %}
             <div class="ee-box-text__icon">
                 <img src="{{ section.settings.image | img_url: 'original' }}" alt="Icon" />
             </div>
             {% endif %}
+
+            <!-- title -->
             {% if section.settings.section_title != blank %}
               <div class="ee-box-text--heading">{{ section.settings.section_title | escape }}</div>
             {% endif %}
+
+            <!-- text -->
             <div class="ee-box-text__rte">{{ section.settings.text }}</div>
+
+            <!-- button -->
+            {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+              {%- capture ariaLabel -%}
+                {{- section.settings.button_label -}}
+                {%- if section.settings.button_link.type == 'frontpage_link' -%}
+                  : {{ 'homepage.general.title' | t -}}
+                  {%- elsif section.settings.button_link.type == 'catalog_link' -%}
+                  : {{ 'collections.catalog.title' | t -}}
+                  {%- elsif section.settings.button_link.object.title -%}
+                  : {{ section.settings.button_link.object.title -}}
+                {%- endif -%}
+              {%- endcapture -%}
+            <div class="ee-box-text__button">
+              <a href="{{ section.settings.button_link }}"
+                 class="ee-btn-transparent"
+                 aria-label="{{ ariaLabel }}">
+                {{- section.settings.button_label | escape -}}
+              </a>
+            </div>
+            {% endif %}
+
           </div>
         {% endif %}
-        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          {%- capture ariaLabel -%}
-            {{- section.settings.button_label -}}
-            {%- if section.settings.button_link.type == 'frontpage_link' -%}
-              : {{ 'homepage.general.title' | t -}}
-              {%- elsif section.settings.button_link.type == 'catalog_link' -%}
-              : {{ 'collections.catalog.title' | t -}}
-              {%- elsif section.settings.button_link.object.title -%}
-              : {{ section.settings.button_link.object.title -}}
-            {%- endif -%}
-          {%- endcapture -%}
 
-          <a href="{{ section.settings.button_link }}"
-             class="ee-btn-transparent"
-             aria-label="{{ ariaLabel }}">
-            {{- section.settings.button_label | escape -}}
-          </a>
-        {% endif %}
       </div>
     </div>
   </div>

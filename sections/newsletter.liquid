@@ -8,7 +8,7 @@
     </div>
 
     <div class="ee-newsletter__content">
-      <div class="ee-newsletter__content-inner">
+        <div class="ee-newsletter__content-inner">
           {% if section.settings.section_title != blank %}
             <h2 class="ee-newsletter__content-title">{{ section.settings.section_title | escape }}</h2>
           {% endif %}
@@ -16,6 +16,8 @@
             <div class="ee-newsletter__content-txt">{{ section.settings.subheading }}</div>
           {% endif %}
         </div>
+
+      <div class="ee-newsletter__form-wrapper">
         {%- assign formId = 'Contact_' | append: section.id -%}
         {% form 'customer', id: formId, novalidate: 'novalidate', class: 'ee-newsletter__form' %}
           {%- if form.posted_successfully? -%}
@@ -55,6 +57,8 @@
           </span>
           {%- endif -%}
         {% endform %}
+      </div>
+
       </div>
 
     </div>
