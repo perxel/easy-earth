@@ -7579,7 +7579,8 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 }
 
 /* SPACING */
-.shopify-section, .shopify-challenge__container {margin-bottom:55px; position:relative;}
+.shopify-section, .shopify-challenge__container,
+.ee-section-header + .rte {margin-bottom:55px; position:relative;}
 hr {margin:0 0 55px;}
 .ee-padding-top-40px {padding-top:40px!important;}
 .ee-padding-top-50px {padding-top:50px!important;}
@@ -8388,6 +8389,7 @@ body .ee-social-sharing {
 .ee-product-grid {
   margin-top:-55px; padding:140px 0;
   background:url($ee-img-shop-bg) center/cover;
+  .ee-product-grid__container {max-width:1500px; margin:0 auto;}
   .ee-pagination {margin-bottom:0!important;}
   &.ee-featured-collection__grid {
     padding:190px 0 100px; margin-top:-140px;
