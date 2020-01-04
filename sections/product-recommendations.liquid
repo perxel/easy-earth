@@ -1,29 +1,59 @@
 {%- if section.settings.show_product_recommendations -%}
-  {%- if recommendations.performed -%}
-    {%- if recommendations.products_count > 0 -%}
-      <div class="product-recommendations__inner">
-        {%- if section.settings.heading != blank -%}
-          <div class="section-header text-center">
-            <h2>{{ section.settings.heading | escape }}</h2>
-          </div>
-        {%- endif -%}
-        <ul class="grid grid--uniform grid--view-items">
-          {%- for product in recommendations.products -%}
-            <li class="grid__item small--one-half medium-up--one-quarter">
-              {% include 'product-card-grid', max_height: 250 %}
-            </li>
-          {%- endfor -%}
-        </ul>
-        <div class="view-all-products">
-          <a class="ee-button view-all-btn" href="{{shop.url}}{{page.url}}" title="VIEW ALL PRODUCTS">
-            VIEW ALL PRODUCTS
-          </a>
+  {% assign product_limit = 3 %}
+  {% assign all_collection = 'related' %}
+
+  {% for c in product.collections %}
+    {% if c.handle == all_collection %}
+      {% assign collection = c %}
+    {% endif %}
+  {% endfor %}
+
+  {% if collection and collection.products_count > 1 %}
+    <div class="page-width ee-container">
+      <div class="related-products">
+        <h3>{{ section.settings.heading | escape }}</h3>
+        <div class="related-products__inner">
+          {% assign i = 0 %}
+          {% for product in collection.products limit:3 %}
+
+            <div class="ee-product-item">
+              <div class="ee-product-item__inner">
+                <a class="ee-product-item__link ee-product-item__image-container" href="{{ product.url | within: collection }}">
+                  <ul class="ee-product-card__images">
+                    {% for image in product.images %}
+                      <li class="ee-product-card__image js">
+                        <div class="ee-product-card__image-bg"
+                             data-thumbnail-id="{{ image.id }}">
+                          <img class="ee-product-card__image-img" src="{{ image.src | img_url: 'original' }}"
+                               alt="{{ image.alt | escape }}">
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </a>
+                <div class="ee-product-item__bottom ee-flex ee-justify-space-between ee-align-center">
+                  <div class="ee-product-item__bottom--left ee-product-item__name-price">
+                    <div class="ee-product-item__title" aria-hidden="true">{{ product.title }}</div>
+                    {% include 'product-price', variant: product.selected_or_first_available_variant %}
+                  </div>
+                  <div class="ee-product-item__bottom--center">
+                    <div class="ee-product-item__image-dots"></div>
+                  </div>
+                  <div class="ee-product-item__bottom--right">
+                    <a href="#" title="Wishlist" class="ee-product-item__button ee-product-item__button--wishlist">
+                      {% include 'icon-heart' %}
+                      <span class="icon__fallback-text">Wishlist</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          {% endfor %}
         </div>
       </div>
-    {%- endif -%}
-  {%- else  -%}
-    <div class="page-width ee-container" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations"></div>
-  {%- endif -%}
+    </div>
+  {% endif %}
 {%- endif -%}
 
 {% schema %}

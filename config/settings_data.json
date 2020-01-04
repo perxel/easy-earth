@@ -81,7 +81,7 @@
       "feature-row": {
         "type": "feature-row",
         "settings": {
-          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
+          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123_97dd0a4e-4b29-4203-b8f0-77b43be992ce.jpg",
           "layout": "left",
           "title": "One trillion. In one year.",
           "text": "<p>That&rsquo;s how many plastic bags our planet consumes. If a number this big doesn&rsquo;t scare you, rest assured &ndash; it scares us. And we&rsquo;re ready to do something about it. For ourselves, our children, our planet, and our collective future.<\/p>",
@@ -469,7 +469,7 @@
             "settings": {
               "page_handle": "contact-us",
               "title": "",
-              "text": "<p><strong>CONTACT US<\/strong><\/p>\n<p>Tel: 949-294-2597<\/p>\n<p>Mail: help@easyearth.com<\/p>",
+              "text": "<p><strong>CONTACT US<\/strong><\/p>\n<p>Mail: help@easyearth.com<\/p>",
               "width": "100%",
               "alignment": "center",
               "align_text": "left"
@@ -546,13 +546,6 @@
       "1577372567794": {
         "type": "custom-content",
         "blocks": {
-          "1577511805340": {
-            "type": "html",
-            "settings": {
-              "code": "@easyearth",
-              "width": "50%"
-            }
-          },
           "1577372583675": {
             "type": "html",
             "settings": {
@@ -562,7 +555,6 @@
           }
         },
         "block_order": [
-          "1577511805340",
           "1577372583675"
         ],
         "settings": {
@@ -572,20 +564,10 @@
       "1577509196175": {
         "type": "newsletter",
         "settings": {
-          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123.jpg",
+          "image": "shopify:\/\/shop_images\/newsletter-image.png",
           "section_title": "Subscribe & save 10%",
           "subheading": "<p>Planet-saving deals, straight to your inbox. Become a member of EasyEarth today and get 10% off your order.&nbsp;<\/p>",
           "show_background": true
-        }
-      },
-      "1577509583474": {
-        "type": "box-text",
-        "settings": {
-          "section_title": "We walk the walk",
-          "image": "shopify:\/\/shop_images\/ee-donation-bg.jpg",
-          "text": "<p>You&rsquo;re supporting an initiative for a better world in more ways than one when you shop with us. A portion of our profits goes to specially chosen non-profits that are just as dedicated to the environment as we are. You can feel good using your product and knowing that your dollars will be double effective.&nbsp;<\/p>",
-          "button_label": "LEARN MORE",
-          "button_link": "shopify:\/\/pages\/donate"
         }
       },
       "1577511653204": {
@@ -645,7 +627,7 @@
       "1577511829036": {
         "type": "feature-row",
         "settings": {
-          "image": "shopify:\/\/shop_images\/about-img.png",
+          "image": "shopify:\/\/shop_images\/easy-earth-mood-image_6eaf57f7-1720-4829-9363-926ee42e84ac.png",
           "layout": "right",
           "title": "Easy, eco-friendly excellence.",
           "text": "<p>When it comes to waste, our planet is filled with more than just plastic bags that never got recycled. We&rsquo;ve only got one planet. We plan to make the most of it.<\/p>\n<p>Our mission is creating a product you never have to buy again. Our items make it easy to be kind to our earth for generations, giving you a strong, quality alternative to all the disposables plastics. By making our products easy to find, affordable, and durable, we&rsquo;re making it easier to do right by our planet.<\/p>",
@@ -657,10 +639,10 @@
         "type": "box-text",
         "settings": {
           "section_title": "We walk the walk",
-          "image": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "image": "shopify:\/\/shop_images\/heart-donation.png",
           "text": "<p>You&rsquo;re supporting an initiative for a better world in more ways than one when you shop with us. A portion of our profits goes to specially chosen non-profits that are just as dedicated to the environment as we are. You can feel good using your product and knowing that your dollars will be double effective.&nbsp;<\/p>",
-          "button_label": "",
-          "button_link": ""
+          "button_label": "LEARN MORE",
+          "button_link": "shopify:\/\/pages\/donate"
         }
       }
     },
@@ -670,7 +652,6 @@
       "1577511653204",
       "1577511739183",
       "1577372567794",
-      "1577509583474",
       "1577511829036",
       "1577511903372",
       "1577509196175"
