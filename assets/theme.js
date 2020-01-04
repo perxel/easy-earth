@@ -4829,7 +4829,7 @@ theme.ProductRecommendations = (function () {
         var recommendationsSectionUrl =
             '/recommendations/products?&section_id=product-recommendations&product_id=' +
             productId +
-            '&limit=3';
+            '&limit=4';
 
         $.get(recommendationsSectionUrl).then(
             function (section) {
