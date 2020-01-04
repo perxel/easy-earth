@@ -5418,8 +5418,8 @@ EE.customQuantity = function () {
 EE.scrollingStatus = function () {
     var lastPosition = 0, // should not modify
         scrollAmount = 0, // should not modify
-        topTrigger = 0, // px from top
-        bottomTrigger = 200, // px to bottom
+        topTrigger = 50, // px from top
+        bottomTrigger = 150, // px to bottom
         downTrigger = 0, // px from last position
         $body = $("body");
 
@@ -5482,6 +5482,12 @@ EE.init = function () {
         }
     });
     $('.ee-box-text').parent().addClass('no-margin-bottom');
+
+    // check if has bottom nav
+    if ($body.find('#shopify-section-link-list').length) {
+        $body.addClass('ee-has-bottom-nav');
+        $('#shopify-section-link-list').detach().appendTo($body);
+    }
 
     // SmoothScroll
     if (typeof SmoothScroll !== "undefined") {

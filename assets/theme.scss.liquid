@@ -7708,7 +7708,7 @@ body {
 }
 
 /* HEADER > Sticky */
-.scroll-down {
+.scroll-middle {
   .ee-site-header__logo {
     padding:10px 0!important;
     .ee-site-header__logo-image {height:50px!important;}
@@ -8161,9 +8161,12 @@ body .index-section--flush:last-child{margin-bottom:0;}
 }
 
 /* Custom link list */
+.ee-has-bottom-nav {padding-bottom:36px;}
+.scroll-down:not(.scroll-bottom) #shopify-section-link-list {transform: translateY(100%);}
 #shopify-section-link-list {
-  width:100%; margin:0;
-  .custom-linklist {
+  position:fixed; bottom:0; left:0; right:0; z-index: 2;
+  width:100%; margin:0; transition: $ee-transition;
+  .ee-bottom-nav {
     @include display-flexbox();
     @include align-items(center);
     @include justify-content(space-between);
