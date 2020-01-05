@@ -5145,13 +5145,25 @@ EE.gallerySlider = function () {
         $('.gallery-slider').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            /*centerMode: true,
-            centerPadding: "0px",*/
             dots: false,
             arrows: true,
             swipeToSlide: true,
             infinite: true,
             speed: 700,
+            /*responsive: [
+                {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 641,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                },
+            ]*/
         });
     }
 };
