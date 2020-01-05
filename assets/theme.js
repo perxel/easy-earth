@@ -5285,7 +5285,7 @@ EE.loopGallery = function () {
             fade: true,
             dots: true,
             appendDots: $dots,
-            arrows: false,
+            arrows: true,
             swipeToSlide: true,
             infinite: true
         });
