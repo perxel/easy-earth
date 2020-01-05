@@ -549,7 +549,7 @@
           "1577372583675": {
             "type": "html",
             "settings": {
-              "code": "<div id=\"insta-feed\"><\/div>",
+              "code": "<div class=\"ee-instafeed\" id=\"insta-feed\"><\/div>",
               "width": "100%"
             }
           }

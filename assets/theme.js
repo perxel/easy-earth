@@ -5258,8 +5258,8 @@ EE.keepRatio = function (el, ratioX, ratioY) {
  */
 
 EE.productGallery = function () {
-    if ($('.product-single__thumbnails').length > 0) {
-        $('.product-single__thumbnails').slick({
+    if ($('.ee-product-detail_thumbnails').length > 0) {
+        $('.ee-product-detail_thumbnails').slick({
             slidesToShow: 5,
             dots: false,
             arrows: true,

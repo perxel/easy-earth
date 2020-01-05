@@ -90,9 +90,9 @@
               <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
             </button>
           {% endif %}
-          <div class="ee-product-detail_thumbnails product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+          <div class="ee-product-detail_thumbnails">
             {% for image in product.images %}
-              <div class="ee-product-detail_thumbnails-item {{ product_thumbnail_width }} product-single__thumbnails-item js">
+              <div class="ee-product-detail_thumbnails-item">
                 <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
                    class="text-link ee-product-detail_thumbnails-link product-single__thumbnail--{{ section.id }}"
                    data-thumbnail-id="{{ image.id }}"
