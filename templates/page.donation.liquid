@@ -58,17 +58,18 @@
 
                     <div class="ee-form-row ee-form-row--select">
                         <label class="ee-form-label" for="{{ formId }}-place">{{ 'donation.form.place' | t }}</label>
-                        <select class="ee-form-select" id="{{ formId }}-place" name="donation[place]">
-                            <option selected>SightPro.com</option>
-                            <option>Example.com</option>
-                        </select>
+                        <input class="ee-form-input" placeholder="Walmart, Amazon, eBay, Brand Website, etc."
+                               type="text" id="{{ formId }}-date" name="donation[place]" value="{% if form[place] %}{{ form[place] }}{% endif %}">
                     </div>
 
                     <div class="ee-form-row ee-form-row--select">
                         <label class="ee-form-label" for="{{ formId }}-nonprofit">{{ 'donation.form.nonprofit' | t }}</label>
-                        <select class="ee-form-select" id="{{ formId }}-nonprofit" name="donation[place]">
+                        <select class="ee-form-select" id="{{ formId }}-nonprofit" name="donation[nonprofit]">
                             <option selected>World Wildlife Fund</option>
-                            <option>World Wildlife Fund 2</option>
+                            <option>Rainforest Alliance</option>
+                            <option>Wildlife Conservation Society</option>
+                            <option>Oceana</option>
+                            <option>Ocean Conservancy</option>
                         </select>
                     </div>
 
