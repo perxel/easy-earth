@@ -7827,34 +7827,37 @@ body {
 }
 
 /* HEADER > MAIN NAV */
-.ee-site-nav {
-  > li {padding:0 40px;}
-  li {
-    a {
-      font-family: $ee-font-poppins; font-weight:700; @extend .ee-size-18px;
-      letter-spacing: 3px; text-transform:uppercase;
+.ee-site-header {
+  .ee-site-nav {
+    > li {padding:0 40px;}
+    li {
+      a {
+        font-family: $ee-font-poppins; font-weight:700; @extend .ee-size-18px;
+        letter-spacing: 3px; text-transform:uppercase;
 
-      &:hover, &:focus, &.site-nav__link--active {
-        color:$ee-color-green;
-      }
-      &:hover, &:focus {
-        .site-nav__label{
-          &:before {top:100%; opacity: 1; visibility: visible;}
+        &:hover, &:focus, &.site-nav__link--active {
+          color:$ee-color-green;
         }
-      }
+        &:hover, &:focus {
+          .site-nav__label{
+            &:before {top:100%; opacity: 1; visibility: visible;}
+          }
+        }
 
-      .site-nav__label {
-        border:none; position: relative;
+        .site-nav__label {
+          border:none; position: relative;
 
-        &:before {
-          content: ''; position: absolute; top:110%; left:0; right:0;
-          transition: $ee-transition; opacity: 0; visibility: hidden;
-          height:3px; background: $ee-color-green;
+          &:before {
+            content: ''; position: absolute; top:110%; left:0; right:0;
+            transition: $ee-transition; opacity: 0; visibility: hidden;
+            height:3px; background: $ee-color-green;
+          }
         }
       }
     }
   }
 }
+
 
 /* HEADER > EXTRA MENU */
 .ee-nav__extra-menu {
@@ -8746,6 +8749,42 @@ body .slick-arrow {
     .ee-site-header__logo-image {height:50px!important;}
   }
   .scroll-middle .ee-site-header__logo-image {height:50px!important;}
+  .ee-main-nav--mobile.hidden {display:block;}
+
+  /* MOBILE MENU */
+  .extra-menu-open {overflow:hidden;}
+  .ee-nav__extra-menu {
+    max-height:calc(100vh - 109px); overflow:auto;
+    background:#132430; padding:30px 20px;
+    ul {
+      display:block;
+      li {
+        padding:0!important;
+        &.ee-site-nav--image {display:none;}
+        .ee-site-nav__sub-label,
+        > a {
+          font-weight:600; font-size:30px!important; font-family: $ee-font-poppins; color:#fff; text-transform:unset;
+          .site-nav__label {border:none;}
+          &:hover, &:focus,
+          &.site-nav__link--active {color:#31bca1;}
+        }
+        .ee-site-nav__sub-label {
+          margin-bottom:0; transition:$ee-transition;
+          .ee-site-nav__sub-label__icon.hidden {
+            display: inline-block; position: relative; bottom: 3px;
+            transition:$ee-transition; margin-left: 5px;
+          }
+          &.active {
+            .ee-site-nav__sub-label__icon {transform: rotate(180deg); bottom: -3px;}
+          }
+        }
+      }
+    }
+    .ee-site-nav__children {
+      display:none; padding:10px 0 10px 20px;
+      ul > li > a {font-size:20px!important;}
+    }
+  }
 
   /* SPACING */
   .shopify-section, .shopify-challenge__container,

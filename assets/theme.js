@@ -5181,6 +5181,14 @@ EE.menu = function () {
         $html.toggleClass('extra-menu-open');
     });
 
+    // mobile dropdown
+    $('.ee-site-nav__sub-label').click(function () {
+        if ($window.width() <= 1200) {
+            $(this).toggleClass('active');
+            $(this).parent().find('.ee-site-nav__children').slideToggle();
+        }
+    });
+
     // search
     let $searchTrigger = $('.ee-header-icon--search');
     $searchTrigger.click(function () {
