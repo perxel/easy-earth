@@ -10,47 +10,49 @@
 
   {% if collection and collection.products_count > 1 %}
     <div class="page-width ee-container">
-      <div class="related-products">
-        <h3>{{ section.settings.heading | escape }}</h3>
-        <div class="related-products__inner">
-          {% assign i = 0 %}
-          {% for product in collection.products limit:3 %}
+      <div class="ee-related-products">
+        <h3 class="ee-related-products__title text-center ee-margin-bottom-50px">{{ section.settings.heading | escape }}</h3>
+          <div class="ee-related-products__inner ee-product-grid__inner ee-flex ee-flex-wrap">
+            {% assign i = 0 %}
+            {% for product in collection.products limit:3 %}
 
-            <div class="ee-product-item">
-              <div class="ee-product-item__inner">
-                <a class="ee-product-item__link ee-product-item__image-container" href="{{ product.url | within: collection }}">
-                  <ul class="ee-product-card__images">
-                    {% for image in product.images %}
-                      <li class="ee-product-card__image js">
-                        <div class="ee-product-card__image-bg"
-                             data-thumbnail-id="{{ image.id }}">
-                          <img class="ee-product-card__image-img" src="{{ image.src | img_url: 'original' }}"
-                               alt="{{ image.alt | escape }}">
-                        </div>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </a>
-                <div class="ee-product-item__bottom ee-flex ee-justify-space-between ee-align-center">
-                  <div class="ee-product-item__bottom--left ee-product-item__name-price">
-                    <div class="ee-product-item__title" aria-hidden="true">{{ product.title }}</div>
-                    {% include 'product-price', variant: product.selected_or_first_available_variant %}
-                  </div>
-                  <div class="ee-product-item__bottom--center">
-                    <div class="ee-product-item__image-dots"></div>
-                  </div>
-                  <div class="ee-product-item__bottom--right">
-                    <a href="#" title="Wishlist" class="ee-product-item__button ee-product-item__button--wishlist">
-                      {% include 'icon-heart' %}
-                      <span class="icon__fallback-text">Wishlist</span>
-                    </a>
+              <div class="ee-grid__item">
+                <div class="ee-product-item">
+                <div class="ee-product-item__inner">
+                  <a class="ee-product-item__link ee-product-item__image-container" href="{{ product.url | within: collection }}">
+                    <ul class="ee-product-card__images">
+                      {% for image in product.images %}
+                        <li class="ee-product-card__image js">
+                          <div class="ee-product-card__image-bg"
+                               data-thumbnail-id="{{ image.id }}">
+                            <img class="ee-product-card__image-img" src="{{ image.src | img_url: 'original' }}"
+                                 alt="{{ image.alt | escape }}">
+                          </div>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </a>
+                  <div class="ee-product-item__bottom ee-flex ee-justify-space-between ee-align-center">
+                    <div class="ee-product-item__bottom--left ee-product-item__name-price">
+                      <div class="ee-product-item__title" aria-hidden="true">{{ product.title }}</div>
+                      {% include 'product-price', variant: product.selected_or_first_available_variant %}
+                    </div>
+                    <div class="ee-product-item__bottom--center">
+                      <div class="ee-product-item__image-dots"></div>
+                    </div>
+                    <div class="ee-product-item__bottom--right">
+                      <a href="#" title="Wishlist" class="ee-product-item__button ee-product-item__button--wishlist">
+                        {% include 'icon-heart' %}
+                        <span class="icon__fallback-text">Wishlist</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
 
-          {% endfor %}
-        </div>
+            {% endfor %}
+          </div>
       </div>
     </div>
   {% endif %}
