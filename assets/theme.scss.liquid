@@ -9054,7 +9054,9 @@ body .slick-arrow {
 }
 @include ee-tab-vsm {
   /* COMMON */
-  .custom__item {width:100%;}
+  .custom__item,
+  .ee-accordion-block, .ee-quotes {width:100%; max-width:unset!important;}
+  .ee-accordion__item-content {padding:0 20px 20px 0!important;}
 
   /* SHOP */
   .ee-product-grid__inner {
