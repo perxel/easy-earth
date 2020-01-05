@@ -8063,7 +8063,8 @@ body .index-section--flush:last-child{margin-bottom:0;}
 /* DONATION */
 .ee-box-text {
   .ee-box-text__inner {
-    @extend .ee-padding-top-bottom-100px; background:url($ee-img-donation-bg) center/cover;
+    @extend .ee-padding-top-bottom-100px; padding-left:15px; padding-right:15px;
+    background:url($ee-img-donation-bg) center/cover;
     .ee-box-text__content {
       max-width:480px; margin:0 auto; padding:13px; background:#fff;
       .ee-box-text__content-inner {
@@ -8926,6 +8927,18 @@ body .slick-arrow {
           &:before {left:-50px; width:100px; height:2px;}
         }
         .slick-dots {padding-top:20px;}
+      }
+    }
+  }
+
+  /* DONATION */
+  .ee-box-text {
+    .ee-box-text__inner {
+      .ee-box-text__content {
+        padding:6px;
+        .ee-box-text__content-inner {
+          border-width:1px; padding:15px;
+        }
       }
     }
   }
