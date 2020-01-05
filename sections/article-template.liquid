@@ -48,15 +48,15 @@
 
   <div class="ee-content ee-margin-bottom-50px">
 
+    <div class="ee-content__article">
+      {{ article.content }}
+    </div>
     <div class="ee-content__sharing">
       {% if section.settings.show_share_buttons %}
         {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
       {% endif %}
     </div>
 
-    <div class="ee-content__article">
-      {{ article.content }}
-    </div>
   </div>
 
   {% if blog.articles_count > 1 %}
