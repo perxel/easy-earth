@@ -26,7 +26,7 @@
             </p>
           {%- endif -%}
           <input type="hidden" name="contact[tags]" value="newsletter">
-          <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+          <div class="input-group ee-newsletter__input-group  {% if form.errors %} input-group--error{% endif %}">
             <input type="email"
                    name="contact[email]"
                    id="{{ formId }}-email"
