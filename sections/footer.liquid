@@ -224,7 +224,7 @@
                         {{ block.settings.text }}
                       {%- endif -%}
                       {%- if block.settings.show_copyright -%}
-                        <div class="small--hide">
+                        <div class="ee-site-footer__copyright">
                             <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}.</small>
                             <small class="site-footer__copyright-content site-footer__copyright-content-reserved">All rights reserved.</small>
                           </div>
