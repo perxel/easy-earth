@@ -1,0 +1,74 @@
+<div class="ee-decor-img move-to-body contact nth-01" data-anim="from-right"></div>
+<div class="ee-decor-img move-to-body contact nth-02" data-anim="from-left"></div>
+<div class="page-width ee-container donation-page">
+    <div class="section-header ee-section-header">
+    <h1>{{ page.title }}</h1>
+    <div class="breadcrumbs">{% section 'breadcrumbs' %}</div>
+  </div>
+
+    <div class="page__content contact-page ee-flex ee-flex-wrap">
+        <div class="ee-dynamic-section">
+            {% section 'dynamic-content' %}
+        </div>
+
+        <div class="ee-right-col ee-donation-form ee-form ee-margin-bottom-80px">
+            {%- assign formId = 'WholesaleForm' -%}
+            {% form 'contact', id: formId %}
+                {% include 'form-status', form_id: formId %}
+
+                <div class="ee-donation-form__grid">
+                    <div class="ee-form-row">
+                        <label class="ee-form-label" for="{{ formId }}-name">{{ 'wholesale.form.name' | t }}</label>
+                        <input class="ee-form-input" type="text" id="{{ formId }}-name" name="wholesale[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                    </div>
+
+                    <div class="ee-form-row">
+                        <label class="ee-form-label" for="{{ formId }}-company">{{ 'wholesale.form.company' | t }}</label>
+                        <textarea id="{{ formId }}-company" name="wholesale[company]">
+                            {% if form.company %}{{ form.company }}{% endif %}
+                        </textarea>
+                    </div>
+
+                    <div class="ee-form-row">
+                        <label class="ee-form-label" for="{{ formId }}-email">{{ 'wholesale.form.email' | t }} <span aria-hidden="true">*</span></label>
+                        <input class="ee-form-input"
+                                type="email"
+                                id="{{ formId }}-email"
+                                name="wholesale[email]"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                                aria-required="true"
+                                {%- if form.errors contains 'email' -%}
+                                    class="input--error"
+                                    aria-invalid="true"
+                                    aria-describedby="{{ formId }}-email-error"
+                                {%- endif -%}
+                        >
+                        {%- if form.errors contains 'email' -%}
+                            <span id="{{ formId}}-email-error" class="input-error-message">
+                              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                              {% include 'icon-error' %}
+                              <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                            </span>
+                        {%- endif -%}
+                    </div>
+
+                    <div class="ee-form-row">
+                        <label class="ee-form-label" for="{{ formId }}-phone">{{ 'wholesale.form.phone' | t }}</label>
+                        <input class="ee-form-input" type="tel" id="{{ formId }}-phone" name="wholesale[phone]"
+                               pattern="[0-9\-]*"
+                               value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+                    </div>
+
+                    <div class="ee-form-row">
+                        <button class="ee-form-submit ee-btn-green" type="submit">{{ 'wholesale.form.submit' | t }}</button>
+                    </div>
+
+                </div>
+
+            {% endform %}
+        </div>
+        {% section 'link-list' %}
+    </div>
+</div>

@@ -69,7 +69,7 @@
         "type": "collection",
         "settings": {
           "title": "Our favorites",
-          "text": "<p>Our bags are out of the ordinary &ndash; in the best way possible. We use top-notch materials and innovative design to create products you&rsquo;ll love using for years to come. With a variety of shapes, sizes, and patterns, there&rsquo;s something for everyone. These bags are made in the USA, made to last, and ready to take on your heaviest loads.<\/p>\n<p>We&rsquo;re not trying to sell the most bags. We&rsquo;re trying to sell the <em>best<\/em> bags.<\/p>",
+          "text": "<p>Our bags are out of the ordinary &ndash; in the best way possible. We use top-notch materials and innovative design to create products you&rsquo;ll love using for years to come. With a variety of shapes, sizes, and patterns, there&rsquo;s something for everyone.&nbsp;<\/p>\n<p>We&rsquo;re not trying to sell the most bags. We&rsquo;re trying to sell the <em>best<\/em> bags.<\/p>",
           "collection": "frontpage",
           "grid": 3,
           "rows": 2,
@@ -86,7 +86,7 @@
           "title": "One trillion. In one year.",
           "text": "<p>That&rsquo;s how many plastic bags our planet consumes. If a number this big doesn&rsquo;t scare you, rest assured &ndash; it scares us. And we&rsquo;re ready to do something about it. For ourselves, our children, our planet, and our collective future.<\/p>",
           "button_label": "LEARN MORE",
-          "button_link": "shopify:\/\/collections\/all"
+          "button_link": "shopify:\/\/pages\/about-us"
         }
       },
       "footer": {
@@ -104,7 +104,7 @@
           "1575128164342": {
             "type": "link_list",
             "settings": {
-              "title": "COMPANY",
+              "title": "EASYEARTH",
               "menu": "footer-company-menu"
             }
           },
@@ -457,8 +457,8 @@
             "type": "text",
             "settings": {
               "page_handle": "contact-us",
-              "title": "Lorem ipsum dolor",
-              "text": "<p>Nemo enim ipsam voluptatem quia voluptas aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sen nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit consectetur adipisci velit, sed quia non numquam eius tempora.<\/p>",
+              "title": "We're here to help.",
+              "text": "<p>Please complete the form below, and our friendly customer support team will get back to you within a few hours.&nbsp; If you do not receive a reply within 24 hours, check your spam folder or email us directly at help@easyearth.com.<\/p>\n<p><\/p>",
               "width": "100%",
               "alignment": "center",
               "align_text": "left"
@@ -527,10 +527,10 @@
           "image_1": "shopify:\/\/shop_images\/free-ship-icon.png",
           "heading_1": "FREE SHIPPING",
           "text_1": "<p>Share store details, promotions, or brand content with your customers.<\/p>",
-          "image_2": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "image_2": "shopify:\/\/shop_images\/feedback-icon.png",
           "heading_2": "SIMPLE TO USE",
           "text_2": "<p>Designed USA. We wanted to keep usage as easy as possible. Ta-da!&nbsp;<\/p>",
-          "image_3": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "image_3": "shopify:\/\/shop_images\/warranty-icon.png",
           "heading_3": "1 YEAR WARRANT",
           "text_3": "<p>Our commitment to quality for 1 year. We believe in bag for keeping.<\/p>"
         }
@@ -575,12 +575,12 @@
         "settings": {
           "title_1": "Free Shipping",
           "image_1": "shopify:\/\/shop_images\/free-ship-icon.png",
-          "text_1": "<p>In-stock items will ship out the same day you buy it, with no additional cost to you.&nbsp;<\/p>",
+          "text_1": "<p>In-stock items will ship out within 2 days, with no additional cost to you.&nbsp;<\/p>",
           "title_2": "Home Grown",
-          "image_2": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "image_2": "shopify:\/\/shop_images\/feedback-icon.png",
           "text_2": "<p>Made in the USA and made to last. And that makes these bags an easy choice.<\/p>",
           "title_3": "1 Year Warranty",
-          "image_3": "shopify:\/\/shop_images\/free-ship-icon.png",
+          "image_3": "shopify:\/\/shop_images\/warranty-icon.png",
           "text_3": "<p>We&rsquo;re so confident in our bags, we&rsquo;ll fully cover any flaws or failures for a full year.<\/p>"
         }
       },
