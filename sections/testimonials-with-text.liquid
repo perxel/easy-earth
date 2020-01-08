@@ -21,11 +21,19 @@
                       {% if block.settings.quote != blank %}
                         <div class="rte-setting rte">{{ block.settings.quote }}</div>
                       {% endif %}
-                      {% if block.settings.author != blank %}
-                        <div class="ee-testimonial-author">{{ block.settings.author | escape }}</div>
+                      {% if block.settings.url != blank %}
+                        <a href="{{ block.settings.url }}" title="{{ block.settings.author | escape }}">
                       {% endif %}
-                      {% if block.settings.position != blank %}
-                        <div class="ee-testimonial-position">{{ block.settings.position | escape }}</div>
+                        {% if block.settings.author != blank %}
+                          <div class="ee-testimonial-author">
+                            {{ block.settings.author | escape }}
+                          </div>
+                        {% endif %}
+                        {% if block.settings.position != blank %}
+                          <div class="ee-testimonial-position">{{ block.settings.position | escape }}</div>
+                        {% endif %}
+                      {% if block.settings.url != blank %}
+                        </a>
                       {% endif %}
                     </blockquote>
                   </div>
@@ -216,6 +224,12 @@
             "zh-CN": "作者姓名",
             "zh-TW": "作者名稱"
           }
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "URL",
+          "default": "https://easyearth.com/"
         },
         {
           "type": "text",

@@ -792,6 +792,37 @@
   },
   {
     "name": {
+      "da": "Popup",
+      "de": "Popup",
+      "en": "Popup",
+      "es": "Popup",
+      "fi": "Popup",
+      "fr": "Popup",
+      "hi": "Popup",
+      "it": "Popup",
+      "ja": "Popup",
+      "ko": "Popup",
+      "ms": "Popup",
+      "nb": "Popup",
+      "nl": "Popup",
+      "pt-BR": "Popup",
+      "pt-PT": "Popup",
+      "sv": "Popup",
+      "th": "Popup",
+      "zh-CN": "Popup",
+      "zh-TW": "Popup"
+    },
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "popup_enable",
+        "label": "Enable",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": {
       "da": "Sociale medier",
       "de": "Social Media",
       "en": "Social media",

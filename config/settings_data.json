@@ -205,7 +205,7 @@
             "type": "image",
             "settings": {
               "page_handle": "about-us",
-              "slide_img": "shopify:\/\/shop_images\/5dcd034477425.jpg"
+              "slide_img": "shopify:\/\/shop_images\/shutterstock_1506314174_1.jpg"
             }
           },
           "1575387106065": {
@@ -228,12 +228,7 @@
           "1575387106065",
           "1575387122966"
         ],
-        "settings": {
-          "carousel_autoplay": false,
-          "carousel_dots": false,
-          "carousel_arrows": true,
-          "autoplay_speed": "7000"
-        }
+        "settings": {}
       },
       "link-list": {
         "type": "link-list",
@@ -485,6 +480,17 @@
               "alignment": "center",
               "align_text": "left"
             }
+          },
+          "1578413475084": {
+            "type": "text",
+            "settings": {
+              "page_handle": "wholesale",
+              "title": "Bulk Order Quote Request",
+              "text": "<p>Need a quote on a bulk or custom order? Please complete this form for a quote estimation. Request for a quote does not constitute an obligation to purchase.<br> <br> Minimum bulk order of 10 suggested.<\/p>",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "left"
+            }
           }
         },
         "block_order": [
@@ -496,7 +502,8 @@
           "1576413494331",
           "1576592882022",
           "1576592917121",
-          "1576593147088"
+          "1576593147088",
+          "1578413475084"
         ],
         "settings": {
           "title": ""
