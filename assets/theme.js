@@ -5479,7 +5479,32 @@ EE.scrollingStatus = function () {
     });
 };
 
+/**
+ * Remove slider image in article
+ */
+
+EE.articleImagesToSlider = function () {
+    if ($('.ee-content__article p').length > 0) {
+        $('.ee-content__article p').each(function () {
+            if ($(this).find('img').length >= 2) {
+                $(this).find('br').remove();
+                $(this).find('img').each(function () {
+                    $(this).wrap(function() {
+                        return '<div class="gallery-slider__item">' +
+                            '<div class="gallery-slider__item-inner">' +
+                            '<div class="gallery-slider__img ee-bg-cover" style="background-image: url(' + $(this).attr('src') + ')"></div>' +
+                            '</div>' +
+                            '</div>';
+                    });
+                });
+                $(this).contents().wrapAll("<div class='gallery-slider'>").parent().unwrap().wrap('<div class="gallery-slider-wrapper ee-margin-bottom-25px" />');
+            }
+        });
+    }
+};
+
 EE.init = function () {
+    EE.articleImagesToSlider();
     EE.gallerySlider();
     EE.accordion();
     EE.menu();
