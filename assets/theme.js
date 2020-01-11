@@ -5489,7 +5489,7 @@ EE.articleImagesToSlider = function () {
             if ($(this).find('img').length >= 2) {
                 $(this).find('br').remove();
                 $(this).find('img').each(function () {
-                    $(this).wrap(function() {
+                    $(this).wrap(function () {
                         return '<div class="gallery-slider__item">' +
                             '<div class="gallery-slider__item-inner">' +
                             '<div class="gallery-slider__img ee-bg-cover" style="background-image: url(' + $(this).attr('src') + ')"></div>' +
@@ -5499,6 +5499,35 @@ EE.articleImagesToSlider = function () {
                 });
                 $(this).contents().wrapAll("<div class='gallery-slider'>").parent().unwrap().wrap('<div class="gallery-slider-wrapper ee-margin-bottom-25px" />');
             }
+        });
+    }
+};
+
+/**
+ * Popup
+ */
+
+EE.popup = function () {
+    if ($('.ee-popup').length > 0) {
+        $(window).load(function () {
+            setTimeout(function () {
+                if (!Cookies.get('opened')) {
+                    $.fancybox.open({
+                        src: '#ee-popup',
+                        type: 'inline',
+                        opts: {
+                            beforeClose: function (instance, current) {
+                                Cookies.set('opened', true, { expires: 2 });
+                            }
+                        }
+                    });
+                }
+            }, 10000);
+        });
+        $('.ee-close-popup').click(function (e) {
+            e.preventDefault();
+            Cookies.set('opened', true, { expires: 2 });
+            $.fancybox.close();
         });
     }
 };
@@ -5519,6 +5548,7 @@ EE.init = function () {
     EE.testimonialSlider();
     EE.customQuantity();
     EE.scrollingStatus();
+    EE.popup();
 
     // check for newsletter section overlap footer
     $('.shopify-section:last-child').each(function () {

@@ -818,6 +818,64 @@
         "id": "popup_enable",
         "label": "Enable",
         "default": false
+      },
+      {
+        "type": "header",
+        "content": "Left Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_left_bg",
+        "label": "Background"
+      },
+      {
+        "type": "richtext",
+        "id": "popup_left_heading",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_left_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "richtext",
+        "id": "popup_left_subheading",
+        "label": "Sub-Heading"
+      },
+      {
+        "type": "header",
+        "content": "Right Content"
+      },
+      {
+        "type": "richtext",
+        "id": "popup_right_heading",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "popup_right_subheading",
+        "label": "Sub-Heading"
+      },
+      {
+        "type": "text",
+        "id": "popup_right_newsletter_email",
+        "label": "Newsletter Email"
+      },
+      {
+        "type": "text",
+        "id": "popup_right_newsletter_button",
+        "label": "Newsletter Button"
+      },
+      {
+        "type": "text",
+        "id": "popup_right_newsletter_close",
+        "label": "Newsletter Close"
+      },
+      {
+        "type": "richtext",
+        "id": "popup_right_extra",
+        "label": "Extra Text"
       }
     ]
   },
