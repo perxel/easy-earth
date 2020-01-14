@@ -19,6 +19,17 @@
     "type_base_font": "open_sans_n4",
     "type_base_size": 15,
     "type_bold_product_titles": false,
+    "popup_enable": true,
+    "popup_left_bg": "shopify:\/\/shop_images\/88891.jpg",
+    "popup_left_heading": "<p>HOLIDAY<\/p>\n<p>SALE<\/p>",
+    "popup_left_icon": "shopify:\/\/shop_images\/gift-icon.png",
+    "popup_left_subheading": "<p>SAVE UP TO<\/p>\n<p>10%<\/p>\n<p>OFF<\/p>",
+    "popup_right_heading": "<p>where should we send your 10% off?<\/p>",
+    "popup_right_subheading": "<p>ENTER YOUR EMAIL BELOW TO UNLOCK<\/p>",
+    "popup_right_newsletter_email": "ENTER YOUR EMAIL HERE",
+    "popup_right_newsletter_button": "GET MY 10% OFF",
+    "popup_right_newsletter_close": "No thanks",
+    "popup_right_extra": "<p>First time registerants only. *10% off on $25+ orders, and entering your email also make you eligible to receive future promotional emails.<\/p>",
     "share_image": "",
     "share_facebook": true,
     "share_twitter": true,
@@ -48,6 +59,16 @@
     "checkout_accent_color": "#197bbd",
     "checkout_button_color": "#197bbd",
     "checkout_error_color": "#e32c2b",
+    "left_bg": "shopify:\/\/shop_images\/88891.jpg",
+    "left_heading": "<p>HOLIDAY<\/p>\n<p>SALE<\/p>",
+    "left_icon": "shopify:\/\/shop_images\/gift-icon.png",
+    "left_subheading": "<p>SAVE UP TO<\/p>\n<p>10%<\/p>\n<p>OFF<\/p>",
+    "right_heading": "<p>where should we send your 10% off?<\/p>",
+    "right_subheading": "<p>ENTER YOUR EMAIL BELOW TO UNLOCK<\/p>",
+    "right_newsletter_email": "ENTER YOUR EMAIL HERE",
+    "right_newsletter_button": "GET MY 10% OFF",
+    "right_newsletter_close": "No thanks",
+    "right_extra": "<p>First time registerants only. *10% off on $25+ orders, and entering your email also make you eligible to receive future promotional emails.<\/p>",
     "sections": {
       "header": {
         "type": "header",
@@ -71,8 +92,8 @@
           "title": "Our favorites",
           "text": "<p>Our bags are out of the ordinary &ndash; in the best way possible. We use top-notch materials and innovative design to create products you&rsquo;ll love using for years to come. With a variety of shapes, sizes, and patterns, there&rsquo;s something for everyone.&nbsp;<\/p>\n<p>We&rsquo;re not trying to sell the most bags. We&rsquo;re trying to sell the <em>best<\/em> bags.<\/p>",
           "collection": "frontpage",
-          "grid": 3,
-          "rows": 2,
+          "grid": 2,
+          "rows": 1,
           "show_vendor": false,
           "show_view_all": true,
           "view_all": "SHOW ME MORE"
@@ -81,7 +102,7 @@
       "feature-row": {
         "type": "feature-row",
         "settings": {
-          "image": "shopify:\/\/shop_images\/adult-carrying-casual-1524123_97dd0a4e-4b29-4203-b8f0-77b43be992ce.jpg",
+          "image": "shopify:\/\/shop_images\/Untitled_design_2.jpg",
           "layout": "left",
           "title": "One trillion. In one year.",
           "text": "<p>That&rsquo;s how many plastic bags our planet consumes. If a number this big doesn&rsquo;t scare you, rest assured &ndash; it scares us. And we&rsquo;re ready to do something about it. For ourselves, our children, our planet, and our collective future.<\/p>",
@@ -571,7 +592,7 @@
       "1577509196175": {
         "type": "newsletter",
         "settings": {
-          "image": "shopify:\/\/shop_images\/newsletter-image.png",
+          "image": "shopify:\/\/shop_images\/Untitled_design.jpg",
           "section_title": "Subscribe & save 10%",
           "subheading": "<p>Planet-saving deals, straight to your inbox. Become a member of EasyEarth today and get 10% off your order.&nbsp;<\/p>",
           "show_background": true
@@ -599,8 +620,8 @@
             "settings": {
               "quote": "<p>I love, love these bags. I hate plastic and have been using reusable bags for a while. These are large and extremely durable.&nbsp;<\/p>",
               "author": "Laura Ash",
-              "url": "https:\/\/easyearth.com",
-              "position": "Senior Manager @ KPMG UK"
+              "url": "https:\/\/www.amazon.com\/gp\/customer-reviews\/R3N9LEIGB7FPE7\/",
+              "position": "Riverdale, Michigan"
             }
           },
           "1577511739183-1": {
@@ -608,8 +629,8 @@
             "settings": {
               "quote": "<p>I like the packaging of the bags. It's like an envelope and I can store them there while I'm not using them and it doesn't take too much space in the car.&nbsp;<\/p>",
               "author": "Castaneda",
-              "url": "https:\/\/easyearth.com\/",
-              "position": "UX\/ UI Designer"
+              "url": "https:\/\/www.amazon.com\/gp\/customer-reviews\/RMIGYP3FXMD3S\/",
+              "position": "Manhattan, Kansas"
             }
           },
           "1577511739183-2": {
@@ -617,15 +638,35 @@
             "settings": {
               "quote": "<p>OMG!! These are soooo durable. I stacked 2 layers of soda cans and the straps didn&rsquo;t break. I had the free usable bags and they break so easily.<\/p>",
               "author": "Jacqui Nguyen",
-              "url": "https:\/\/easyearth.com\/",
-              "position": "Architect @ Foolscap Studio"
+              "url": "https:\/\/www.amazon.com\/gp\/customer-reviews\/R2O7KKE8Z4IRAH\/",
+              "position": "West Hartford, Connecticut"
+            }
+          },
+          "1578955219857": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Better than anticipated, and I anticipated they would be great. Roomy, sturdy, flat-bottomed for easy \"packing\" groceries, and easy to keep in car trunk for quick access.<br>Love them... even shared them with my neighbor. Would definitely buy again.<\/p>",
+              "author": "Beth B.",
+              "url": "https:\/\/www.amazon.com\/gp\/customer-reviews\/R3C5WADNP83O1Y",
+              "position": "CHESTER SPRINGS, Pennsylvania"
+            }
+          },
+          "1578955442993": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Great product. strong bags. Super convenient case. Love it!<\/p>",
+              "author": "Yitzchok A Kramer",
+              "url": "https:\/\/www.amazon.com\/gp\/customer-reviews\/R3NGNUNPRQQW38\/",
+              "position": "FLUSHING, New York"
             }
           }
         },
         "block_order": [
           "1577511739183-0",
           "1577511739183-1",
-          "1577511739183-2"
+          "1577511739183-2",
+          "1578955219857",
+          "1578955442993"
         ],
         "settings": {
           "title": "TESTIMONIAL",
