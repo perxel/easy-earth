@@ -7793,6 +7793,7 @@ body {
 
 /* HEADER > Search icon */
 .ee-search-label {
+  position: relative; bottom: 2px;
   font-size:12px; font-weight:700; font-family:$font-stack-header;
   text-transform:uppercase; margin-left:5px;
   transition: $ee-transition;
@@ -7915,7 +7916,20 @@ body {
   position:absolute; top:100%; right:0;
   transition:$ee-transition; width:100%; max-width:400px;
 }
-html:not(.ee-search-open) .ee-header-search-wrapper {opacity:0; visibility:hidden; transform:translateY(-100%);}
+html:not(.ee-search-open) {
+  .ee-header-search-wrapper {opacity:0; visibility:hidden; transform:translateY(-100%);}
+  .ee-header-icon--search-close {opacity:0;}
+  .ee-header-icon--search-search {opacity:1;}
+}
+.ee-header-icon--search {
+  position:relative; top:4px;
+  .ee-header-icon--search-search {transition:$ee-transition; opacity:0;}
+  .ee-header-icon--search-close {
+    transition:$ee-transition;
+    position:absolute; top:4px; left:7px;
+    svg {width:15px;}
+  }
+}
 .ee-search {
   .ee-search__input {
     border:1px solid #b9b9b9; border-radius:0;

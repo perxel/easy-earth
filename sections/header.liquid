@@ -109,7 +109,8 @@
                 <div class="site-header__icons-wrapper">
                     <!-- search form -->
                     <button type="button" class="btn--link ee-header-icon ee-header-icon--search site-header__search-toggle js-drawer-open-top">
-                        {% include 'icon-search' %}
+                        <span class="ee-header-icon--search-search">{% include 'icon-search' %}</span>
+                        <span class="ee-header-icon--search-close">{% include 'icon-close' %}</span>
                         <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
                         <span class="ee-search-label">{{ 'general.search.submit' | t }}</span>
                     </button>
