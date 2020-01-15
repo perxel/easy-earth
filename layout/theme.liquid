@@ -160,77 +160,92 @@
 
 {% if template.name == 'index' %}
     {% if settings.popup_enable %}
-        <div id="ee-popup" class="ee-popup" style="display: none;">
-            <div class="ee-popup__inner">
-                <div class="ee-popup__left" style="background-image: url({{ settings.popup_left_bg | img_url: 'original' }})">
-                    <div class="ee-popup__left__heading">
-                        {{ settings.popup_left_heading }}
-                    </div>
-                    <div class="ee-popup__left__icon">
-                        <img src="{{ settings.popup_left_icon | img_url: 'original' }}" alt="{{ settings.popup_left_heading }}" />
-                    </div>
-                    <div class="ee-popup__left__subheading">
-                        {{ settings.popup_left_subheading }}
-                    </div>
-                </div>
-                <div class="ee-popup__right">
-                    <div class="ee-popup__right__heading">
-                        {{ settings.popup_right_heading }}
-                    </div>
-                    <div class="ee-popup__right__subheading">
-                        {{ settings.popup_right_subheading }}
-                    </div>
-                    <div class="ee-popup__right__newsletter">
-                        <div class="ee-popup-newsletter__content">
-                            <div class="ee-popup-newsletter__form-wrapper">
-                                {%- assign formId = 'Contact_' | append: section.id -%}
-                                {% form 'customer', id: formId, novalidate: 'novalidate', class: 'ee-newsletter__form' %}
-                                    {%- if form.posted_successfully? -%}
-                                        <p class="form-message form-message--success" tabindex="-1" data-form-status>
-                                            {{ 'general.newsletter_form.confirmation' | t }}
-                                        </p>
-                                    {%- endif -%}
-                                    <input type="hidden" name="contact[tags]" value="newsletter">
-                                    <div class="input-group ee-popup-newsletter__input-group  {% if form.errors %} input-group--error{% endif %}">
-                                        <input type="email"
-                                               name="contact[email]"
-                                               id="{{ formId }}-email"
-                                               class="input-group__field{% if form.errors %} input--error{% endif %}"
-                                               value="{{ form.email }}"
-                                               placeholder="{{ settings.popup_right_newsletter_email }}"
-                                               aria-label="{{ settings.popup_right_newsletter_email }}"
-                                               aria-required="true"
-                                               autocorrect="off"
-                                               autocapitalize="off"
-                                                {% if form.errors %}
-                                                    aria-invalid="true"
-                                                    aria-describedby="{{ formId }}-email-error"
-                                                    data-form-status
-                                                {% endif %} />
-                                        <span class="ee-popup-newsletter__input-group__btn">
-                                            <button type="submit" class="ee-btn-green ee-btn-green--small" name="commit">
-                                                <span>{{ settings.popup_right_newsletter_button }}</span>
-                                            </button>
-                                            <a href="#" class="ee-popup-newsletter__close ee-close-popup" title="{{ settings.popup_right_newsletter_close }}">
-                                                {{ settings.popup_right_newsletter_close }}
-                                            </a>
-                                        </span>
-                                    </div>
-                                    {%- if form.errors contains 'email' -%}
-                                        <span id="{{ formId }}-email-error" class="input-error-message">
-                                          <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                                          {% include 'icon-error' %}
-                                          <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
-                                        </span>
-                                    {%- endif -%}
-                                {% endform %}
-                            </div>
+        <div id="ee-popup" class="ee-popup ee-container" style="display: none;">
+            <div class="ee-popup__inner ee-flex ee-flex-wrap">
+                <div class="ee-popup__left ee-flex ee-align-center ee-justify-center">
+                    <img src="{{ settings.popup_left_bg | img_url: 'original' }}" alt="{{ settings.popup_left_heading }}"/>
 
+                    {% comment %}
+                    <div class="ee-popup__left__inner">
+                        <div class="ee-popup__left__heading">
+                            {{ settings.popup_left_heading }}
+                        </div>
+                        <div class="ee-popup__left__icon">
+                            <img src="{{ settings.popup_left_icon | img_url: 'original' }}" alt="{{ settings.popup_left_heading }}" />
+                        </div>
+                        <div class="ee-popup__left__subheading">
+                            {{ settings.popup_left_subheading }}
                         </div>
                     </div>
-                    <div class="ee-popup__right__extra">
-                        {{ settings.popup_right_extra }}
+                    {% endcomment %}
+
+                </div>
+                <div class="ee-popup__right ee-flex ee-align-center ee-justify-center">
+
+                    <div class="ee-popup__right__inner">
+                        <div class="ee-popup__right__heading">
+                            {{ settings.popup_right_heading }}
+                        </div>
+                        <div class="ee-popup__right__subheading">
+                            {{ settings.popup_right_subheading }}
+                        </div>
+                        <div class="ee-popup__right__newsletter">
+                            <div class="ee-popup-newsletter__content">
+                                <div class="ee-popup-newsletter__form-wrapper ee-form">
+                                    {%- assign formId = 'Contact_' | append: section.id -%}
+                                    {% form 'customer', id: formId, novalidate: 'novalidate', class: 'ee-newsletter__form' %}
+                                        {%- if form.posted_successfully? -%}
+                                            <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                                                {{ 'general.newsletter_form.confirmation' | t }}
+                                            </p>
+                                        {%- endif -%}
+                                        <input type="hidden" name="contact[tags]" value="newsletter">
+                                        <div class="ee-popup-newsletter__input-group  {% if form.errors %} input-group--error{% endif %}">
+                                            <div class="ee-form-row">
+                                                <input type="email"
+                                                       name="contact[email]"
+                                                       id="{{ formId }}-email"
+                                                       class="ee-form-input{% if form.errors %} input--error{% endif %}"
+                                                       value="{{ form.email }}"
+                                                       placeholder="{{ settings.popup_right_newsletter_email }}"
+                                                       aria-label="{{ settings.popup_right_newsletter_email }}"
+                                                       aria-required="true"
+                                                       autocorrect="off"
+                                                       autocapitalize="off"
+                                                        {% if form.errors %}
+                                                            aria-invalid="true"
+                                                            aria-describedby="{{ formId }}-email-error"
+                                                            data-form-status
+                                                        {% endif %} />
+                                            </div>
+                                            <div class="ee-form-row">
+                                                <button type="submit" class="ee-btn-green ee-btn-green--small" name="commit">
+                                                    <span>{{ settings.popup_right_newsletter_button }}</span>
+                                                </button>
+                                                <div class="ee-popup-newsletter__close-wrapper text-center">
+                                                    <a href="#" class="ee-popup-newsletter__close ee-close-popup" title="{{ settings.popup_right_newsletter_close }}">
+                                                        {{ settings.popup_right_newsletter_close }}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {%- if form.errors contains 'email' -%}
+                                            <span id="{{ formId }}-email-error" class="input-error-message">
+                                              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                                              {% include 'icon-error' %}
+                                              <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                                            </span>
+                                        {%- endif -%}
+                                    {% endform %}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="ee-popup__right__extra">
+                            {{ settings.popup_right_extra }}
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
