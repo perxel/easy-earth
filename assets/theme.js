@@ -5524,7 +5524,6 @@ EE.popup = function () {
                 }
             }, 10000);
         });
-        EE.keepRatio();
         $('.ee-close-popup').click(function (e) {
             e.preventDefault();
             Cookies.set('opened', true, { expires: 2 });
