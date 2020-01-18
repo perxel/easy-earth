@@ -22,7 +22,7 @@
                         <div class="rte-setting rte">{{ block.settings.quote }}</div>
                       {% endif %}
                       {% if block.settings.url != blank %}
-                        <a href="{{ block.settings.url }}" title="{{ block.settings.author | escape }}">
+                        <a class="ee-testimonial-link" target="_blank" href="{{ block.settings.url }}" title="{{ block.settings.author | escape }}">
                       {% endif %}
                         {% if block.settings.author != blank %}
                           <div class="ee-testimonial-author">

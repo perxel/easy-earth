@@ -24,8 +24,8 @@
 
                     <div class="ee-form-row">
                         <label class="ee-form-label" for="{{ formId }}-company">{{ 'wholesale.form.company' | t }}</label>
-                        <textarea id="{{ formId }}-company" name="wholesale[company]">
-                            {% if form.company %}{{ form.company }}{% endif %}
+                        <textarea class="ee-form-textarea" id="{{ formId }}-company" name="wholesale[company]" style="resize: none;">
+                            {% comment %}{% if form.company %}{{ form.company }}{% endif %}{% endcomment %}
                         </textarea>
                     </div>
 
