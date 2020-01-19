@@ -7610,7 +7610,7 @@ $ee-font-awesome: 'Font Awesome 5 Free';
 
 /* SPACING */
 .shopify-section, .shopify-challenge__container, .grid.myaccount,
-.ee-section-header + .rte {margin-bottom:55px; position:relative;}
+.ee-section-header + .rte, .shopify-challenge__container {margin-bottom:55px!important; position:relative;}
 hr {margin:0 0 55px;}
 .ee-padding-top-40px {padding-top:40px!important;}
 .ee-padding-top-50px {padding-top:50px!important;}
@@ -7802,7 +7802,7 @@ body {
 
 /* HEADER > Extra menu icon */
 .ee-header-icon--extra-menu {
-  display:block; width:60px!important; height:60px; padding:0; margin-left:20px;
+  display:block; width:60px!important; min-width:60px; height:60px; padding:0; margin-left:20px;
   background:#fff; position:relative;
   border-radius: 50%; box-shadow: 0 0 20px rgba(0,0,0,.2);
 
@@ -8989,7 +8989,7 @@ body .slick-arrow {
 
   /* SPACING */
   .shopify-section, .shopify-challenge__container, .grid.myaccount,
-  .ee-section-header + .rte {margin-bottom:50px!important; position:relative;}
+  .ee-section-header + .rte, .shopify-challenge__container {margin-bottom:50px!important; position:relative;}
   hr {margin:0 0 50px;}
   .ee-padding-left-right-100px {padding-left:80px!important; padding-right:80px!important;}
   .ee-padding-top-bottom-100px {padding-top:80px!important; padding-bottom:80px!important;}
@@ -9017,7 +9017,7 @@ body .slick-arrow {
   /* SHOP */
   .ee-product-item {
     .ee-product-item__bottom--center {display:none;}
-    .slick-arrow {opacity:.5; visibility: visible;}
+    .slick-arrow {opacity:0; visibility: visible;}
   }
 
   /* PRODUCT KEY SELLING POINT */
@@ -9062,7 +9062,7 @@ body .slick-arrow {
 
   /* SPACING */
   .shopify-section, .shopify-challenge__container, .grid.myaccount,
-  .ee-section-header + .rte {margin-bottom:40px!important; position:relative;}
+  .ee-section-header + .rte, .shopify-challenge__container {margin-bottom:40px!important; position:relative;}
   hr {margin:0 0 40px;}
   .ee-padding-top-40px {padding-top:30px!important;}
   .ee-padding-top-50px {padding-top:40px!important;}
