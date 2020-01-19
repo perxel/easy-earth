@@ -5517,7 +5517,7 @@ EE.popup = function () {
                         type: 'inline',
                         opts: {
                             beforeClose: function (instance, current) {
-                                Cookies.set('opened', true, { expires: 2 });
+                                Cookies.set('opened', true, {expires: 2});
                             }
                         }
                     });
@@ -5526,10 +5526,44 @@ EE.popup = function () {
         });
         $('.ee-close-popup').click(function (e) {
             e.preventDefault();
-            Cookies.set('opened', true, { expires: 2 });
+            Cookies.set('opened', true, {expires: 2});
             $.fancybox.close();
         });
     }
+};
+
+/**
+ * WAIT FOR ELEMENT LOAD FUNCTION
+ */
+
+EE.waitForEl = function (selector, callback) {
+    if (jQuery(selector).length) {
+        callback();
+    } else {
+        setTimeout(function () {
+            EE.waitForEl(selector, callback);
+        }, 100);
+    }
+};
+
+EE.instagramFeed = function () {
+    EE.waitForEl('.ee-instafeed > a', function () {
+        $('.ee-instafeed').each(function () {
+            let $wrapper = $(this),
+                $items = $wrapper.children('a:not(.instafeed-lightbox)');
+            $items.addClass('ee-instafeed__item');
+            $items.attr('data-ratio', "1:1");
+
+            $wrapper.prepend('<div class="ee-instafeed__group single-item ee-flex"></div>');
+            $items.wrapAll("<div class='ee-instafeed__group six-items ee-flex ee-flex-wrap'></div>");
+            $items.eq(0).detach().appendTo($wrapper.find('.ee-instafeed__group.single-item'));
+
+            $wrapper.wrapInner('<div class="ee-instafeed__inner ee-flex"></div>');
+            $wrapper.find('.ee-instafeed__inner').append('<div class="ee-instafeed__link"></div>');
+
+            EE.keepRatio();
+        });
+    });
 };
 
 EE.init = function () {
@@ -5541,7 +5575,6 @@ EE.init = function () {
     EE.productGallery();
     EE.swatches();
     EE.loopGallery();
-    //EE.loopGroupItems();
     EE.decorImages();
     EE.markdownList();
     EE.masonry();
@@ -5549,6 +5582,7 @@ EE.init = function () {
     EE.customQuantity();
     EE.scrollingStatus();
     EE.popup();
+    EE.instagramFeed();
 
     // check for newsletter section overlap footer
     $('.shopify-section:last-child').each(function () {

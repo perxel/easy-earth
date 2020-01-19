@@ -7659,6 +7659,7 @@ $ee-img-decor-06: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/decor-
 $ee-img-quote: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/quote-icon.png?v=1577664968';
 $ee-img-shop-bg: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/shop-background.jpg?v=1577666155';
 $ee-img-donation-bg: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/High_mountains_recede_-_optimized.jpeg?v=1579052287';
+$ee-img-insta: 'https://cdn.shopify.com/s/files/1/0258/0158/8808/files/insta-easyearth.png?v=1579424385';
 
 /************** Easy Earth Common Style [eecommon] ***************/
 button {outline: none;}
@@ -8103,7 +8104,48 @@ body .index-section--flush:last-child{margin-bottom:0!important;}
 }
 
 /* INSTAFEED */
-.ee-instafeed {display:none;}
+.ee-instafeed {
+  background:#e8e8e8; padding:80px 20px 80px 50px; position:relative;
+  &:before {
+    content:''; position:absolute; top:0; bottom:0; left:calc(50% + 15px);
+    transform:translateX(-50%);
+    width:calc(100vw - 80px); background:#e8e8e8;
+  }
+
+  .ee-instafeed__inner {
+    padding:90px 70px 80px 0; position:relative;
+    &:before {
+      content:''; position:absolute; top:0; right:0; bottom:0; left:15%;
+      background:#fff;
+    }
+    &:after {
+      content:''; position:absolute; top:0; right:0; z-index:1;
+      height:90px; width:90px; filter:invert(1);
+      background:url(https://instafeed.nfcube.com/assets/img/instagram-icon.svg) center/30px no-repeat;
+    }
+  }
+
+  .ee-instafeed__group.single-item {
+    width:calc(40% + 14px); padding-right:12px;
+    .ee-instafeed__item {width:100%;}
+  }
+
+  .ee-instafeed__group.six-items {
+    width:calc(60% - 14px); margin:-6px;
+    .ee-instafeed__item {width:33.33%; padding:6px!important;}
+  }
+
+  .ee-instafeed__item {
+    display:block!important;
+    .instafeed-container {width:100%!important; height:100%; padding-top:0!important;}
+  }
+
+  .ee-instafeed__link {
+    position:absolute; top:-30px; left:0; z-index:2;
+    height:110px; width:100%;
+    background: url($ee-img-insta) left center/contain no-repeat;
+  }
+}
 
 /*********************** CARE INSTRUCTION ***********************/
 /* Layout */
@@ -8758,7 +8800,7 @@ body .slick-arrow {
     width:99px; height:114px; background:url($ee-img-decor-03) center/contain no-repeat;
   }
   &.featured-row--image-right {
-    top:0; left:-30px;
+    top:-23%; left:-30px;
     width:142px; height:213px; background:url($ee-img-decor-01-flipped) center/contain no-repeat;
   }
   &.box-text {
@@ -8822,6 +8864,12 @@ body .slick-arrow {
     background-size:70% auto!important; background-repeat: no-repeat!important;
     &[data-anim="from-right"] {background-position:right;}
     &[data-anim="from-left"] {background-position:left;}
+  }
+
+  /* INSTAFEED */
+  .ee-instafeed {
+    padding:60px 20px 60px 50px;
+    &:before {width:calc(100vw - 60px);}
   }
 }
 @include ee-res {
@@ -8894,6 +8942,20 @@ body .slick-arrow {
       .ee-product-item__link,
       .ee-product-item__bottom {padding:20px;}
     }
+  }
+
+  /* INSTAFEED */
+  .ee-instafeed {
+    background: none; padding:0 20px 0 50px;
+    &:before {background:#fff; width:100vw;}
+    .ee-instafeed__inner {
+      padding:60px 40px 60px 0;
+      &:after {
+        height:60px; width:55px;
+        background:url(https://instafeed.nfcube.com/assets/img/instagram-icon.svg) center/25px no-repeat;
+      }
+    }
+    .ee-instafeed__link {height:85px;}
   }
 
   /* NEWSLETTER */
@@ -9216,6 +9278,20 @@ body .slick-arrow {
       .ee-product-item__link,
       .ee-product-item__bottom {padding:20px 15px;}
     }
+  }
+
+  /* INSTAFEED */
+  .ee-instafeed {
+    padding:0 0 0 20px;
+    .ee-instafeed__inner {
+      padding:40px 0;
+      &:before {left:0;}
+      &:after {height:47px; width:41px;}
+    }
+    .ee-instafeed__link {height:60px; top:-20px;}
+
+    .ee-instafeed__group.single-item {display:none;}
+    .ee-instafeed__group.six-items {width:100%; margin:0;}
   }
 
   /* PRODUCT KEY SELLING POINT */
