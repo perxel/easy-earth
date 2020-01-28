@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
         let timeline = new TimelineMax(),
             $header = $('.ee-header');
         timeline.to($body, .5, {opacity: 1, autoAlpha: 1}, 0);
-        timeline.from($header, .5, {opacity: 0, y: "-50%"})
+        timeline.from($header, .5, {opacity: 0, y: "-50%"});
     };
 
     EE_ANIMATION.decorImages = function () {
@@ -115,7 +115,7 @@ jQuery(document).ready(function ($) {
      * INIT FUNCTIONS
      */
     EE_ANIMATION.loadFunctions = function () {
-        EE_ANIMATION.pageTransition();
+        //EE_ANIMATION.pageTransition();
         EE_ANIMATION.decorImages();
         EE_ANIMATION.featuredRow();
         EE_ANIMATION.simpleFadeIn();

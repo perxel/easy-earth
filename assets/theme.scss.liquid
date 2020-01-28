@@ -7723,7 +7723,7 @@ body {
   @extend .ee-size-15px; line-height:1.8; font-family: $ee-font-opensans;
   box-sizing:border-box; border:30px solid #fff;
   background:#f4f3f0 url($ee-img-body-pattern);
-  overflow-x:hidden; opacity:0; visibility: hidden;
+  overflow-x:hidden;/* opacity:0; visibility: hidden;*/
 }
 .ee-container {max-width: 1200px; margin-left:auto; margin-right:auto; padding-left:15px!important; padding-right:15px!important;}
 .ee-container .ee-container {padding-left:0!important; padding-right:0!important;}
@@ -7775,12 +7775,12 @@ body {
   @include display-flexbox();
   @include align-items(center);
 
-  width:auto !important; padding:5px;
+  width:auto !important; height:auto; padding:5px;
   transition: $ee-transition; position:relative;
 
   &:not(:last-child) {margin-right:10px;}
 
-  svg {width: 20px;}
+  svg {width: 20px; max-height:30px;}
   path {transition: $ee-transition;}
 
   &:hover, &:focus {
@@ -7938,7 +7938,7 @@ html:not(.ee-search-open) {
     &:focus {outline:none;}
   }
   .ee-search__submit {
-    background:#fff; border:1px solid #b9b9b9; border-left:none; padding:0 20px;
+    background:#fff; border:1px solid #b9b9b9; border-left:none; padding:0 20px; max-height:60px;
     svg {width:20px;}
     &:hover {background:$ee-color-green;}
   }
@@ -8003,8 +8003,8 @@ html:not(.ee-search-open) {
   .ee-feature-row__item {width:50%; box-sizing: border-box; position: relative; z-index: 2;}
   .ee-feature-row__image {
     .ee-feature-row__image-wrapper {
-      width:100%!important; max-width:unset!important; position:relative;
-      .ee-feature-row__image-img {width:100%; max-width:unset!important; max-height:unset!important;}
+      width:100%!important; max-width:none!important; position:relative;
+      .ee-feature-row__image-img {width:100%; max-width:none!important; max-height:none!important;}
     }
   }
   .ee-feature-row__text {
@@ -8092,7 +8092,7 @@ body .index-section--flush:last-child{margin-bottom:0!important;}
     @extend .ee-padding-top-bottom-100px; padding-left:15px; padding-right:15px;
     background:url($ee-img-donation-bg) center/cover;
     .ee-box-text__content {
-      max-width:480px; margin:0 auto; padding:13px; background:#fff;
+      max-width:480px; padding:13px; background:#fff;
       .ee-box-text__content-inner {
         border:2px solid #979797; padding:25px;
         .ee-box-text__icon img {max-width:100px;}
@@ -9257,7 +9257,7 @@ body .slick-arrow {
 @include ee-tab-vsm {
   /* COMMON */
   .custom__item,
-  .ee-accordion-block, .ee-quotes {width:100%; max-width:unset!important;}
+  .ee-accordion-block, .ee-quotes {width:100%; max-width:none!important;}
   .ee-accordion__item-content {padding:0 20px 20px 0!important;}
 
   /* SHOP */
@@ -9336,7 +9336,7 @@ body .slick-arrow {
       .article-item__link {width:100%;}
       .article-item__info {
         width:100%; padding:20px 0 0;
-        .article-item__info-inner {max-width:unset;}
+        .article-item__info-inner {max-width:none;}
       }
     }
   }
