@@ -1,0 +1,42 @@
+<div class="ee-container">
+  {% if section.settings.enable != blank %}
+  <div class="ee-insta">
+    {% else %}
+    <div class="ee-insta" style="display: none">
+      {% endif %}
+      {{ section.settings.code_html }}
+      <a class="ee-instafeed__link" href="{{ section.settings.url }}">
+        <span class="sr-only">EasyEarth Instagram</span>
+      </a>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instagram",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable"
+    },
+    {
+      "type": "text",
+      "id": "url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "textarea",
+      "id": "code_html",
+      "label": "HTML"
+    }
+  ],
+  "presets": [
+    {
+    "name": "Instagram",
+    "category": "Instagram"
+    }
+  ]
+}
+{% endschema %}

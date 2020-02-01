@@ -47,18 +47,9 @@
                     {%- endif -%}
                 </div>
 
-                <div class="ee-form-row">
-                    <label class="ee-form-label" for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
-                    <input class="ee-form-input" type="tel" id="{{ formId }}-phone" name="contact[phone]"
-                           pattern="[0-9\-]*"
-                           value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
-                </div>
 
-                <div class="ee-form-row">
-                    <label class="ee-form-label" for="{{ formId }}-address">{{ 'contact.form.address' | t }}</label>
-                    <input class="ee-form-input" type="text" id="{{ formId }}-address" name="contact[address]"
-                           value="{% if form[address] %}{{ form[address] }}{% endif %}">
-                </div>
+
+
 
                 <div class="ee-form-row">
                     <label class="ee-form-label" for="{{ formId }}-order">{{ 'contact.form.order' | t }}</label>

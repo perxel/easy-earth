@@ -5564,6 +5564,25 @@ EE.instagramFeed = function () {
             EE.keepRatio();
         });
     });
+    /*EE.waitForEl('.snptwdgt-container .snptwdgt__item', function () {
+        $('.snptwdgt-container').each(function () {
+            let $wrapper = $(this).find('.snptwdgt-container-liner'),
+                $items = $wrapper.find('.snptwdgt__item');
+            $items.addClass('ee-instafeed__item');
+            $items.attr('data-ratio', "1:1");
+
+            $(this).addClass('ee-instafeed');
+
+            $wrapper.prepend('<div class="ee-instafeed__group single-item ee-flex"></div>');
+            $items.wrapAll("<div class='ee-instafeed__group six-items ee-flex ee-flex-wrap'></div>");
+            $items.eq(0).detach().appendTo($wrapper.find('.ee-instafeed__group.single-item'));
+
+            $wrapper.wrapInner('<div class="ee-instafeed__inner ee-flex"></div>');
+            $wrapper.find('.ee-instafeed__inner').append('<div class="ee-instafeed__link"></div>');
+
+            EE.keepRatio();
+        });
+    });*/
 };
 
 EE.init = function () {

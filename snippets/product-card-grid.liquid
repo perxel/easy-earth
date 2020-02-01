@@ -36,12 +36,18 @@
                 <div class="ee-product-item__image-dots"></div>
             </div>
             <div class="ee-product-item__bottom--right">
-                <a href="#" title="Wishlist" class="ee-product-item__button ee-product-item__button--wishlist">
+                <a href="#" title="Wishlist" class="ee-product-item__button ee-product-item__button--wishlist" style="display: none;">
                     {% include 'icon-heart' %}
                     <span class="icon__fallback-text">Wishlist</span>
                 </a>
+                <button class="ee-product-item__button ee-product-item__button--wishlist" data-swaction="addToWishlist" data-product-id="{{product.id | json}}">
+                    {% include 'icon-heart' %}
+                    <span class="icon__fallback-text swym-wishlist-cta"> Add to wishlist </span>
+                </button>
             </div>
         </div>
 
     </div>
 </div>
+
+{% include 'swym-product-view', product: product %}
